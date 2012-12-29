@@ -6,7 +6,11 @@
 //  Copyright (c) 2012 Scott McCoy. All rights reserved.
 //
 
+//AppDelegate
 #import "BPMAppDelegate.h"
+
+//Keyboard
+#import "BPMKeyboardListener.h"
 
 @implementation BPMAppDelegate
 
@@ -16,8 +20,13 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [[BPMKeyboardListener instance] setParentView:self.window];
+    
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

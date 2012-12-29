@@ -21,6 +21,7 @@
 		6CE70840168E353400248E54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE70821168E353400248E54 /* Foundation.framework */; };
 		6CE70848168E353400248E54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CE70846168E353400248E54 /* InfoPlist.strings */; };
 		6CE7084B168E353400248E54 /* iMpulseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7084A168E353400248E54 /* iMpulseTests.m */; };
+		6CE7085A168E609600248E54 /* BPMKeyboardListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE70859168E609600248E54 /* BPMKeyboardListener.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		6CE70847168E353400248E54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6CE70849168E353400248E54 /* iMpulseTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iMpulseTests.h; sourceTree = "<group>"; };
 		6CE7084A168E353400248E54 /* iMpulseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iMpulseTests.m; sourceTree = "<group>"; };
+		6CE70858168E609600248E54 /* BPMKeyboardListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMKeyboardListener.h; sourceTree = "<group>"; };
+		6CE70859168E609600248E54 /* BPMKeyboardListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMKeyboardListener.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 			children = (
 				6CE7082E168E353400248E54 /* BPMAppDelegate.h */,
 				6CE7082F168E353400248E54 /* BPMAppDelegate.m */,
+				6CE70858168E609600248E54 /* BPMKeyboardListener.h */,
+				6CE70859168E609600248E54 /* BPMKeyboardListener.m */,
 				6CE70826168E353400248E54 /* Supporting Files */,
 			);
 			path = iMpulse;
@@ -264,6 +269,7 @@
 			files = (
 				6CE7082C168E353400248E54 /* main.m in Sources */,
 				6CE70830168E353400248E54 /* BPMAppDelegate.m in Sources */,
+				6CE7085A168E609600248E54 /* BPMKeyboardListener.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +436,7 @@
 				6CE70850168E353400248E54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6CE70851168E353400248E54 /* Build configuration list for PBXNativeTarget "iMpulseTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +445,7 @@
 				6CE70853168E353400248E54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
