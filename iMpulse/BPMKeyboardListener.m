@@ -77,6 +77,8 @@ static BPMKeyboardListener* _instance = nil;
 {
     NSLog(@"[%@]", txtListener.text);
     
+    
+    
     txtListener.text = @"";
 }
 

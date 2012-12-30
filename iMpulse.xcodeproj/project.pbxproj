@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C968FA2168FE16D0042ACED /* BPMControllerState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FA1168FE16D0042ACED /* BPMControllerState.m */; };
+		6C968FA6168FEAE30042ACED /* BPMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FA5168FEAE30042ACED /* BPMUtilities.m */; };
 		6CE70820168E353400248E54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE7081F168E353400248E54 /* UIKit.framework */; };
 		6CE70822168E353400248E54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE70821168E353400248E54 /* Foundation.framework */; };
 		6CE70824168E353400248E54 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE70823168E353400248E54 /* CoreGraphics.framework */; };
@@ -35,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C968FA0168FE16D0042ACED /* BPMControllerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMControllerState.h; sourceTree = "<group>"; };
+		6C968FA1168FE16D0042ACED /* BPMControllerState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMControllerState.m; sourceTree = "<group>"; };
+		6C968FA4168FEAE30042ACED /* BPMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMUtilities.h; sourceTree = "<group>"; };
+		6C968FA5168FEAE30042ACED /* BPMUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMUtilities.m; sourceTree = "<group>"; };
 		6CE7081B168E353400248E54 /* iMpulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMpulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE7081F168E353400248E54 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6CE70821168E353400248E54 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -119,6 +125,10 @@
 				6CE7082F168E353400248E54 /* BPMAppDelegate.m */,
 				6CE70858168E609600248E54 /* BPMKeyboardListener.h */,
 				6CE70859168E609600248E54 /* BPMKeyboardListener.m */,
+				6C968FA0168FE16D0042ACED /* BPMControllerState.h */,
+				6C968FA1168FE16D0042ACED /* BPMControllerState.m */,
+				6C968FA4168FEAE30042ACED /* BPMUtilities.h */,
+				6C968FA5168FEAE30042ACED /* BPMUtilities.m */,
 				6CE70826168E353400248E54 /* Supporting Files */,
 			);
 			path = iMpulse;
@@ -270,6 +280,8 @@
 				6CE7082C168E353400248E54 /* main.m in Sources */,
 				6CE70830168E353400248E54 /* BPMAppDelegate.m in Sources */,
 				6CE7085A168E609600248E54 /* BPMKeyboardListener.m in Sources */,
+				6C968FA2168FE16D0042ACED /* BPMControllerState.m in Sources */,
+				6C968FA6168FEAE30042ACED /* BPMUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

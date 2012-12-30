@@ -21,6 +21,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    //Set up the keyboard listener. This also sets up the Controller State machine.
     [[BPMKeyboardListener instance] setParentView:self.window];
     
     return YES;

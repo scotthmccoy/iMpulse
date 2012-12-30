@@ -12,3 +12,22 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+
+//Turns DebugLog on and off
+#define DEBUG_LOG_ON
+
+#ifdef DEBUG_LOG_ON
+
+//Define the DebugLog macro
+#define DebugLog( s, ... ) NSLog( @"%s(%d)  %@",__PRETTY_FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+
+//Define DebugLogWhereAmI which just NSLogs __PRETTY_FUNCTION__ and __LINE__
+#define DebugLogWhereAmI() DebugLog(@"")
+
+#else
+//Define both macros as emptystring so they don't do anything
+#define DebugLog( s, ... )
+#define DebugLogWhereAmI()
+
+#endif
