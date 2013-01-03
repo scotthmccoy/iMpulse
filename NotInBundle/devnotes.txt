@@ -1,0 +1,38 @@
+typedef enum {
+  UIEventSubtypeNone                              = 0,
+  UIEventSubtypeMotionShake                       = 1,
+  UIEventSubtypeRemoteControlPlay                 = 100,
+  UIEventSubtypeRemoteControlPause                = 101,
+  UIEventSubtypeRemoteControlStop                 = 102,
+  UIEventSubtypeRemoteControlTogglePlayPause      = 103,
+  UIEventSubtypeRemoteControlNextTrack            = 104,
+  UIEventSubtypeRemoteControlPreviousTrack        = 105,
+  UIEventSubtypeRemoteControlBeginSeekingBackward = 106,
+  UIEventSubtypeRemoteControlEndSeekingBackward   = 107,
+  UIEventSubtypeRemoteControlBeginSeekingForward  = 108,
+  UIEventSubtypeRemoteControlEndSeekingForward    = 109,
+} UIEventSubtype;
+
+
+
+
+
+TODO:
+
+Fuck rolling it up in the third class, just have separate listeners. Declare them in the pch file.
+Now, philosophically, will the parser have to know what the controller state is and PICK the notification to send?
+Just realized, the state must be updated before the notification gets sent, otherwise the developer is not going to have an updated state when they hook the noti. That could be very, very frustrating for them.
+
+
+
+Shouldn't worry too much about ideal class structure till we get the two big unknowns worked out:
+1. Media Buttons
+2. Southpaw Mode
+
+One class that grabs input from the keyboard
+
+A second class that parses it and fires off notifications
+
+A third class that subscribes to the notifications and has accessors for the keystates.
+
+

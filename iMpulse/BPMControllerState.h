@@ -8,6 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+	BPMControllerButtonDPadUp = 0,
+	BPMControllerButtonDPadRight,
+	BPMControllerButtonDPadDown,
+	BPMControllerButtonDPadLeft,
+    BPMControllerButtonM,
+    BPMControllerButtonV,
+    BPMControllerButtonW,
+    BPMControllerButtonA,
+    BPMControllerButtonRightShoulder,    //"U"
+    BPMControllerButtonLeftShoulder,     //"N"
+} BPMControllerState;
+
+
+
 @interface BPMControllerState : NSObject
 {
 }

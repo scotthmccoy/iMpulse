@@ -90,6 +90,10 @@ static BPMKeystrokeParser* _singleton = nil;
     //Successfully matched the key to an event. Log it.
     DebugLog(@"Key [%@] mapped to [%@]", input, notificationName);
     
+    
+    //Need to set the button state BEFORE posting a notification.
+    
+    
     //Post a notification
     [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
 }

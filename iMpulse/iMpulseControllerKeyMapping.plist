@@ -4,6 +4,8 @@
 <dict>
 	<key>D-Pad Up</key>
 	<dict>
+		<key>buttonId</key>
+		<string>0</string>
 		<key>press</key>
 		<dict>
 			<key>character</key>
@@ -21,6 +23,8 @@
 	</dict>
 	<key>D-Pad Right</key>
 	<dict>
+		<key>buttonId</key>
+		<string>1</string>
 		<key>press</key>
 		<dict>
 			<key>character</key>

@@ -11,6 +11,11 @@
 		6C968FA6168FEAE30042ACED /* BPMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FA5168FEAE30042ACED /* BPMUtilities.m */; };
 		6C968FAC1690DF690042ACED /* iMpulseControllerKeyMapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C968FAB1690DF690042ACED /* iMpulseControllerKeyMapping.plist */; };
 		6C968FAF169593AD0042ACED /* BPMControllerState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FAE169593AC0042ACED /* BPMControllerState.m */; };
+		6C969027169624310042ACED /* devpanel.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C969021169624310042ACED /* devpanel.png */; };
+		6C96902E169624560042ACED /* devnotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6C96902D169624560042ACED /* devnotes.txt */; };
+		6C969032169624BD0042ACED /* whatsmyimpulsedoing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C96902F169624BC0042ACED /* whatsmyimpulsedoing.jpg */; };
+		6C969033169624BD0042ACED /* mediamode.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C969030169624BC0042ACED /* mediamode.jpg */; };
+		6C969034169624BD0042ACED /* userguide.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C969031169624BD0042ACED /* userguide.png */; };
 		6CE70820168E353400248E54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE7081F168E353400248E54 /* UIKit.framework */; };
 		6CE70822168E353400248E54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE70821168E353400248E54 /* Foundation.framework */; };
 		6CE70824168E353400248E54 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE70823168E353400248E54 /* CoreGraphics.framework */; };
@@ -46,6 +51,11 @@
 		6C968FAB1690DF690042ACED /* iMpulseControllerKeyMapping.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iMpulseControllerKeyMapping.plist; sourceTree = "<group>"; };
 		6C968FAD169593AC0042ACED /* BPMControllerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMControllerState.h; sourceTree = "<group>"; };
 		6C968FAE169593AC0042ACED /* BPMControllerState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMControllerState.m; sourceTree = "<group>"; };
+		6C969021169624310042ACED /* devpanel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = devpanel.png; sourceTree = "<group>"; };
+		6C96902D169624560042ACED /* devnotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = devnotes.txt; sourceTree = "<group>"; };
+		6C96902F169624BC0042ACED /* whatsmyimpulsedoing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = whatsmyimpulsedoing.jpg; sourceTree = "<group>"; };
+		6C969030169624BC0042ACED /* mediamode.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mediamode.jpg; sourceTree = "<group>"; };
+		6C969031169624BD0042ACED /* userguide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userguide.png; sourceTree = "<group>"; };
 		6CE7081B168E353400248E54 /* iMpulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMpulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE7081F168E353400248E54 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6CE70821168E353400248E54 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,9 +103,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C969020169624310042ACED /* NotInBundle */ = {
+			isa = PBXGroup;
+			children = (
+				6C96902D169624560042ACED /* devnotes.txt */,
+				6C96902F169624BC0042ACED /* whatsmyimpulsedoing.jpg */,
+				6C969030169624BC0042ACED /* mediamode.jpg */,
+				6C969031169624BD0042ACED /* userguide.png */,
+				6C969021169624310042ACED /* devpanel.png */,
+			);
+			path = NotInBundle;
+			sourceTree = "<group>";
+		};
 		6CE70810168E353400248E54 = {
 			isa = PBXGroup;
 			children = (
+				6C969020169624310042ACED /* NotInBundle */,
 				6CE70825168E353400248E54 /* iMpulse */,
 				6CE70843168E353400248E54 /* iMpulseTests */,
 				6CE7081E168E353400248E54 /* Frameworks */,
@@ -252,6 +275,11 @@
 				6CE70834168E353400248E54 /* Default@2x.png in Resources */,
 				6CE70836168E353400248E54 /* Default-568h@2x.png in Resources */,
 				6C968FAC1690DF690042ACED /* iMpulseControllerKeyMapping.plist in Resources */,
+				6C969027169624310042ACED /* devpanel.png in Resources */,
+				6C96902E169624560042ACED /* devnotes.txt in Resources */,
+				6C969032169624BD0042ACED /* whatsmyimpulsedoing.jpg in Resources */,
+				6C969033169624BD0042ACED /* mediamode.jpg in Resources */,
+				6C969034169624BD0042ACED /* userguide.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
