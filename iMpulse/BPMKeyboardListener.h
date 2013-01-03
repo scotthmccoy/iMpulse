@@ -14,7 +14,7 @@
     UITextField* txtListener;
 }
 
-+ (id) instance;
++ (id) singleton;
 - (id) init;
 - (void) setParentView:(UIView*)parent;
 

@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array>
+<dict>
+	<key>D-Pad Up</key>
 	<dict>
-		<key>name</key>
-		<string>Up</string>
-		<key>downSignalCharacter</key>
-		<string>u</string>
-		<key>upSignalCharacter</key>
-		<string>U</string>
+		<key>press</key>
+		<dict>
+			<key>character</key>
+			<string>d</string>
+			<key>notificationName</key>
+			<string>NOTIFICATION_D_PAD_DOWN_PRESS</string>
+		</dict>
+		<key>release</key>
+		<dict>
+			<key>character</key>
+			<string>D</string>
+			<key>notificationName</key>
+			<string>NOTIFICATION_D_PAD_DOWN_RELEASE</string>
+		</dict>
 	</dict>
+	<key>D-Pad Right</key>
 	<dict>
-		<key>name</key>
-		<string>Down</string>
-		<key>downSignalCharacter</key>
-		<string>d</string>
-		<key>upSignalCharacter</key>
-		<string>D</string>
+		<key>press</key>
+		<dict>
+			<key>character</key>
+			<string>r</string>
+			<key>notificationName</key>
+			<string>NOTIFICATION_D_PAD_RIGHT_PRESS</string>
+		</dict>
+		<key>release</key>
+		<dict>
+			<key>character</key>
+			<string>R</string>
+			<key>notificationName</key>
+			<string>NOTIFICATION_D_PAD_RIGHT_RELEASE</string>
+		</dict>
 	</dict>
-</array>
+</dict>
 </plist>

@@ -2,30 +2,28 @@
 //  BPMControllerState.m
 //  iMpulse
 //
-//  Created by Scott McCoy on 12/29/12.
-//  Copyright (c) 2012 Scott McCoy. All rights reserved.
+//  Created by Scott McCoy on 1/3/13.
+//  Copyright (c) 2013 Scott McCoy. All rights reserved.
 //
 
 #import "BPMControllerState.h"
-#import "BPMUtilities.h"
 
 @implementation BPMControllerState
 
-//For +instance Singleton method
-static BPMControllerState* _instance = nil;
+//For +singleton method
+static BPMControllerState* _singleton = nil;
 
 //Singleton method
-+ (id)instance
++ (id)singleton
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         //Set the ivar
-        _instance = [[BPMControllerState alloc] init];
+        _singleton = [[BPMControllerState alloc] init];
     });
     
-    return _instance;
+    return _singleton;
 }
-
 
 - (id) init
 {
@@ -33,36 +31,14 @@ static BPMControllerState* _instance = nil;
     
     if (self)
     {
-        //Read in a conf file and set up a dictionary of key names, down signal character, up signal character, and isDown key state
-        NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:[self confFilePath]];
-        DebugLog(@"dict = [%@]", dict);
+
     }
     return self;
 }
 
-
-#pragma mark - input
-- (void) takeInput:(NSString*) input
+- (BOOL) isKeyDown:(NSString*)keyName
 {
-    
-    
-}
-
-#pragma mark - Configuration File
-
-- (NSString*) confFileName
-{
-    return @"iMpulseControllerKeyMapping.plist";
-}
-
-- (NSString*) confFilePath
-{
-    NSString* path = [BPMUtilities pathForResource:[self confFileName]];
-
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path])
-        return path;
-    
-    return nil;
+    return YES;
 }
 
 @end

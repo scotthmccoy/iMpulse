@@ -21,8 +21,11 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    //Have the application respond to media control buttons
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
     //Set up the keyboard listener. This also sets up the Controller State machine.
-    [[BPMKeyboardListener instance] setParentView:self.window];
+    [[BPMKeyboardListener singleton] setParentView:self.window];
     
     return YES;
 }

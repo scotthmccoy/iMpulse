@@ -10,27 +10,27 @@
 #import "BPMKeyboardListener.h"
 
 //State Machine for Controller
-#import "BPMControllerState.h"
+#import "BPMKeystrokeParser.h"
 
 
 
 
-//For +instance Singleton method
-static BPMKeyboardListener* _instance = nil;
+//For +singleton method
+static BPMKeyboardListener* _singleton = nil;
 
 @implementation BPMKeyboardListener
 
 
 //Singleton method
-+ (id)instance
++ (id)singleton
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         //Set the ivar
-        _instance = [[BPMKeyboardListener alloc] init];
+        _singleton = [[BPMKeyboardListener alloc] init];
     });
     
-    return _instance;
+    return _singleton;
 }
 
 
@@ -40,6 +40,9 @@ static BPMKeyboardListener* _instance = nil;
     
     if (self)
     {
+        //Touch the BMPControllerState
+        [BPMKeystrokeParser singleton];
+        
         //Create the TextView that will act as the listener.
         txtListener = [[UITextField alloc] init];
         
@@ -84,7 +87,7 @@ static BPMKeyboardListener* _instance = nil;
 {
     NSLog(@"[%@]", txtListener.text);
     
-    [[BPMControllerState instance] takeInput:txtListener.text];
+    [[BPMKeystrokeParser singleton] takeInput:txtListener.text];
     
     txtListener.text = @"";
 }
