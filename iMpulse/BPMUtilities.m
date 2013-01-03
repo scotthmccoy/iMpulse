@@ -13,7 +13,6 @@
 
 + (NSString *) pathForResource: (NSString *) resource
 {
-	//MZLogWhereAmI();
 	NSString *basename = [[resource lastPathComponent] stringByDeletingPathExtension];
 	NSString *extension = [resource pathExtension];
     

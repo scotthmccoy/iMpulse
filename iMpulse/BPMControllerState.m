@@ -34,7 +34,8 @@ static BPMControllerState* _instance = nil;
     if (self)
     {
         //Read in a conf file and set up a dictionary of key names, down signal character, up signal character, and isDown key state
-        [NSDictionary dictionaryWithContentsOfFile:[self confFilePath]];
+        NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:[self confFilePath]];
+        DebugLog(@"dict = [%@]", dict);
     }
     return self;
 }
@@ -57,12 +58,11 @@ static BPMControllerState* _instance = nil;
 - (NSString*) confFilePath
 {
     NSString* path = [BPMUtilities pathForResource:[self confFileName]];
-    return path;
+
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path])
+        return path;
+    
+    return nil;
 }
-
-
-
-
-
 
 @end

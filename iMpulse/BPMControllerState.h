@@ -12,5 +12,6 @@
 
 + (id) instance;
 - (id) init;
+- (void) takeInput:(NSString*) input;
 
 @end

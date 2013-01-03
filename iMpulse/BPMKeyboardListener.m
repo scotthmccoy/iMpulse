@@ -6,7 +6,14 @@
 //  Copyright (c) 2012 Scott McCoy. All rights reserved.
 //
 
+//Header
 #import "BPMKeyboardListener.h"
+
+//State Machine for Controller
+#import "BPMControllerState.h"
+
+
+
 
 //For +instance Singleton method
 static BPMKeyboardListener* _instance = nil;
@@ -77,7 +84,7 @@ static BPMKeyboardListener* _instance = nil;
 {
     NSLog(@"[%@]", txtListener.text);
     
-    
+    [[BPMControllerState instance] takeInput:txtListener.text];
     
     txtListener.text = @"";
 }
