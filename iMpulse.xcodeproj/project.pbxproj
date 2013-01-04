@@ -16,6 +16,7 @@
 		6C969032169624BD0042ACED /* whatsmyimpulsedoing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C96902F169624BC0042ACED /* whatsmyimpulsedoing.jpg */; };
 		6C969033169624BD0042ACED /* mediamode.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C969030169624BC0042ACED /* mediamode.jpg */; };
 		6C969034169624BD0042ACED /* userguide.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C969031169624BD0042ACED /* userguide.png */; };
+		6C969036169643520042ACED /* keymapping.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C969035169643520042ACED /* keymapping.jpg */; };
 		6CE70820168E353400248E54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE7081F168E353400248E54 /* UIKit.framework */; };
 		6CE70822168E353400248E54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE70821168E353400248E54 /* Foundation.framework */; };
 		6CE70824168E353400248E54 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE70823168E353400248E54 /* CoreGraphics.framework */; };
@@ -56,6 +57,7 @@
 		6C96902F169624BC0042ACED /* whatsmyimpulsedoing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = whatsmyimpulsedoing.jpg; sourceTree = "<group>"; };
 		6C969030169624BC0042ACED /* mediamode.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mediamode.jpg; sourceTree = "<group>"; };
 		6C969031169624BD0042ACED /* userguide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userguide.png; sourceTree = "<group>"; };
+		6C969035169643520042ACED /* keymapping.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = keymapping.jpg; sourceTree = "<group>"; };
 		6CE7081B168E353400248E54 /* iMpulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMpulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE7081F168E353400248E54 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6CE70821168E353400248E54 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				6C96902D169624560042ACED /* devnotes.txt */,
+				6C969035169643520042ACED /* keymapping.jpg */,
 				6C96902F169624BC0042ACED /* whatsmyimpulsedoing.jpg */,
 				6C969030169624BC0042ACED /* mediamode.jpg */,
 				6C969031169624BD0042ACED /* userguide.png */,
@@ -280,6 +283,7 @@
 				6C969032169624BD0042ACED /* whatsmyimpulsedoing.jpg in Resources */,
 				6C969033169624BD0042ACED /* mediamode.jpg in Resources */,
 				6C969034169624BD0042ACED /* userguide.png in Resources */,
+				6C969036169643520042ACED /* keymapping.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
