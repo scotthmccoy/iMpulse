@@ -41,4 +41,34 @@ static BPMControllerState* _singleton = nil;
     return YES;
 }
 
+
+#pragma mark - OS
+- (BPMControllerOS) selectedOS
+{
+    //TODO MAW mode as well
+    return BPMControllerOSiOS;
+}
+
+- (NSString*) selectedOSString
+{
+    return [BPMControllerState stringForBPMControllerOS:[self selectedOS]];
+}
+
+
++ (NSString*) stringForBPMControllerOS:(BPMControllerOS)input
+{
+    switch(input)
+    {
+        case BPMControllerOSiOS:
+            return @"iOS";
+            break;
+
+        case BPMControllerOSMAW:
+            return @"MAW";
+            break;
+    }
+    
+}
+
+
 @end

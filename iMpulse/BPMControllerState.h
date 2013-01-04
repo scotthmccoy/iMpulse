@@ -8,18 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
+typedef enum
+{
 	BPMControllerButtonDPadUp = 0,
-	BPMControllerButtonDPadRight,
-	BPMControllerButtonDPadDown,
-	BPMControllerButtonDPadLeft,
-    BPMControllerButtonM,
-    BPMControllerButtonV,
-    BPMControllerButtonW,
-    BPMControllerButtonA,
-    BPMControllerButtonRightShoulder,    //"U"
-    BPMControllerButtonLeftShoulder,     //"N"
-} BPMControllerState;
+	BPMControllerButtonDPadRight = 1,
+	BPMControllerButtonDPadDown = 2,
+	BPMControllerButtonDPadLeft = 3,
+    BPMControllerButtonM = 4,
+    BPMControllerButtonV = 5,
+    BPMControllerButtonW = 6,
+    BPMControllerButtonA = 7,
+    BPMControllerButtonRightShoulder = 8,    //"U"
+    BPMControllerButtonLeftShoulder = 9,     //"N"
+} BPMControllerButton;
+
+typedef enum
+{
+	BPMControllerOSiOS = 0,
+	BPMControllerOSMAW = 1
+} BPMControllerOS;
 
 
 
@@ -29,5 +36,10 @@ typedef enum {
 
 
 + (id) singleton;
+
+#pragma mark - OS
+- (BPMControllerOS) selectedOS;
+- (NSString*) selectedOSString;
++ (NSString*) stringForBPMControllerOS:(BPMControllerOS)input;
 
 @end
