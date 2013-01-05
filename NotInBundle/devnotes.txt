@@ -14,8 +14,7 @@ typedef enum {
 } UIEventSubtype;
 
 
-Arrow Key Detection:
-http://stackoverflow.com/questions/7980447/how-can-i-respond-to-external-keyboard-arrow-keys
+
 
 
 TODO:
@@ -62,3 +61,10 @@ One potential complication - You can put the controller into AMW mode but the iO
 So the app has to know at the app level whether it should be expecting input in iOS or AMW mode so it can know to send both notifications at once.
 Any input that comes at that point can be split into the character set for player 1, and the set for player 2.
 The app DOESN'T have to know whether the controller is in southpaw mode or not since that flip happens at the controller level. 
+
+
+This is it!
+I'm using it with AVAudioSession with AVAudioSessionCategoryPlayback category and AVAudioPlayer and "remote controls" work only when I have AVAudioSession active and AVAudioPlayer object created.
+
+
+Look into nextResponder.

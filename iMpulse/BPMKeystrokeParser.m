@@ -13,6 +13,13 @@
 #import "BPMControllerState.h"
 #import "BPMUtilities.h"
 
+//Keys for dictionaries
+#define KEY_NOTIFICATION_STRING @"notificationString"
+#define KEY_BUTTON_ID @"buttonId"
+#define KEY_PLAYER_NUMBER @"playerNumber"
+#define KEY_IS_PRESSED @"isPressed"
+
+//"Private" methods
 @interface BPMControllerState (private)
 
 - (NSString*) notificationStringWithBase:(NSString*)base andPlayerNumber:(int)playerNumber andPressed:(BOOL)pressed;
@@ -68,16 +75,27 @@ static BPMKeystrokeParser* _singleton = nil;
     //Get which controller event this character maps to, if any
     NSDictionary* keyMap = [_keyMappings valueForKey:input];
     
-        
-    //Successfully matched the key to an event. Log it.
-    DebugLog(@"Key [%@] mapped to [%@]", input, keyMap);
+    //Does a mapping for that key exist?
+    if (keyMap)
+    {
+        //Successfully matched the key to an event. Log it.
+        DebugLog(@"Key [%@] mapped to [%@]", input, keyMap);
+    }
+    else
+    {
+        //Bail
+        DebugLog(@"Could not map key [%@]", input);
+        return;
+    }
+    
+    //Extract values
     
     
-    //Need to set the button state BEFORE posting a notification.
+    //Update controller state
     
     
     //Post a notification
-    //[[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:[keyMap objectForKey:KEY_NOTIFICATION_STRING] object:nil];
 }
 
 
@@ -122,9 +140,9 @@ static BPMKeystrokeParser* _singleton = nil;
         //If it's iOS, we also need the release character
         if (OS == BPMControllerOSiOS)
         {
-            BPMControllerButton buttonId = [[button valueForKeyPath:@"buttonId"] intValue];
+            BPMControllerButton buttonId = [[button valueForKeyPath:KEY_BUTTON_ID] intValue];
             
-            NSString* notificationBase = [button valueForKeyPath:@"notificationString"];
+            NSString* notificationBase = [button valueForKeyPath:KEY_NOTIFICATION_STRING];
 
             NSString* player1KeyPress = [button valueForKeyPath:@"OS.iOS.player1KeyPress"];
             NSString* player2KeyPress = [button valueForKeyPath:@"OS.iOS.player2KeyPress"];
@@ -141,17 +159,12 @@ static BPMKeystrokeParser* _singleton = nil;
         {
             
         }
-        
-
-        
-        //Set them into the keyMappings dict
-        //[_keyMappings setValue:pressNotificationName forKey:pressCharacter];
-        //[_keyMappings setValue:releaseNotificationName forKey:releaseCharacter];
     }
     
     DebugLog(@"_keyMappings = [%@]", _keyMappings);
 }
 
+//Concatenates together the notification string. Result is something like "NOTIFICATION_PLAYER_1_D_PAD_LEFT_RELEASE"
 - (NSString*) notificationStringWithBase:(NSString*)base andPlayerNumber:(int)playerNumber andPressed:(BOOL)pressed
 {
     NSString* playerString = nil;
@@ -185,27 +198,28 @@ static BPMKeystrokeParser* _singleton = nil;
     return ret;
 }
 
+//Creates a button map dictionary and adds it to the collection.
+//TODO: Use a data structure class with getters and setters for faster access
 - (void) setKeyMapWithButtonId:(int)buttonIdInt andCharacter:(NSString*)character notificationBase:(NSString*)notificationBase playerNumber:(int)playerNumberInt isPressed:(BOOL)isPressedBool
 {
     //Create a dict to hold data
-    //TODO: Use a data structure class with getters and setters for faster access
     NSMutableDictionary* keyMap = [[NSMutableDictionary alloc] init];
     
     //Create and set the notification string
     NSString* notification = [self notificationStringWithBase:notificationBase andPlayerNumber:playerNumberInt andPressed:isPressedBool];
-    [keyMap setValue:notification forKey:@"notification"];
+    [keyMap setValue:notification forKey:KEY_NOTIFICATION_STRING];
 
     //Create and set the buttonID
     NSNumber* buttonId = [NSNumber numberWithInt:buttonIdInt];
-    [keyMap setValue:buttonId forKey:@"buttonId"];
+    [keyMap setValue:buttonId forKey:KEY_BUTTON_ID];
     
     //Create and set the playerNumber
     NSNumber* playerNumber = [NSNumber numberWithInt:playerNumberInt];
-    [keyMap setValue:playerNumber forKey:@"playerNumber"];
+    [keyMap setValue:playerNumber forKey:KEY_PLAYER_NUMBER];
     
     //Create and set the isPressed
     NSNumber* isPressed = [NSNumber numberWithBool:isPressedBool];
-    [keyMap setValue:isPressed forKey:@"isPressed"];
+    [keyMap setValue:isPressed forKey:KEY_IS_PRESSED];
     
     //Add the keyMap to _keyMappings
     [_keyMappings setValue:keyMap forKey:character];

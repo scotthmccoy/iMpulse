@@ -38,7 +38,7 @@ typedef enum
 + (id) singleton;
 
 #pragma mark - OS
-- (BPMControllerOS) selectedOS;
+@property BPMControllerOS selectedOS;
 - (NSString*) selectedOSString;
 + (NSString*) stringForBPMControllerOS:(BPMControllerOS)input;
 

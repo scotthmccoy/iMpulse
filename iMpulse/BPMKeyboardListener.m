@@ -12,7 +12,7 @@
 //State Machine for Controller
 #import "BPMKeystrokeParser.h"
 
-
+//TODO: Arrow Key Detection for MAW mode http://stackoverflow.com/questions/7980447/how-can-i-respond-to-external-keyboard-arrow-keys
 
 
 //For +singleton method
@@ -85,11 +85,14 @@ static BPMKeyboardListener* _singleton = nil;
 
 - (void)observer_UITextFieldTextDidChangeNotification:(NSNotification *)aNotification
 {
-    NSLog(@"[%@]", txtListener.text);
-    
+    //Send the input to the parser
     [[BPMKeystrokeParser singleton] takeInput:txtListener.text];
     
+    //Blank the input field
     txtListener.text = @"";
 }
+
+
+
 
 @end

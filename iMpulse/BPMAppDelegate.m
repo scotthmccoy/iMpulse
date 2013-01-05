@@ -12,25 +12,34 @@
 //Keyboard
 #import "BPMKeyboardListener.h"
 
+//Other
+#import "BPMWindow.h"
+#import "AppLaunchViewController.h"
+
 @implementation BPMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    //Create the window
+    self.window = [[BPMWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-    //Have the application respond to media control buttons
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self.window becomeFirstResponder];
     
     //Set up the keyboard listener. This also sets up the Controller State machine.
-    [[BPMKeyboardListener singleton] setParentView:self.window];
+    //[[BPMKeyboardListener singleton] setParentView:self.window];
+    
+    //Create first VC
+    //AppLaunchViewController* vc = [[AppLaunchViewController alloc] init];
+    
+    //Create NC
+	//UINavigationController* NC = [[UINavigationController alloc] initWithRootViewController: vc];
+    
+    //Add the NC to the screen
+    //[self.window setRootViewController:NC];
     
     return YES;
 }
-
-
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

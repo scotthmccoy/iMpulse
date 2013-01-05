@@ -17,6 +17,11 @@
 		6C969033169624BD0042ACED /* mediamode.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C969030169624BC0042ACED /* mediamode.jpg */; };
 		6C969034169624BD0042ACED /* userguide.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C969031169624BD0042ACED /* userguide.png */; };
 		6C969036169643520042ACED /* keymapping.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C969035169643520042ACED /* keymapping.jpg */; };
+		6CC1BEB11697951300400329 /* AppLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1BEB01697951300400329 /* AppLaunchViewController.m */; };
+		6CC1BEB716979A5000400329 /* BPMWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1BEB616979A5000400329 /* BPMWindow.m */; };
+		6CC1BEBE1697C19700400329 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1BEBD1697C19700400329 /* MediaPlayer.framework */; };
+		6CC1BEC01697CC1B00400329 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1BEBF1697CC1B00400329 /* AVFoundation.framework */; };
+		6CC1BED31697D2AF00400329 /* snd_cycle_stop.aif in Resources */ = {isa = PBXBuildFile; fileRef = 6CC1BED21697D2AF00400329 /* snd_cycle_stop.aif */; };
 		6CE70820168E353400248E54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE7081F168E353400248E54 /* UIKit.framework */; };
 		6CE70822168E353400248E54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE70821168E353400248E54 /* Foundation.framework */; };
 		6CE70824168E353400248E54 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE70823168E353400248E54 /* CoreGraphics.framework */; };
@@ -58,6 +63,13 @@
 		6C969030169624BC0042ACED /* mediamode.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mediamode.jpg; sourceTree = "<group>"; };
 		6C969031169624BD0042ACED /* userguide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userguide.png; sourceTree = "<group>"; };
 		6C969035169643520042ACED /* keymapping.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = keymapping.jpg; sourceTree = "<group>"; };
+		6CC1BEAF1697951300400329 /* AppLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppLaunchViewController.h; sourceTree = "<group>"; };
+		6CC1BEB01697951300400329 /* AppLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppLaunchViewController.m; sourceTree = "<group>"; };
+		6CC1BEB516979A5000400329 /* BPMWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMWindow.h; sourceTree = "<group>"; };
+		6CC1BEB616979A5000400329 /* BPMWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMWindow.m; sourceTree = "<group>"; };
+		6CC1BEBD1697C19700400329 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		6CC1BEBF1697CC1B00400329 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6CC1BED21697D2AF00400329 /* snd_cycle_stop.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = snd_cycle_stop.aif; sourceTree = "<group>"; };
 		6CE7081B168E353400248E54 /* iMpulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMpulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE7081F168E353400248E54 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6CE70821168E353400248E54 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -86,6 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC1BEC01697CC1B00400329 /* AVFoundation.framework in Frameworks */,
+				6CC1BEBE1697C19700400329 /* MediaPlayer.framework in Frameworks */,
 				6CE70820168E353400248E54 /* UIKit.framework in Frameworks */,
 				6CE70822168E353400248E54 /* Foundation.framework in Frameworks */,
 				6CE70824168E353400248E54 /* CoreGraphics.framework in Frameworks */,
@@ -118,6 +132,14 @@
 			path = NotInBundle;
 			sourceTree = "<group>";
 		};
+		6CC1BECB1697D29800400329 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6CC1BED21697D2AF00400329 /* snd_cycle_stop.aif */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		6CE70810168E353400248E54 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +163,8 @@
 		6CE7081E168E353400248E54 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CC1BEBF1697CC1B00400329 /* AVFoundation.framework */,
+				6CC1BEBD1697C19700400329 /* MediaPlayer.framework */,
 				6CE7081F168E353400248E54 /* UIKit.framework */,
 				6CE70821168E353400248E54 /* Foundation.framework */,
 				6CE70823168E353400248E54 /* CoreGraphics.framework */,
@@ -152,8 +176,13 @@
 		6CE70825168E353400248E54 /* iMpulse */ = {
 			isa = PBXGroup;
 			children = (
+				6CC1BECB1697D29800400329 /* Resources */,
+				6CC1BEB516979A5000400329 /* BPMWindow.h */,
+				6CC1BEB616979A5000400329 /* BPMWindow.m */,
 				6CE7082E168E353400248E54 /* BPMAppDelegate.h */,
 				6CE7082F168E353400248E54 /* BPMAppDelegate.m */,
+				6CC1BEAF1697951300400329 /* AppLaunchViewController.h */,
+				6CC1BEB01697951300400329 /* AppLaunchViewController.m */,
 				6CE70858168E609600248E54 /* BPMKeyboardListener.h */,
 				6CE70859168E609600248E54 /* BPMKeyboardListener.m */,
 				6C968FA0168FE16D0042ACED /* BPMKeystrokeParser.h */,
@@ -284,6 +313,7 @@
 				6C969033169624BD0042ACED /* mediamode.jpg in Resources */,
 				6C969034169624BD0042ACED /* userguide.png in Resources */,
 				6C969036169643520042ACED /* keymapping.jpg in Resources */,
+				6CC1BED31697D2AF00400329 /* snd_cycle_stop.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +354,8 @@
 				6C968FA2168FE16D0042ACED /* BPMKeystrokeParser.m in Sources */,
 				6C968FA6168FEAE30042ACED /* BPMUtilities.m in Sources */,
 				6C968FAF169593AD0042ACED /* BPMControllerState.m in Sources */,
+				6CC1BEB11697951300400329 /* AppLaunchViewController.m in Sources */,
+				6CC1BEB716979A5000400329 /* BPMWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,8 @@
 
 @implementation BPMControllerState
 
+@synthesize selectedOS;
+
 //For +singleton method
 static BPMControllerState* _singleton = nil;
 
@@ -31,7 +33,8 @@ static BPMControllerState* _singleton = nil;
     
     if (self)
     {
-
+        //Default to iOS
+        self.selectedOS = BPMControllerOSiOS;
     }
     return self;
 }
@@ -43,11 +46,7 @@ static BPMControllerState* _singleton = nil;
 
 
 #pragma mark - OS
-- (BPMControllerOS) selectedOS
-{
-    //TODO MAW mode as well
-    return BPMControllerOSiOS;
-}
+
 
 - (NSString*) selectedOSString
 {
