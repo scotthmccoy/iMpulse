@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BPMKeyboardListener : NSObject
+@interface BPMKeyboardListener : NSObject <UITextViewDelegate>
 {
     @private
-    UITextField* txtListener;
+    UITextView* txtListener;
+    BOOL isResetting;
 }
 
 + (id) singleton;

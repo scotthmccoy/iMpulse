@@ -10,10 +10,9 @@
 #import <UIKit/UIKit.h>
 
 //For MPMusicPlayerController
-#import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface BPMWindow : UIWindow
+@interface BPMMediaKeysListenerWindow : UIWindow
 {
     AVAudioPlayer* theAudio;
 }

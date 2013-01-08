@@ -14,6 +14,10 @@
 #endif
 
 
+////////////
+//DebugLog
+////////////
+
 //Turns DebugLog on and off
 #define DEBUG_LOG_ON
 
@@ -31,3 +35,10 @@
 #define DebugLogWhereAmI()
 
 #endif
+
+/////////////
+//Debug Modes
+/////////////
+
+//Doesn't try to hide the Text Field
+#define DEBUG_MODE_VISIBLE_TEXT_ENTRY 0

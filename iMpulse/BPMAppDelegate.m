@@ -13,30 +13,20 @@
 #import "BPMKeyboardListener.h"
 
 //Other
-#import "BPMWindow.h"
-#import "AppLaunchViewController.h"
+#import "BPMMediaKeysListenerWindow.h"
 
 @implementation BPMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //Create the window
-    self.window = [[BPMWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    //self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    [self.window becomeFirstResponder];
+    //Instead of using a normal UIWindow, here we use one that has a looping sound file playing on it
+    //This keeps it conveniently global, and since Window is high up in the responder tree, it's a good place
+    //to capture media key events. Please note that in a normal app, this step will not be neccessary.
+    self.window = [[BPMMediaKeysListenerWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window makeKeyAndVisible];    
     
     //Set up the keyboard listener. This also sets up the Controller State machine.
-    //[[BPMKeyboardListener singleton] setParentView:self.window];
-    
-    //Create first VC
-    //AppLaunchViewController* vc = [[AppLaunchViewController alloc] init];
-    
-    //Create NC
-	//UINavigationController* NC = [[UINavigationController alloc] initWithRootViewController: vc];
-    
-    //Add the NC to the screen
-    //[self.window setRootViewController:NC];
+    [[BPMKeyboardListener singleton] setParentView:self.window];
     
     return YES;
 }

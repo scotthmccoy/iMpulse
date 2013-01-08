@@ -6,59 +6,39 @@
 //  Copyright (c) 2013 Scott McCoy. All rights reserved.
 //
 
-//Header
-#import "BPMWindow.h"
 
+//The app window 
+
+//Header
+#import "BPMMediaKeysListenerWindow.h"
+
+//Other
 #import "BPMUtilities.h"
 
-//For MPMusicPlayerController
 
-
-
-
-@implementation BPMWindow
+@implementation BPMMediaKeysListenerWindow
 
 - (id)initWithFrame:(CGRect)frame;
 {
     self = [super initWithFrame:frame];
     if (self)
     {
-
+        //Set up an active audio session so that the app will repsond to media keys.
+        [self setupAVAudioSession];
         
-        //Make it blue so we know we're on there
-        self.backgroundColor = [UIColor blueColor];
-
-        //Take input
-        [self becomeFirstResponder];
-        
-        
-        
-        NSString *path = [BPMUtilities pathForResource:@"snd_cycle_stop.aif"];
+        //Play a looping sound file
+        NSString *path = [BPMUtilities pathForResource:@"snd_blank.aiff"];
         theAudio = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:NULL];
-        //theAudio.delegate = self;
         theAudio.numberOfLoops = -1;
         [theAudio play];
-                          
-        
-        
-        [self setupAVAudioSession];
         
         //Have the application respond to media control buttons
         [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-        
-//        
-//        // instantiate a music player
-//        myPlayer = [MPMusicPlayerController applicationMusicPlayer];
-//        
-//        // assign a playback queue containing all media items on the device
-//        [myPlayer setQueueWithQuery: [MPMediaQuery songsQuery]];
-//        
-//        // start playing from the beginning of the queue
-//        [myPlayer play];
     }
     return self;
 }
 
+//Allow the window to become first responder
 - (BOOL) canBecomeFirstResponder
 {
     return YES;
@@ -67,6 +47,8 @@
 - (void)remoteControlReceivedWithEvent:(UIEvent *)event
 {
     DebugLogWhereAmI();
+    
+    //
 }
 
 #pragma Audio

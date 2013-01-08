@@ -18,53 +18,6 @@ typedef enum {
 
 
 TODO:
-
-Fuck rolling it up in the third class, just have separate listeners. Declare them in the pch file.
-Now, philosophically, will the parser have to know what the controller state is and PICK the notification to send?
-Just realized, the state must be updated before the notification gets sent, otherwise the developer is not going to have an updated state when they hook the noti. That could be very, very frustrating for them.
-
-
-
-Shouldn't worry too much about ideal class structure till we get the two big unknowns worked out:
-1. Media Buttons
-2. Southpaw Mode
-
-One class that grabs input from the keyboard
-
-A second class that parses it and fires off notifications
-
-A third class that subscribes to the notifications and has accessors for the keystates.
-
-
-
-SouthPaw Mode -
-Haven't heard back from SB yet. Lets assume that Southpaw works the way I think it will.
-So a better way to organize it would be 10 "virtual" buttons:
-D-Pad Up
-D-Pad Right
-D-Pad Down
-D-Pad Left
-A
-M
-W
-V
-Left Shoulder
-Right Shoulder
-
-Then under each, have:
-1. the press & release notification names
-2. Button ID to map to internal enums
-3. iOS/AMW -> Player1/Player2 -> press character, release character
-
 One potential complication - You can put the controller into AMW mode but the iOS app is simply not going to be able to tell when you released a key.
 
-So the app has to know at the app level whether it should be expecting input in iOS or AMW mode so it can know to send both notifications at once.
-Any input that comes at that point can be split into the character set for player 1, and the set for player 2.
-The app DOESN'T have to know whether the controller is in southpaw mode or not since that flip happens at the controller level. 
-
-
-This is it!
-I'm using it with AVAudioSession with AVAudioSessionCategoryPlayback category and AVAudioPlayer and "remote controls" work only when I have AVAudioSession active and AVAudioPlayer object created.
-
-
-Look into nextResponder.
+What is the difference between a UITextField and a UITextView?
