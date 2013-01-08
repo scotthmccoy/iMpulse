@@ -41,4 +41,4 @@
 /////////////
 
 //Doesn't try to hide the Text Field
-#define DEBUG_MODE_VISIBLE_TEXT_ENTRY 0
+#define DEBUG_MODE_VISIBLE_TEXT_ENTRY 1

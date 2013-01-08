@@ -99,43 +99,27 @@ static BPMKeyboardListener* _singleton = nil;
 
 - (void) resetText
 {
-    DebugLogWhereAmI();
+    DebugLog(@"start");
     
     //Supress delegate responses to the reset
     isResetting = YES;
     
-    //Set the text to a three-line block
-    txtListener.text = @"a\nbb\nc";
-    
-    //TODO: Right after creation, the UITextField has a null beginningOfDocument for some reason.
-    //This prevents me from setting the cursor position, and therefore, if the the first input the field receives is an arrow key, it will be ignored.
-    
-    //If beginningOfDocument is null, we have no way of setting the cursor position.
-    if (txtListener.beginningOfDocument == NULL)
+    //Set the text
+    if (![txtListener.text isEqualToString:@"aaaa"])
     {
-        txtListener.text = @"";
-        return;
+        txtListener.text = @"aaaa";
     }
     
-
-    //Get a UITextPosition representing the 3rd character in the string (between the 2 b's)
-    UITextPosition *newPosition = [txtListener positionFromPosition:txtListener.beginningOfDocument offset:3];
-    
-    //Use that position to calculate a zero-length range at that position.
-    UITextRange *newRange = [txtListener textRangeFromPosition:newPosition toPosition:newPosition];
-    
-    //Set the range. This will set the cursor position.
-    [txtListener setSelectedTextRange:newRange];
-    
-    
-    // Calculate the existing position, relative to the beginning
-    int pos = [txtListener offsetFromPosition:txtListener.beginningOfDocument toPosition:txtListener.selectedTextRange.start];
-    
-    if (pos != 3)
-        DebugLog(@"pos = [%i]", pos);
+    if (txtListener.selectedRange.location != 2)
+    {
+        DebugLog(@"Resetting back to 2");
+        txtListener.selectedRange = NSMakeRange(2, 0);
+    }
     
     //Re-allow responses
     isResetting = NO;
+    
+    DebugLog(@"done");    
 }
 
 
@@ -173,29 +157,25 @@ static BPMKeyboardListener* _singleton = nil;
         return;
     }
     
-    //Arrow key was pressed.
-    
-    // Calculate the existing position, relative to the beginning
-    int pos = [txtListener offsetFromPosition:txtListener.beginningOfDocument toPosition:txtListener.selectedTextRange.start];
+    int pos = textView.selectedRange.location;
     
     DebugLog(@"pos = [%i]", pos);
     
-    //What is the new position?
     switch (pos)
     {
-        case 1:
+        case 0:
             DebugLog(@"Up Arrow Pressed");
             break;
             
-        case 2:
+        case 1:
             DebugLog(@"Left Arrow Pressed");
             break;
             
-        case 4:
+        case 3:
             DebugLog(@"Right Arrow Pressed");
             break;
             
-        case 6:
+        case 4:
             DebugLog(@"Down Arrow Pressed");
             break;
             
@@ -204,8 +184,8 @@ static BPMKeyboardListener* _singleton = nil;
             break;
     }
     
-    //Reset the text field for new input
-    [self resetText];    
+    
+    [self resetText];
 }
 
 @end

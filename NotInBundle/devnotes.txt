@@ -20,4 +20,9 @@ typedef enum {
 TODO:
 One potential complication - You can put the controller into AMW mode but the iOS app is simply not going to be able to tell when you released a key.
 
-What is the difference between a UITextField and a UITextView?
+
+It seems as though UITextField and UITextView share an annoying problem, where the actual cursor position is kept secret.
+1) If you always change the text back to "aaaa", then it stops acknolwedging up/down keyboard arrows after the first one.
+2) If you always change the selectedRange, then it happily accepts it, but future keyboard input will place the cursor on the start or end of the line, as though it had "kept going".
+
+
