@@ -26,7 +26,7 @@
     [self.window makeKeyAndVisible];    
     
     //Set up the keyboard listener. This also sets up the Controller State machine.
-    [[BPMKeyboardListener singleton] setParentView:self.window];
+    [[BPMKeyboardListener singleton] setupWithParentView:self.window];
     
     return YES;
 }

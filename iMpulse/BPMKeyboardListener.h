@@ -15,8 +15,11 @@
     BOOL isResetting;
 }
 
+@property (readwrite, strong) UIView *parentView;
+
+
 + (id) singleton;
 - (id) init;
-- (void) setParentView:(UIView*)parent;
+- (void) setupWithParentView:(UIView*)parent;
 
 @end

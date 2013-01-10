@@ -25,4 +25,11 @@ It seems as though UITextField and UITextView share an annoying problem, where t
 1) If you always change the text back to "aaaa", then it stops acknolwedging up/down keyboard arrows after the first one.
 2) If you always change the selectedRange, then it happily accepts it, but future keyboard input will place the cursor on the start or end of the line, as though it had "kept going".
 
+Range -
+Had some luck by setting the range to be non-zero, but then left and right are indistinguishable from up and down. I have Hope for inspiration.
+
+Tried toggling editable, scrollToRange, and toggling firstResponder.
+Possibly the only way to continue will be to destroy/re-create the listener afterwards. This seems wasteful, but good enough, since we're not writing games using this.
+
+Give one more try to doing it with Ranges, then just blow the whole thing up during selectionchange.
 
