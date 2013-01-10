@@ -60,12 +60,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iMpulse/BPMKeyboardListener.m"
-         timestampString = "379471515.908242"
+         timestampString = "379549986.494577"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "143"
-         endingLineNumber = "143"
+         startingLineNumber = "155"
+         endingLineNumber = "155"
          landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iMpulse/BPMKeyboardListener.m"
+         timestampString = "379550278.308872"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "207"
+         endingLineNumber = "207"
+         landmarkName = "-textViewDidChangeSelection:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -13,6 +13,8 @@
     @private
     UITextView* txtListener;
     BOOL isResetting;
+    
+    int numListeners;
 }
 
 @property (readwrite, strong) UIView *parentView;

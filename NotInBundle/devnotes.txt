@@ -33,3 +33,25 @@ Possibly the only way to continue will be to destroy/re-create the listener afte
 
 Give one more try to doing it with Ranges, then just blow the whole thing up during selectionchange.
 
+
+
+
+Jan 10th -
+Destroying and re-creating did not work. That is just incredible. Did I find yet another big bug in iOS??
+
+It "drills" - if you hit up a bunch, it registers them as ups, but then if you hit down, it registers them as ups until it gets back down to 0. this means after the first Up lets say, we can't distinguish up from down.
+
+if you change the text value, it locks out input. But it even locks it out when it's a brand new TextView!!
+
+I could try a webview maybe -_-
+
+It's definitely creating a new TextView each time. Make sure it's using the new one?
+
+It's using the new one...how does it get all dumb? Well, if you look at all the private methods it goes through it's pretty crazy. Someway up that ladder it's probably doing something dumb.
+
+
+Okay lets create a new textview each time, NOT destroy the old one, and look at what they are doing.
+
+Doing exactly what they said they were doing. The new one is "drilled". 
+
+Okay what if we created one BEFORE the event? Would that work?

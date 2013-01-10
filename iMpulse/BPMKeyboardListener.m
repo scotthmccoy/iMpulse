@@ -50,6 +50,9 @@ static BPMKeyboardListener* _singleton = nil;
         //Touch the BMPControllerState
         //Why do we do this again?
         [BPMKeystrokeParser singleton];
+        
+        
+        numListeners = 0;
     }
     return self;
 }
@@ -61,7 +64,7 @@ static BPMKeyboardListener* _singleton = nil;
     //Keep this for if the selection changes and we have to destroy and re-create the txtListener
     self.parentView = inParentView;
     
-
+    DebugLog(@"textListener address = [%p]", txtListener);
     
     
     //////////////////////////////////////////////////
@@ -72,13 +75,19 @@ static BPMKeyboardListener* _singleton = nil;
     if (txtListener)
     {
         //Remove it from whatever view it's in
+        //txtListener.delegate = nil;
         [txtListener resignFirstResponder];
-        [txtListener removeFromSuperview];
-        txtListener = nil;
+        //[txtListener removeFromSuperview];
+        //txtListener = nil;
+        
+        numListeners++;
     }
     
     //Create the TextView that will act as the listener.
     txtListener = [[UITextView alloc] init];
+    
+    
+    DebugLog(@"textListener address = [%p]", txtListener);
     
     //Begin receiving selection changes.
     //Have to do this before changing the text and selectedRange or it will delay processing those events.
@@ -98,9 +107,9 @@ static BPMKeyboardListener* _singleton = nil;
     
     if (DEBUG_MODE_VISIBLE_TEXT_ENTRY)
     {
-        txtListener.frame = CGRectMake(100, 100, 320, 480);
+        txtListener.frame = CGRectMake(25, 25 * (numListeners+1), 50, 20);
         txtListener.backgroundColor = [BPMUtilities debugLayoutColor];
-        txtListener.textColor = [UIColor blackColor];
+        txtListener.textColor = [UIColor whiteColor];
     }
     else
     {
@@ -140,6 +149,9 @@ static BPMKeyboardListener* _singleton = nil;
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    DebugLog(@"textListener address = [%p]", txtListener);
+    DebugLog(@"textView address = [%p]", textView);
+    
     if (isResetting)
     {
         //DebugLog(@"Resetting. Bailing..");
@@ -167,6 +179,9 @@ static BPMKeyboardListener* _singleton = nil;
         isResetting = NO;
         return;
     }
+    
+    DebugLog(@"textListener address = [%p]", txtListener);
+    DebugLog(@"textView address = [%p]", textView);
     
     int pos = textView.selectedRange.location;
     
