@@ -15,19 +15,25 @@
 //Utils
 #import "BPMUtilities.h"
 
-//For +singleton method
-static BPMKeyboardListener* _singleton = nil;
+
+#define TEXT @"aaaa"
+
+
+
 
 
 @interface BPMKeyboardListener (Private)
 
 @end
 
+
+
 @implementation BPMKeyboardListener
 
 @synthesize parentView;
 
-
+//For +singleton method
+static BPMKeyboardListener* _singleton = nil;
 //Singleton method
 + (id)singleton
 {
@@ -50,9 +56,6 @@ static BPMKeyboardListener* _singleton = nil;
         //Touch the BMPControllerState
         //Why do we do this again?
         [BPMKeystrokeParser singleton];
-        
-        
-        numListeners = 0;
     }
     return self;
 }
@@ -74,32 +77,78 @@ static BPMKeyboardListener* _singleton = nil;
     //Setup the txtListener
     if (txtListener)
     {
-        //Remove it from whatever view it's in
-        //txtListener.delegate = nil;
-        [txtListener resignFirstResponder];
-        //[txtListener removeFromSuperview];
-        //txtListener = nil;
+
+        //isResetting = YES;
         
-        numListeners++;
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            DebugLog(@"Swapping");
+            
+
+            
+            //Create a new spare
+            txtListener2 = [self createListener];
+            
+            //Add it to the passed-in view
+            [self.parentView addSubview: txtListener2];
+            
+            //Now that it's in a view, it can receive focus.
+            //Have the main one start consuming keyboard input.
+            //
+
+            
+            //Wind down the listener
+            txtListener.delegate = nil;
+            //[txtListener resignFirstResponder];
+            [txtListener removeFromSuperview];
+
+            isResetting = YES;
+            [txtListener2 becomeFirstResponder];
+            txtListener2.selectedRange = NSMakeRange(2, 0);
+            isResetting = NO;
+            
+            //Swap
+            txtListener = txtListener2;
+    
+        });
+        
     }
+    else
+    {
+        isResetting = YES;
+        
+        //Create the TextView that will act as the listener, and a spare.
+        txtListener = [self createListener];
+        txtListener2 = [self createListener];
+        
+        //Add it to the passed-in view
+        [self.parentView addSubview: txtListener];
+        
+        //Now that it's in a view, it can receive focus.
+        //Have the main one start consuming keyboard input.
+        [txtListener becomeFirstResponder];
+        txtListener.selectedRange = NSMakeRange(2, 0);
+
+        isResetting = NO;
+    }
+        
+}
+
+
+
+- (UITextView*)createListener
+{
     
-    //Create the TextView that will act as the listener.
-    txtListener = [[UITextView alloc] init];
+    UITextView* txtView = [[UITextView alloc] init];
     
-    
-    DebugLog(@"textListener address = [%p]", txtListener);
-    
-    //Begin receiving selection changes.
-    //Have to do this before changing the text and selectedRange or it will delay processing those events.
-    txtListener.delegate = self;
+    txtView.delegate = self;
     
     isResetting = YES;
     
-    txtListener.text = @"aaaa";
+    txtView.text = @"aaaa";
     
-    txtListener.selectedRange = NSMakeRange(2, 0);
+
     
-    //isResetting = NO;
     
     //////////////////////////////////////////////////
     //Make the Text Field as unobtrusive as possible.
@@ -107,38 +156,33 @@ static BPMKeyboardListener* _singleton = nil;
     
     if (DEBUG_MODE_VISIBLE_TEXT_ENTRY)
     {
-        txtListener.frame = CGRectMake(25, 25 * (numListeners+1), 50, 20);
-        txtListener.backgroundColor = [BPMUtilities debugLayoutColor];
-        txtListener.textColor = [UIColor whiteColor];
+        txtView.frame = CGRectMake(25, 25, 50, 20);
+        txtView.backgroundColor = [BPMUtilities debugLayoutColor];
+        txtView.textColor = [UIColor whiteColor];
     }
     else
     {
         //Make the frame very small, and position it off-screen.
-        txtListener.frame = CGRectMake(-100, -100, 1, 1);
+        txtView.frame = CGRectMake(-100, -100, 1, 1);
         
         //Make the color, alpha and BG color transparent
-        txtListener.backgroundColor = [UIColor clearColor];
-        txtListener.textColor = [UIColor clearColor];
-        txtListener.alpha = 0;
+        txtView.backgroundColor = [UIColor clearColor];
+        txtView.textColor = [UIColor clearColor];
+        txtView.alpha = 0;
     }
     
     //Set the input view to a blank UIView.
     //This will prevent the keyboard from showing up when we set the txtListener as the firstResponder
-    txtListener.inputView = [[UIView alloc] init];
+    txtView.inputView = [[UIView alloc] init];
     
-
     
-    //////////////////////////////////////////////////
-    //Finish Setup
-    //////////////////////////////////////////////////
+    DebugLog(@"txtView address = [%p]", txtView);
     
-    //Add it to the passed-in view
-    [self.parentView addSubview: txtListener];
+    //Begin receiving selection changes.
+    //Have to do this before changing the text and selectedRange or it will delay processing those events.
     
-    //Have it start consuming keyboard input
-    [txtListener becomeFirstResponder];
+    return txtView;
 }
-
 
 
 /////////////////////
@@ -172,21 +216,25 @@ static BPMKeyboardListener* _singleton = nil;
 
 - (void)textViewDidChangeSelection:(UITextView *)textView
 {
+    int pos = textView.selectedRange.location;
+
+
+    
     //Don't process this if we're in the middle of resetting the UITextView.
     if (isResetting)
     {
-        //DebugLog(@"Resetting. Bailing..");
-        isResetting = NO;
+        DebugLog(@"Resetting. Bailing with pos = [%i]", pos);
         return;
     }
+
     
-    DebugLog(@"textListener address = [%p]", txtListener);
-    DebugLog(@"textView address = [%p]", textView);
+    //DebugLog(@"textListener address = [%p]", txtListener);
+    //DebugLog(@"textView address = [%p]", textView);
     
-    int pos = textView.selectedRange.location;
+
     
+
     DebugLog(@"pos = [%i]", pos);
-    
 
     //For aaaa
     switch (pos)
@@ -214,6 +262,7 @@ static BPMKeyboardListener* _singleton = nil;
 
     
     [self setupWithParentView:self.parentView];
+    DebugLog(@"leaving");
 }
 
 @end

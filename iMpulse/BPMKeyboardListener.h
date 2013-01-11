@@ -12,8 +12,8 @@
 {
     @private
     UITextView* txtListener;
+    UITextView* txtListener2;
     BOOL isResetting;
-    
     int numListeners;
 }
 

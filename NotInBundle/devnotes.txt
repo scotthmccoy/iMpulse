@@ -54,4 +54,9 @@ Okay lets create a new textview each time, NOT destroy the old one, and look at 
 
 Doing exactly what they said they were doing. The new one is "drilled". 
 
-Okay what if we created one BEFORE the event? Would that work?
+Okay what if we created one BEFORE the event? Would that work? 
+Nope. The new one is still drilled.
+
+Maybe this has something to do with changing firstResponder during a changeSelecttion. I'll try destroying and re-creating it off-thread. 
+MAybe I can even use a timer on a 1-second cooldown or something. After all this is just for consuming pretend arrow key input.
+
