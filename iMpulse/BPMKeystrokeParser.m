@@ -84,7 +84,7 @@ static BPMKeystrokeParser* _singleton = nil;
     else
     {
         //Bail
-        DebugLog(@"Could not map key [%@]", input);
+        DebugLog(@"Could not map key [%@]. Bailing.", input);
         return;
     }
     
@@ -95,7 +95,8 @@ static BPMKeystrokeParser* _singleton = nil;
     
     
     //Post a notification
-    [[NSNotificationCenter defaultCenter] postNotificationName:[keyMap objectForKey:KEY_NOTIFICATION_STRING] object:nil];
+    NSString* notificationName = [keyMap objectForKey:KEY_NOTIFICATION_STRING];
+    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
 }
 
 

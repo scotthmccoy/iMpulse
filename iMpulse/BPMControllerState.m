@@ -41,6 +41,7 @@ static BPMControllerState* _singleton = nil;
 
 - (BOOL) isKeyDown:(NSString*)keyName
 {
+    //TODO: have it match a dictionary for the key
     return YES;
 }
 

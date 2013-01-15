@@ -60,3 +60,9 @@ Nope. The new one is still drilled.
 Maybe this has something to do with changing firstResponder during a changeSelecttion. I'll try destroying and re-creating it off-thread. 
 MAybe I can even use a timer on a 1-second cooldown or something. After all this is just for consuming pretend arrow key input.
 
+
+
+Stripping out the extra crap:
+The GCD stuff is neccessary. 
+Swapping does not seem to be neccessary.
+

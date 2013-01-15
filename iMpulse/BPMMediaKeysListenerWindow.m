@@ -48,7 +48,7 @@
 {
     DebugLogWhereAmI();
     
-    //
+    //TODO: Figure out which remote control event occured.
 }
 
 #pragma Audio

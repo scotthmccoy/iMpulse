@@ -12,12 +12,10 @@
 {
     @private
     UITextView* txtListener;
-    UITextView* txtListener2;
     BOOL isResetting;
-    int numListeners;
 }
 
-@property (readwrite, strong) UIView *parentView;
+
 
 
 + (id) singleton;

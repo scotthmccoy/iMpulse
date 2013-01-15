@@ -15,22 +15,11 @@
 //Utils
 #import "BPMUtilities.h"
 
-
 #define TEXT @"aaaa"
-
-
-
-
-
-@interface BPMKeyboardListener (Private)
-
-@end
-
 
 
 @implementation BPMKeyboardListener
 
-@synthesize parentView;
 
 //For +singleton method
 static BPMKeyboardListener* _singleton = nil;
@@ -63,92 +52,9 @@ static BPMKeyboardListener* _singleton = nil;
 
 - (void) setupWithParentView:(UIView*)inParentView
 {
-    
-    //Keep this for if the selection changes and we have to destroy and re-create the txtListener
-    self.parentView = inParentView;
-    
-    DebugLog(@"textListener address = [%p]", txtListener);
-    
-    
-    //////////////////////////////////////////////////
-    //Create the Listener
-    //////////////////////////////////////////////////
-    
-    //Setup the txtListener
-    if (txtListener)
-    {
-
-        //isResetting = YES;
-        
-        
-        dispatch_async(dispatch_get_main_queue(),^{
-            DebugLog(@"Swapping");
-            
-
-            
-            //Create a new spare
-            txtListener2 = [self createListener];
-            
-            //Add it to the passed-in view
-            [self.parentView addSubview: txtListener2];
-            
-            //Now that it's in a view, it can receive focus.
-            //Have the main one start consuming keyboard input.
-            //
-
-            
-            //Wind down the listener
-            txtListener.delegate = nil;
-            //[txtListener resignFirstResponder];
-            [txtListener removeFromSuperview];
-
-            isResetting = YES;
-            [txtListener2 becomeFirstResponder];
-            txtListener2.selectedRange = NSMakeRange(2, 0);
-            isResetting = NO;
-            
-            //Swap
-            txtListener = txtListener2;
-    
-        });
-        
-    }
-    else
-    {
-        isResetting = YES;
-        
-        //Create the TextView that will act as the listener, and a spare.
-        txtListener = [self createListener];
-        txtListener2 = [self createListener];
-        
-        //Add it to the passed-in view
-        [self.parentView addSubview: txtListener];
-        
-        //Now that it's in a view, it can receive focus.
-        //Have the main one start consuming keyboard input.
-        [txtListener becomeFirstResponder];
-        txtListener.selectedRange = NSMakeRange(2, 0);
-
-        isResetting = NO;
-    }
-        
-}
-
-
-
-- (UITextView*)createListener
-{
-    
-    UITextView* txtView = [[UITextView alloc] init];
-    
-    txtView.delegate = self;
-    
-    isResetting = YES;
-    
-    txtView.text = @"aaaa";
-    
-
-    
+    //Create the TextView that will act as the listener
+    txtListener = [[UITextView alloc] init];
+ 
     
     //////////////////////////////////////////////////
     //Make the Text Field as unobtrusive as possible.
@@ -156,33 +62,61 @@ static BPMKeyboardListener* _singleton = nil;
     
     if (DEBUG_MODE_VISIBLE_TEXT_ENTRY)
     {
-        txtView.frame = CGRectMake(25, 25, 50, 20);
-        txtView.backgroundColor = [BPMUtilities debugLayoutColor];
-        txtView.textColor = [UIColor whiteColor];
+        //If the debug mode is on, put it right spang in the middle of the screen.
+        
+        txtListener.frame = CGRectMake(25, 25, 50, 20);
+        txtListener.backgroundColor = [BPMUtilities debugLayoutColor];
+        txtListener.textColor = [UIColor whiteColor];
     }
     else
     {
         //Make the frame very small, and position it off-screen.
-        txtView.frame = CGRectMake(-100, -100, 1, 1);
+        txtListener.frame = CGRectMake(-100, -100, 1, 1);
         
         //Make the color, alpha and BG color transparent
-        txtView.backgroundColor = [UIColor clearColor];
-        txtView.textColor = [UIColor clearColor];
-        txtView.alpha = 0;
+        txtListener.backgroundColor = [UIColor clearColor];
+        txtListener.textColor = [UIColor clearColor];
+        txtListener.alpha = 0;
     }
     
     //Set the input view to a blank UIView.
     //This will prevent the keyboard from showing up when we set the txtListener as the firstResponder
-    txtView.inputView = [[UIView alloc] init];
+    txtListener.inputView = [[UIView alloc] init];
     
     
-    DebugLog(@"txtView address = [%p]", txtView);
+    //Add it to the passed-in view
+    [inParentView addSubview: txtListener];
+
     
-    //Begin receiving selection changes.
+    /////////////////////////////////////////////
+    //Begin receiving selection and text changes.
+    /////////////////////////////////////////////
+
     //Have to do this before changing the text and selectedRange or it will delay processing those events.
+    txtListener.delegate = self;
+
+    //Prevent processing events for setting up the listener.
+    isResetting = YES;    
     
-    return txtView;
+    //Change text. We use 4 letters and place the cursor in the middle.
+    //If the user hits left or right, the cursor moves one space, but if they hit up or down, it moves to the beginning or end of the line.
+    //We can detect changes in the cursor position using textViewDidChangeSelection.
+    txtListener.text = @"aaaa";  
+        
+    //Now that it's been added as a subView, it can receive focus.
+    [txtListener becomeFirstResponder];
+    
+    //It's slightly better to change the selectedRange after becoming firstResponder so that
+    //it doesn't start scrolled slightly downwards.
+    txtListener.selectedRange = NSMakeRange(2, 0);
+
+    //Allow processing of events.
+    isResetting = NO;
 }
+
+
+
+
 
 
 /////////////////////
@@ -193,20 +127,14 @@ static BPMKeyboardListener* _singleton = nil;
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    DebugLog(@"textListener address = [%p]", txtListener);
-    DebugLog(@"textView address = [%p]", textView);
-    
     if (isResetting)
     {
         //DebugLog(@"Resetting. Bailing..");
         return YES;
     }
     
-    //Get the character
-    NSString* input = [textView.text substringWithRange:range];
-    
     //Send the input to the parser
-    [[BPMKeystrokeParser singleton] takeInput:input];
+    [[BPMKeystrokeParser singleton] takeInput:text];
     
     //Tell it not to actually change the text.
     return NO;
@@ -216,28 +144,21 @@ static BPMKeyboardListener* _singleton = nil;
 
 - (void)textViewDidChangeSelection:(UITextView *)textView
 {
-    int pos = textView.selectedRange.location;
-
-
+    //Get the cursor location
+    int cursorLocation = textView.selectedRange.location;
     
     //Don't process this if we're in the middle of resetting the UITextView.
     if (isResetting)
     {
-        DebugLog(@"Resetting. Bailing with pos = [%i]", pos);
+        DebugLog(@"Resetting. Bailing with pos = [%i]", cursorLocation);
         return;
     }
-
-    
-    //DebugLog(@"textListener address = [%p]", txtListener);
-    //DebugLog(@"textView address = [%p]", textView);
     
 
-    
+    DebugLog(@"pos = [%i]", cursorLocation);
 
-    DebugLog(@"pos = [%i]", pos);
-
-    //For aaaa
-    switch (pos)
+    //Where is the cursor?
+    switch (cursorLocation)
     {
         case 0:
             DebugLog(@"Up Arrow Pressed");
@@ -256,13 +177,28 @@ static BPMKeyboardListener* _singleton = nil;
             break;
             
         default:
-            DebugLog(@"Unknwown arrow input. Pos = [%i]", pos);
+            DebugLog(@"Unknwown arrow input. Pos = [%i]", cursorLocation);
             break;
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    //We have to textViewDidChangeSelection finish completely before changing the selectedRange
+    //So, we do it off the main thread.
+    ///////////////////////////////////////////////////////////////////////////////////////////    
+
+    //Halt any modifications until the thread completes
+    isResetting = YES;
     
-    [self setupWithParentView:self.parentView];
-    DebugLog(@"leaving");
+    //Dispatch a thread
+    dispatch_async(dispatch_get_main_queue(),^{
+        
+        //Change cursor position
+        txtListener.selectedRange = NSMakeRange(2, 0);
+
+        //Re-allow modifications
+        isResetting = NO;
+    });
+    
 }
 
 @end
