@@ -48,7 +48,7 @@
 {
     DebugLogWhereAmI();
     
-    //TODO: Test this on device with external keyboard.
+    NSString* notificationName = nil;
     
     //Can ignore volume up and volume down since the OS will show the volume overlay.
     if (event.type == UIEventTypeRemoteControl)
@@ -57,19 +57,28 @@
         {  
             case UIEventSubtypeRemoteControlTogglePlayPause:
                 DebugLog(@"PlayPause");
+                notificationName = @"NOTIFICATION_PLAYPAUSE_PRESS";
                 break;
                 
             case UIEventSubtypeRemoteControlPreviousTrack:
                 DebugLog(@"Previous");
+                notificationName = @"NOTIFICATION_PREVIOUSTRACK_PRESS";
                 break;
                 
             case UIEventSubtypeRemoteControlNextTrack:
                 DebugLog(@"Next");
+                notificationName = @"NOTIFICATION_NEXTTRACK_PRESS";                
                 break;
                 
             default:
                 break;
         }
+    }
+    
+    //Post the notification
+    if (notificationName)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
     }
 }
 

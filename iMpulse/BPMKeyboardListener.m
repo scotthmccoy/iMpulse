@@ -158,7 +158,7 @@ static BPMKeyboardListener* _singleton = nil;
 
     DebugLog(@"pos = [%i]", cursorLocation);
 
-    NSString* notificationName;
+    NSString* notificationName = nil;
     
     //Where is the cursor?
     switch (cursorLocation)
@@ -189,7 +189,10 @@ static BPMKeyboardListener* _singleton = nil;
     }
 
     //Post the notification
-    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+    if (notificationName)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+    }
     
     ///////////////////////////////////////////////////////////////////////////////////////////
     //We have to textViewDidChangeSelection finish completely before changing the selectedRange
