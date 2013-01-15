@@ -141,7 +141,8 @@ static BPMKeyboardListener* _singleton = nil;
 }
 
 
-
+//When the controller is in MAW mode and player1 mode, it sends arrow key events instead of characters.
+//To parse these, we set up a UITextView and watch for the cursor changing positions.
 - (void)textViewDidChangeSelection:(UITextView *)textView
 {
     //Get the cursor location
@@ -157,23 +158,29 @@ static BPMKeyboardListener* _singleton = nil;
 
     DebugLog(@"pos = [%i]", cursorLocation);
 
+    NSString* notificationName;
+    
     //Where is the cursor?
     switch (cursorLocation)
     {
         case 0:
             DebugLog(@"Up Arrow Pressed");
+            notificationName = @"NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS";
             break;
             
         case 1:
             DebugLog(@"Left Arrow Pressed");
+            notificationName = @"NOTIFICATION_PLAYER_1_D_PAD_LEFT_PRESS";
             break;
             
         case 3:
             DebugLog(@"Right Arrow Pressed");
+            notificationName = @"NOTIFICATION_PLAYER_1_D_PAD_RIGHT_PRESS";
             break;
             
         case 4:
             DebugLog(@"Down Arrow Pressed");
+            notificationName = @"NOTIFICATION_PLAYER_1_D_PAD_DOWN_PRESS";            
             break;
             
         default:
@@ -181,6 +188,9 @@ static BPMKeyboardListener* _singleton = nil;
             break;
     }
 
+    //Post the notification
+    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+    
     ///////////////////////////////////////////////////////////////////////////////////////////
     //We have to textViewDidChangeSelection finish completely before changing the selectedRange
     //So, we do it off the main thread.

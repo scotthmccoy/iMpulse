@@ -48,7 +48,29 @@
 {
     DebugLogWhereAmI();
     
-    //TODO: Figure out which remote control event occured.
+    //TODO: Test this on device with external keyboard.
+    
+    //Can ignore volume up and volume down since the OS will show the volume overlay.
+    if (event.type == UIEventTypeRemoteControl)
+    {
+        switch (event.subtype)
+        {  
+            case UIEventSubtypeRemoteControlTogglePlayPause:
+                DebugLog(@"PlayPause");
+                break;
+                
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                DebugLog(@"Previous");
+                break;
+                
+            case UIEventSubtypeRemoteControlNextTrack:
+                DebugLog(@"Next");
+                break;
+                
+            default:
+                break;
+        }
+    }
 }
 
 #pragma Audio

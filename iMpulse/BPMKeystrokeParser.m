@@ -89,13 +89,20 @@ static BPMKeystrokeParser* _singleton = nil;
     }
     
     //Extract values
+    NSString* notificationName = [keyMap objectForKey:KEY_NOTIFICATION_STRING];
+    NSNumber* numButtonID = [keyMap objectForKey:KEY_BUTTON_ID];
+    NSNumber* numIsPressed = [keyMap objectForKey:KEY_IS_PRESSED];
+    NSNumber* numPlayerNumber = [keyMap objectForKey:KEY_PLAYER_NUMBER];
     
+    //Convert to primitive types
+    BPMControllerButton buttonID = [numButtonID intValue];
+    int isPressed = [numIsPressed boolValue];
+    int playerNumber = [numPlayerNumber intValue];
     
     //Update controller state
-    
+    [[BPMControllerState singleton] setState:isPressed forPlayer:playerNumber andButtonID:buttonID];
     
     //Post a notification
-    NSString* notificationName = [keyMap objectForKey:KEY_NOTIFICATION_STRING];
     [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
 }
 
@@ -158,7 +165,7 @@ static BPMKeystrokeParser* _singleton = nil;
         }
         else if (OS == BPMControllerOSMAW)
         {
-            
+            //TODO: parse the MAW keys
         }
     }
     

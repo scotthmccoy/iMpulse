@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+//There are 10 buttons on the controller.
+#define NUM_BUTTONS 10
+
+//IDs for each button
 typedef enum
 {
 	BPMControllerButtonDPadUp = 0,
@@ -22,6 +26,7 @@ typedef enum
     BPMControllerButtonLeftShoulder = 9,     //"N"
 } BPMControllerButton;
 
+//IDs for the OSes.
 typedef enum
 {
 	BPMControllerOSiOS = 0,
@@ -32,14 +37,22 @@ typedef enum
 
 @interface BPMControllerState : NSObject
 {
+    NSMutableArray* buttonStates;
 }
 
 
 + (id) singleton;
 
+
+#pragma mark - getters and setters
+- (void) setState:(BOOL)isPressed forPlayer:(int)playerNumber andButtonID:(BPMControllerButton)buttonID;
+- (BOOL) getStateForPlayer:(int)playerNumber andButtonID:(BPMControllerButton)buttonID;
+
 #pragma mark - OS
 @property BPMControllerOS selectedOS;
 - (NSString*) selectedOSString;
 + (NSString*) stringForBPMControllerOS:(BPMControllerOS)input;
+
+
 
 @end
