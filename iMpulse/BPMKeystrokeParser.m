@@ -130,7 +130,7 @@ static BPMKeystrokeParser* _singleton = nil;
     
     //Read in the conf file
     NSDictionary* confFile = [NSDictionary dictionaryWithContentsOfFile:[self confFilePath]];
-    DebugLog(@"confFile = [%@]", confFile);
+    //DebugLog(@"confFile = [%@]", confFile);
 
     
     //Get the controller's selected operating system.
@@ -169,7 +169,7 @@ static BPMKeystrokeParser* _singleton = nil;
         }
     }
     
-    DebugLog(@"_keyMappings = [%@]", _keyMappings);
+    //DebugLog(@"_keyMappings = [%@]", _keyMappings);
 }
 
 //Concatenates together the notification string. Result is something like "NOTIFICATION_PLAYER_1_D_PAD_LEFT_RELEASE"
@@ -201,7 +201,7 @@ static BPMKeystrokeParser* _singleton = nil;
     //Create ret
     NSString* ret = [NSString stringWithFormat:@"NOTIFICATION_%@_%@_%@", base, playerString, pressedString];
     
-    DebugLog(@"ret = [%@]", ret);
+    //DebugLog(@"ret = [%@]", ret);
     
     return ret;
 }

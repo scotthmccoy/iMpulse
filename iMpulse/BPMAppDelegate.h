@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
+
 @end

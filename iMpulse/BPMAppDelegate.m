@@ -15,8 +15,10 @@
 //Other
 #import "BPMMediaKeysListenerWindow.h"
 
+//Cocos 2d Stuff
 #import "cocos2d-iphone-2.0/cocos2d/cocos2d.h"
 #import "BPMScene.h"
+#import "BPMCocosNavigationController.h"
 
 @implementation BPMAppDelegate
 
@@ -26,7 +28,6 @@
     //This keeps it conveniently global, and since Window is high up in the responder tree, it's a good place
     //to capture media key events. Please note that in a normal app, this step will not be neccessary.
     self.window = [[BPMMediaKeysListenerWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
     
 
@@ -58,25 +59,35 @@
     
 	[[CCDirector sharedDirector] enableRetinaDisplay:YES];
     
-    
 
-	
-    
 
     /////////////////////////////////////////////////////////////////
     //Set Up VC Stack
     /////////////////////////////////////////////////////////////////
     
-    UINavigationController* windowNC = [[UINavigationController alloc] initWithRootViewController: [CCDirector sharedDirector]];
-	windowNC.navigationBarHidden = YES;
-    [self.window addSubview: windowNC.view];
+    // in the didFinishLaunchingWithOptions method...
     
+	// Create a Navigation Controller with the Director
+	BPMCocosNavigationController* navController = [[BPMCocosNavigationController alloc] initWithRootViewController:[CCDirector sharedDirector]];
+    navController.navigationBarHidden = YES;
+    
+	// for rotation and other messages
+	[[CCDirector sharedDirector] setDelegate:self];
+    
+	// set the Navigation Controller as the root view controller
+    //	[window_ addSubview:navController_.view];	// Generates flicker.
+	[self.window setRootViewController:navController];
 
+
+
+
+    
+    
     ///////////////////////////////////////////////////////////////////////////////
     //Set up the keyboard listener. This also sets up the Controller State machine.
     ///////////////////////////////////////////////////////////////////////////////
 
-    [[BPMKeyboardListener singleton] setupWithParentView:windowNC.view];
+    [[BPMKeyboardListener singleton] setupWithParentView:self.window];
     
     ///////////////////////////////////////////////////////////////////////////////
     //Set up and run the cocos2D Scene
@@ -87,8 +98,13 @@
     
 
     
+    
+
+    
     return YES;
 }
+
+#pragma mark - App Events
 
 // getting a call, pause the game
 -(void) applicationWillResignActive:(UIApplication *)application
@@ -129,5 +145,27 @@
 {
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
+
+
+#pragma mark - Rotation
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
+{
+    DebugLogWhereAmI();
+    
+    return YES;
+    
+    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft)
+        return YES;
+    
+    return NO;
+}
+
+
+// Need to add this to the app delegate allow all portrait for things like Game Center or other portrait only modal view controllers that will be pushed into the app to avoid a crash.
+-(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskLandscapeLeft;
+}
+
 
 @end

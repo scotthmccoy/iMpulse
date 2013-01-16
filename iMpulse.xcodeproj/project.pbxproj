@@ -146,6 +146,7 @@
 		6C48D41A16A56DB900FD409B /* BPMScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D41916A56DB900FD409B /* BPMScene.m */; };
 		6C48D41C16A620CA00FD409B /* grossini.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C48D41B16A620CA00FD409B /* grossini.png */; };
 		6C48D41E16A636B400FD409B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C48D41D16A636B300FD409B /* CoreBluetooth.framework */; };
+		6C48D42416A74BBE00FD409B /* BPMCocosNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D42316A74BBD00FD409B /* BPMCocosNavigationController.m */; };
 		6C527AE6169BA7DF0086EA4D /* snd_blank.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6C527AE5169BA7DF0086EA4D /* snd_blank.aiff */; };
 		6C968FA2168FE16D0042ACED /* BPMKeystrokeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FA1168FE16D0042ACED /* BPMKeystrokeParser.m */; };
 		6C968FA6168FEAE30042ACED /* BPMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FA5168FEAE30042ACED /* BPMUtilities.m */; };
@@ -451,6 +452,8 @@
 		6C48D41916A56DB900FD409B /* BPMScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMScene.m; sourceTree = "<group>"; };
 		6C48D41B16A620CA00FD409B /* grossini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grossini.png; sourceTree = "<group>"; };
 		6C48D41D16A636B300FD409B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		6C48D42216A74BBC00FD409B /* BPMCocosNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMCocosNavigationController.h; sourceTree = "<group>"; };
+		6C48D42316A74BBD00FD409B /* BPMCocosNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMCocosNavigationController.m; sourceTree = "<group>"; };
 		6C527AE5169BA7DF0086EA4D /* snd_blank.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = snd_blank.aiff; sourceTree = "<group>"; };
 		6C968FA0168FE16D0042ACED /* BPMKeystrokeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMKeystrokeParser.h; sourceTree = "<group>"; };
 		6C968FA1168FE16D0042ACED /* BPMKeystrokeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMKeystrokeParser.m; sourceTree = "<group>"; };
@@ -965,6 +968,8 @@
 				6C968FA5168FEAE30042ACED /* BPMUtilities.m */,
 				6C48D41816A56DB800FD409B /* BPMScene.h */,
 				6C48D41916A56DB900FD409B /* BPMScene.m */,
+				6C48D42216A74BBC00FD409B /* BPMCocosNavigationController.h */,
+				6C48D42316A74BBD00FD409B /* BPMCocosNavigationController.m */,
 				6CAFE28616A54AD200077B71 /* cocos2d-iphone-2.0 */,
 				6CC1BECB1697D29800400329 /* Resources */,
 				6CE70826168E353400248E54 /* Supporting Files */,
@@ -1267,6 +1272,7 @@
 				6C48D38E16A55CA700FD409B /* TransformUtils.m in Sources */,
 				6C48D38F16A55CA700FD409B /* ZipUtils.m in Sources */,
 				6C48D41A16A56DB900FD409B /* BPMScene.m in Sources */,
+				6C48D42416A74BBE00FD409B /* BPMCocosNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
