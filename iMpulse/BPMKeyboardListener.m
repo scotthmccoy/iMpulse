@@ -71,7 +71,7 @@ static BPMKeyboardListener* _singleton = nil;
     else
     {
         //Make the frame very small, and position it off-screen.
-        txtListener.frame = CGRectMake(-100, -100, 1, 1);
+        txtListener.frame = CGRectMake(-100, -100, 50, 20);
         
         //Make the color, alpha and BG color transparent
         txtListener.backgroundColor = [UIColor clearColor];

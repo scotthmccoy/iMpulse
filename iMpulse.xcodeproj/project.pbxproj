@@ -145,6 +145,7 @@
 		6C48D41716A568BF00FD409B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C48D41616A568BF00FD409B /* QuartzCore.framework */; };
 		6C48D41A16A56DB900FD409B /* BPMScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D41916A56DB900FD409B /* BPMScene.m */; };
 		6C48D41C16A620CA00FD409B /* grossini.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C48D41B16A620CA00FD409B /* grossini.png */; };
+		6C48D41E16A636B400FD409B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C48D41D16A636B300FD409B /* CoreBluetooth.framework */; };
 		6C527AE6169BA7DF0086EA4D /* snd_blank.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6C527AE5169BA7DF0086EA4D /* snd_blank.aiff */; };
 		6C968FA2168FE16D0042ACED /* BPMKeystrokeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FA1168FE16D0042ACED /* BPMKeystrokeParser.m */; };
 		6C968FA6168FEAE30042ACED /* BPMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FA5168FEAE30042ACED /* BPMUtilities.m */; };
@@ -449,6 +450,7 @@
 		6C48D41816A56DB800FD409B /* BPMScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMScene.h; sourceTree = "<group>"; };
 		6C48D41916A56DB900FD409B /* BPMScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMScene.m; sourceTree = "<group>"; };
 		6C48D41B16A620CA00FD409B /* grossini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grossini.png; sourceTree = "<group>"; };
+		6C48D41D16A636B300FD409B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		6C527AE5169BA7DF0086EA4D /* snd_blank.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = snd_blank.aiff; sourceTree = "<group>"; };
 		6C968FA0168FE16D0042ACED /* BPMKeystrokeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMKeystrokeParser.h; sourceTree = "<group>"; };
 		6C968FA1168FE16D0042ACED /* BPMKeystrokeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMKeystrokeParser.m; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C48D41E16A636B400FD409B /* CoreBluetooth.framework in Frameworks */,
 				6C48D41716A568BF00FD409B /* QuartzCore.framework in Frameworks */,
 				6C48D41516A5687700FD409B /* libz.dylib in Frameworks */,
 				6C48D3DF16A5660200FD409B /* OpenGLES.framework in Frameworks */,
@@ -931,6 +934,7 @@
 		6CE7081E168E353400248E54 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C48D41D16A636B300FD409B /* CoreBluetooth.framework */,
 				6C48D41616A568BF00FD409B /* QuartzCore.framework */,
 				6C48D41416A5687700FD409B /* libz.dylib */,
 				6C48D3DE16A5660200FD409B /* OpenGLES.framework */,
