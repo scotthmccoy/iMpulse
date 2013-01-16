@@ -143,15 +143,17 @@
 		6C48D3DF16A5660200FD409B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C48D3DE16A5660200FD409B /* OpenGLES.framework */; };
 		6C48D41516A5687700FD409B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C48D41416A5687700FD409B /* libz.dylib */; };
 		6C48D41716A568BF00FD409B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C48D41616A568BF00FD409B /* QuartzCore.framework */; };
-		6C48D41A16A56DB900FD409B /* BPMScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D41916A56DB900FD409B /* BPMScene.m */; };
 		6C48D41C16A620CA00FD409B /* grossini.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C48D41B16A620CA00FD409B /* grossini.png */; };
 		6C48D41E16A636B400FD409B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C48D41D16A636B300FD409B /* CoreBluetooth.framework */; };
-		6C48D42416A74BBE00FD409B /* BPMCocosNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D42316A74BBD00FD409B /* BPMCocosNavigationController.m */; };
+		6C48D42D16A772BB00FD409B /* BPMControllerState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D42716A772BA00FD409B /* BPMControllerState.m */; };
+		6C48D42E16A772BB00FD409B /* BPMKeyboardListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D42916A772BA00FD409B /* BPMKeyboardListener.m */; };
+		6C48D42F16A772BB00FD409B /* BPMKeystrokeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D42B16A772BB00FD409B /* BPMKeystrokeParser.m */; };
+		6C48D43016A772BB00FD409B /* iMpulseControllerKeyMapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C48D42C16A772BB00FD409B /* iMpulseControllerKeyMapping.plist */; };
+		6C48D43416A7730600FD409B /* BPMMediaKeysListenerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D43316A7730600FD409B /* BPMMediaKeysListenerWindow.m */; };
+		6C48D43A16A7738200FD409B /* BPMCocosNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D43716A7738200FD409B /* BPMCocosNavigationController.m */; };
+		6C48D43B16A7738200FD409B /* BPMScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D43916A7738200FD409B /* BPMScene.m */; };
 		6C527AE6169BA7DF0086EA4D /* snd_blank.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6C527AE5169BA7DF0086EA4D /* snd_blank.aiff */; };
-		6C968FA2168FE16D0042ACED /* BPMKeystrokeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FA1168FE16D0042ACED /* BPMKeystrokeParser.m */; };
 		6C968FA6168FEAE30042ACED /* BPMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FA5168FEAE30042ACED /* BPMUtilities.m */; };
-		6C968FAC1690DF690042ACED /* iMpulseControllerKeyMapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C968FAB1690DF690042ACED /* iMpulseControllerKeyMapping.plist */; };
-		6C968FAF169593AD0042ACED /* BPMControllerState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FAE169593AC0042ACED /* BPMControllerState.m */; };
 		6C969027169624310042ACED /* devpanel.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C969021169624310042ACED /* devpanel.png */; };
 		6C96902E169624560042ACED /* devnotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6C96902D169624560042ACED /* devnotes.txt */; };
 		6C969032169624BD0042ACED /* whatsmyimpulsedoing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C96902F169624BC0042ACED /* whatsmyimpulsedoing.jpg */; };
@@ -159,7 +161,6 @@
 		6C969034169624BD0042ACED /* userguide.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C969031169624BD0042ACED /* userguide.png */; };
 		6C969036169643520042ACED /* keymapping.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C969035169643520042ACED /* keymapping.jpg */; };
 		6CAFED7E16A55A5400077B71 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1BEBF1697CC1B00400329 /* AVFoundation.framework */; };
-		6CC1BEB716979A5000400329 /* BPMMediaKeysListenerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1BEB616979A5000400329 /* BPMMediaKeysListenerWindow.m */; };
 		6CC1BEBE1697C19700400329 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1BEBD1697C19700400329 /* MediaPlayer.framework */; };
 		6CE70820168E353400248E54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE7081F168E353400248E54 /* UIKit.framework */; };
 		6CE70822168E353400248E54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE70821168E353400248E54 /* Foundation.framework */; };
@@ -175,7 +176,6 @@
 		6CE70840168E353400248E54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE70821168E353400248E54 /* Foundation.framework */; };
 		6CE70848168E353400248E54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CE70846168E353400248E54 /* InfoPlist.strings */; };
 		6CE7084B168E353400248E54 /* iMpulseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7084A168E353400248E54 /* iMpulseTests.m */; };
-		6CE7085A168E609600248E54 /* BPMKeyboardListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE70859168E609600248E54 /* BPMKeyboardListener.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -448,28 +448,30 @@
 		6C48D3DE16A5660200FD409B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		6C48D41416A5687700FD409B /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6C48D41616A568BF00FD409B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		6C48D41816A56DB800FD409B /* BPMScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMScene.h; sourceTree = "<group>"; };
-		6C48D41916A56DB900FD409B /* BPMScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMScene.m; sourceTree = "<group>"; };
 		6C48D41B16A620CA00FD409B /* grossini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grossini.png; sourceTree = "<group>"; };
 		6C48D41D16A636B300FD409B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		6C48D42216A74BBC00FD409B /* BPMCocosNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMCocosNavigationController.h; sourceTree = "<group>"; };
-		6C48D42316A74BBD00FD409B /* BPMCocosNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMCocosNavigationController.m; sourceTree = "<group>"; };
+		6C48D42616A772BA00FD409B /* BPMControllerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMControllerState.h; sourceTree = "<group>"; };
+		6C48D42716A772BA00FD409B /* BPMControllerState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMControllerState.m; sourceTree = "<group>"; };
+		6C48D42816A772BA00FD409B /* BPMKeyboardListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMKeyboardListener.h; sourceTree = "<group>"; };
+		6C48D42916A772BA00FD409B /* BPMKeyboardListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMKeyboardListener.m; sourceTree = "<group>"; };
+		6C48D42A16A772BA00FD409B /* BPMKeystrokeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMKeystrokeParser.h; sourceTree = "<group>"; };
+		6C48D42B16A772BB00FD409B /* BPMKeystrokeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMKeystrokeParser.m; sourceTree = "<group>"; };
+		6C48D42C16A772BB00FD409B /* iMpulseControllerKeyMapping.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iMpulseControllerKeyMapping.plist; sourceTree = "<group>"; };
+		6C48D43216A7730600FD409B /* BPMMediaKeysListenerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMMediaKeysListenerWindow.h; sourceTree = "<group>"; };
+		6C48D43316A7730600FD409B /* BPMMediaKeysListenerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMMediaKeysListenerWindow.m; sourceTree = "<group>"; };
+		6C48D43616A7738200FD409B /* BPMCocosNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMCocosNavigationController.h; sourceTree = "<group>"; };
+		6C48D43716A7738200FD409B /* BPMCocosNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMCocosNavigationController.m; sourceTree = "<group>"; };
+		6C48D43816A7738200FD409B /* BPMScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMScene.h; sourceTree = "<group>"; };
+		6C48D43916A7738200FD409B /* BPMScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMScene.m; sourceTree = "<group>"; };
 		6C527AE5169BA7DF0086EA4D /* snd_blank.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = snd_blank.aiff; sourceTree = "<group>"; };
-		6C968FA0168FE16D0042ACED /* BPMKeystrokeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMKeystrokeParser.h; sourceTree = "<group>"; };
-		6C968FA1168FE16D0042ACED /* BPMKeystrokeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMKeystrokeParser.m; sourceTree = "<group>"; };
 		6C968FA4168FEAE30042ACED /* BPMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMUtilities.h; sourceTree = "<group>"; };
 		6C968FA5168FEAE30042ACED /* BPMUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMUtilities.m; sourceTree = "<group>"; };
-		6C968FAB1690DF690042ACED /* iMpulseControllerKeyMapping.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iMpulseControllerKeyMapping.plist; sourceTree = "<group>"; };
-		6C968FAD169593AC0042ACED /* BPMControllerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMControllerState.h; sourceTree = "<group>"; };
-		6C968FAE169593AC0042ACED /* BPMControllerState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMControllerState.m; sourceTree = "<group>"; };
 		6C969021169624310042ACED /* devpanel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = devpanel.png; sourceTree = "<group>"; };
 		6C96902D169624560042ACED /* devnotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = devnotes.txt; sourceTree = "<group>"; };
 		6C96902F169624BC0042ACED /* whatsmyimpulsedoing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = whatsmyimpulsedoing.jpg; sourceTree = "<group>"; };
 		6C969030169624BC0042ACED /* mediamode.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mediamode.jpg; sourceTree = "<group>"; };
 		6C969031169624BD0042ACED /* userguide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userguide.png; sourceTree = "<group>"; };
 		6C969035169643520042ACED /* keymapping.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = keymapping.jpg; sourceTree = "<group>"; };
-		6CC1BEB516979A5000400329 /* BPMMediaKeysListenerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMMediaKeysListenerWindow.h; sourceTree = "<group>"; };
-		6CC1BEB616979A5000400329 /* BPMMediaKeysListenerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMMediaKeysListenerWindow.m; sourceTree = "<group>"; };
 		6CC1BEBD1697C19700400329 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		6CC1BEBF1697CC1B00400329 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6CE7081B168E353400248E54 /* iMpulse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMpulse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -491,8 +493,6 @@
 		6CE70847168E353400248E54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6CE70849168E353400248E54 /* iMpulseTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iMpulseTests.h; sourceTree = "<group>"; };
 		6CE7084A168E353400248E54 /* iMpulseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iMpulseTests.m; sourceTree = "<group>"; };
-		6CE70858168E609600248E54 /* BPMKeyboardListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMKeyboardListener.h; sourceTree = "<group>"; };
-		6CE70859168E609600248E54 /* BPMKeyboardListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMKeyboardListener.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -883,6 +883,41 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		6C48D42516A772BA00FD409B /* iMpulseControllerKit */ = {
+			isa = PBXGroup;
+			children = (
+				6C48D43116A7730600FD409B /* Optional */,
+				6C48D42816A772BA00FD409B /* BPMKeyboardListener.h */,
+				6C48D42916A772BA00FD409B /* BPMKeyboardListener.m */,
+				6C48D42A16A772BA00FD409B /* BPMKeystrokeParser.h */,
+				6C48D42B16A772BB00FD409B /* BPMKeystrokeParser.m */,
+				6C48D42616A772BA00FD409B /* BPMControllerState.h */,
+				6C48D42716A772BA00FD409B /* BPMControllerState.m */,
+				6C48D42C16A772BB00FD409B /* iMpulseControllerKeyMapping.plist */,
+			);
+			path = iMpulseControllerKit;
+			sourceTree = "<group>";
+		};
+		6C48D43116A7730600FD409B /* Optional */ = {
+			isa = PBXGroup;
+			children = (
+				6C48D43216A7730600FD409B /* BPMMediaKeysListenerWindow.h */,
+				6C48D43316A7730600FD409B /* BPMMediaKeysListenerWindow.m */,
+			);
+			path = Optional;
+			sourceTree = "<group>";
+		};
+		6C48D43516A7738200FD409B /* BPMCocos2D */ = {
+			isa = PBXGroup;
+			children = (
+				6C48D43616A7738200FD409B /* BPMCocosNavigationController.h */,
+				6C48D43716A7738200FD409B /* BPMCocosNavigationController.m */,
+				6C48D43816A7738200FD409B /* BPMScene.h */,
+				6C48D43916A7738200FD409B /* BPMScene.m */,
+			);
+			path = BPMCocos2D;
+			sourceTree = "<group>";
+		};
 		6C969020169624310042ACED /* NotInBundle */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,24 +991,13 @@
 			children = (
 				6CE7082E168E353400248E54 /* BPMAppDelegate.h */,
 				6CE7082F168E353400248E54 /* BPMAppDelegate.m */,
-				6CC1BEB516979A5000400329 /* BPMMediaKeysListenerWindow.h */,
-				6CC1BEB616979A5000400329 /* BPMMediaKeysListenerWindow.m */,
-				6CE70858168E609600248E54 /* BPMKeyboardListener.h */,
-				6CE70859168E609600248E54 /* BPMKeyboardListener.m */,
-				6C968FA0168FE16D0042ACED /* BPMKeystrokeParser.h */,
-				6C968FA1168FE16D0042ACED /* BPMKeystrokeParser.m */,
-				6C968FAD169593AC0042ACED /* BPMControllerState.h */,
-				6C968FAE169593AC0042ACED /* BPMControllerState.m */,
 				6C968FA4168FEAE30042ACED /* BPMUtilities.h */,
 				6C968FA5168FEAE30042ACED /* BPMUtilities.m */,
-				6C48D41816A56DB800FD409B /* BPMScene.h */,
-				6C48D41916A56DB900FD409B /* BPMScene.m */,
-				6C48D42216A74BBC00FD409B /* BPMCocosNavigationController.h */,
-				6C48D42316A74BBD00FD409B /* BPMCocosNavigationController.m */,
+				6C48D43516A7738200FD409B /* BPMCocos2D */,
+				6C48D42516A772BA00FD409B /* iMpulseControllerKit */,
 				6CAFE28616A54AD200077B71 /* cocos2d-iphone-2.0 */,
 				6CC1BECB1697D29800400329 /* Resources */,
 				6CE70826168E353400248E54 /* Supporting Files */,
-				6C968FAB1690DF690042ACED /* iMpulseControllerKeyMapping.plist */,
 			);
 			path = iMpulse;
 			sourceTree = "<group>";
@@ -1088,7 +1112,6 @@
 				6CE70832168E353400248E54 /* Default.png in Resources */,
 				6CE70834168E353400248E54 /* Default@2x.png in Resources */,
 				6CE70836168E353400248E54 /* Default-568h@2x.png in Resources */,
-				6C968FAC1690DF690042ACED /* iMpulseControllerKeyMapping.plist in Resources */,
 				6C969027169624310042ACED /* devpanel.png in Resources */,
 				6C96902E169624560042ACED /* devnotes.txt in Resources */,
 				6C969032169624BD0042ACED /* whatsmyimpulsedoing.jpg in Resources */,
@@ -1116,6 +1139,7 @@
 				6C48D33B16A55CA700FD409B /* TODO in Resources */,
 				6C48D33C16A55CA700FD409B /* Y2KINFO in Resources */,
 				6C48D41C16A620CA00FD409B /* grossini.png in Resources */,
+				6C48D43016A772BB00FD409B /* iMpulseControllerKeyMapping.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1152,11 +1176,7 @@
 			files = (
 				6CE7082C168E353400248E54 /* main.m in Sources */,
 				6CE70830168E353400248E54 /* BPMAppDelegate.m in Sources */,
-				6CE7085A168E609600248E54 /* BPMKeyboardListener.m in Sources */,
-				6C968FA2168FE16D0042ACED /* BPMKeystrokeParser.m in Sources */,
 				6C968FA6168FEAE30042ACED /* BPMUtilities.m in Sources */,
-				6C968FAF169593AD0042ACED /* BPMControllerState.m in Sources */,
-				6CC1BEB716979A5000400329 /* BPMMediaKeysListenerWindow.m in Sources */,
 				6C48D30816A55CA700FD409B /* aabb.c in Sources */,
 				6C48D30B16A55CA700FD409B /* mat4stack.c in Sources */,
 				6C48D30C16A55CA700FD409B /* matrix.c in Sources */,
@@ -1271,8 +1291,12 @@
 				6C48D38D16A55CA700FD409B /* TGAlib.m in Sources */,
 				6C48D38E16A55CA700FD409B /* TransformUtils.m in Sources */,
 				6C48D38F16A55CA700FD409B /* ZipUtils.m in Sources */,
-				6C48D41A16A56DB900FD409B /* BPMScene.m in Sources */,
-				6C48D42416A74BBE00FD409B /* BPMCocosNavigationController.m in Sources */,
+				6C48D42D16A772BB00FD409B /* BPMControllerState.m in Sources */,
+				6C48D42E16A772BB00FD409B /* BPMKeyboardListener.m in Sources */,
+				6C48D42F16A772BB00FD409B /* BPMKeystrokeParser.m in Sources */,
+				6C48D43416A7730600FD409B /* BPMMediaKeysListenerWindow.m in Sources */,
+				6C48D43A16A7738200FD409B /* BPMCocosNavigationController.m in Sources */,
+				6C48D43B16A7738200FD409B /* BPMScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
