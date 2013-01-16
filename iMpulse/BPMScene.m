@@ -9,6 +9,8 @@
 //Header
 #import "BPMScene.h"
 
+#import "cocos2d.h"
+
 @implementation BPMScene
 
 
@@ -24,7 +26,22 @@
                       
 - (void)onEnter
 {
+    [super onEnter];
+    
     DebugLogWhereAmI();
+    CCSprite *grossini = [CCSprite spriteWithFile:@"grossini.png"];
+    [self addChild:grossini];
+    [grossini setPosition:ccp(200,200)];
+    
+//    [grossini runAction:[CCMoveBy actionWithDuration:1 position:ccp(150,0)]];
+    
+    [grossini runAction: [CCSequence actions:
+                          [CCMoveBy actionWithDuration:1
+                                              position:ccp(150,0)],
+                          [CCMoveBy actionWithDuration:1
+                                              position:ccp(-150,0)],
+                          nil]
+     ];
 }
 
 

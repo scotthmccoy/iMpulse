@@ -144,6 +144,7 @@
 		6C48D41516A5687700FD409B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C48D41416A5687700FD409B /* libz.dylib */; };
 		6C48D41716A568BF00FD409B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C48D41616A568BF00FD409B /* QuartzCore.framework */; };
 		6C48D41A16A56DB900FD409B /* BPMScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D41916A56DB900FD409B /* BPMScene.m */; };
+		6C48D41C16A620CA00FD409B /* grossini.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C48D41B16A620CA00FD409B /* grossini.png */; };
 		6C527AE6169BA7DF0086EA4D /* snd_blank.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6C527AE5169BA7DF0086EA4D /* snd_blank.aiff */; };
 		6C968FA2168FE16D0042ACED /* BPMKeystrokeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FA1168FE16D0042ACED /* BPMKeystrokeParser.m */; };
 		6C968FA6168FEAE30042ACED /* BPMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FA5168FEAE30042ACED /* BPMUtilities.m */; };
@@ -447,6 +448,7 @@
 		6C48D41616A568BF00FD409B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6C48D41816A56DB800FD409B /* BPMScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMScene.h; sourceTree = "<group>"; };
 		6C48D41916A56DB900FD409B /* BPMScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMScene.m; sourceTree = "<group>"; };
+		6C48D41B16A620CA00FD409B /* grossini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grossini.png; sourceTree = "<group>"; };
 		6C527AE5169BA7DF0086EA4D /* snd_blank.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = snd_blank.aiff; sourceTree = "<group>"; };
 		6C968FA0168FE16D0042ACED /* BPMKeystrokeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMKeystrokeParser.h; sourceTree = "<group>"; };
 		6C968FA1168FE16D0042ACED /* BPMKeystrokeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMKeystrokeParser.m; sourceTree = "<group>"; };
@@ -900,6 +902,7 @@
 		6CC1BECB1697D29800400329 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6C48D41B16A620CA00FD409B /* grossini.png */,
 				6C527AE5169BA7DF0086EA4D /* snd_blank.aiff */,
 			);
 			path = Resources;
@@ -1103,6 +1106,7 @@
 				6C48D33A16A55CA700FD409B /* README in Resources */,
 				6C48D33B16A55CA700FD409B /* TODO in Resources */,
 				6C48D33C16A55CA700FD409B /* Y2KINFO in Resources */,
+				6C48D41C16A620CA00FD409B /* grossini.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
