@@ -31,17 +31,19 @@
     DebugLogWhereAmI();
     CCSprite *grossini = [CCSprite spriteWithFile:@"grossini.png"];
     [self addChild:grossini];
-    [grossini setPosition:ccp(200,200)];
+    [grossini setPosition:ccp(100,200)];
     
 //    [grossini runAction:[CCMoveBy actionWithDuration:1 position:ccp(150,0)]];
     
-    [grossini runAction: [CCSequence actions:
+    id sequence = [CCSequence actions:
                           [CCMoveBy actionWithDuration:1
                                               position:ccp(150,0)],
                           [CCMoveBy actionWithDuration:1
                                               position:ccp(-150,0)],
-                          nil]
-     ];
+              nil];
+    id repeatedSequence = [CCRepeatForever actionWithAction:sequence];
+    
+    [grossini runAction:repeatedSequence];
 }
 
 

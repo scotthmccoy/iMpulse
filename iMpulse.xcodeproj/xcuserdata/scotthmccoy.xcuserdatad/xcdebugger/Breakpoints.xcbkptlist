@@ -73,19 +73,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iMpulse/BPMScene.m"
-         timestampString = "379987567.043714"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "32"
-         endingLineNumber = "32"
-         landmarkName = "-onEnter"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "iMpulse/BPMScene.m"
          timestampString = "379985935.706387"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
