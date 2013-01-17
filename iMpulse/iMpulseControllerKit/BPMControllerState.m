@@ -62,7 +62,7 @@ static BPMControllerState* _singleton = nil;
 #pragma mark - Setters
 - (void) setState:(BOOL)isPressed forPlayer:(int)playerNumber andButtonID:(BPMControllerButton)buttonID
 {
-    DebugLogWhereAmI();
+    //DebugLogWhereAmI();
     
     //In MAW mode, we don't get key up events, so we treat the buttons as always being off.
     if (self.selectedOS == BPMControllerOSMAW)
@@ -76,7 +76,7 @@ static BPMControllerState* _singleton = nil;
     //Create a new NSNumber and replace the old one.
     [player replaceObjectAtIndex:buttonID withObject:[NSNumber numberWithBool:isPressed]];
     
-    DebugLog(@"buttonStates = [%@]", buttonStates);
+    //DebugLog(@"buttonStates = [%@]", buttonStates);
 }
 
 - (BOOL) getStateForPlayer:(int)playerNumber andButtonID:(BPMControllerButton)buttonID
