@@ -199,7 +199,7 @@ static BPMKeystrokeParser* _singleton = nil;
     }
     
     //Create ret
-    NSString* ret = [NSString stringWithFormat:@"NOTIFICATION_%@_%@_%@", base, playerString, pressedString];
+    NSString* ret = [NSString stringWithFormat:@"NOTIFICATION_%@_%@_%@", playerString, base, pressedString];
     
     //DebugLog(@"ret = [%@]", ret);
     

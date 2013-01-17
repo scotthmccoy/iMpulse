@@ -151,12 +151,12 @@ static BPMKeyboardListener* _singleton = nil;
     //Don't process this if we're in the middle of resetting the UITextView.
     if (isResetting)
     {
-        DebugLog(@"Resetting. Bailing with pos = [%i]", cursorLocation);
+        //DebugLog(@"Resetting. Bailing with pos = [%i]", cursorLocation);
         return;
     }
     
 
-    DebugLog(@"pos = [%i]", cursorLocation);
+    //DebugLog(@"pos = [%i]", cursorLocation);
 
     NSString* notificationName = nil;
     
@@ -164,22 +164,22 @@ static BPMKeyboardListener* _singleton = nil;
     switch (cursorLocation)
     {
         case 0:
-            DebugLog(@"Up Arrow Pressed");
+            //DebugLog(@"Up Arrow Pressed");
             notificationName = @"NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS";
             break;
             
         case 1:
-            DebugLog(@"Left Arrow Pressed");
+            //DebugLog(@"Left Arrow Pressed");
             notificationName = @"NOTIFICATION_PLAYER_1_D_PAD_LEFT_PRESS";
             break;
             
         case 3:
-            DebugLog(@"Right Arrow Pressed");
+            //DebugLog(@"Right Arrow Pressed");
             notificationName = @"NOTIFICATION_PLAYER_1_D_PAD_RIGHT_PRESS";
             break;
             
         case 4:
-            DebugLog(@"Down Arrow Pressed");
+            //DebugLog(@"Down Arrow Pressed");
             notificationName = @"NOTIFICATION_PLAYER_1_D_PAD_DOWN_PRESS";            
             break;
             
@@ -187,6 +187,8 @@ static BPMKeyboardListener* _singleton = nil;
             DebugLog(@"Unknwown arrow input. Pos = [%i]", cursorLocation);
             break;
     }
+    
+    DebugLog(@"%@", notificationName);
 
     //Post the notification
     if (notificationName)

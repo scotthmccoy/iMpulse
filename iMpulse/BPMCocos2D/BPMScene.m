@@ -29,21 +29,18 @@
     [super onEnter];
     
     DebugLogWhereAmI();
-    CCSprite *grossini = [CCSprite spriteWithFile:@"grossini.png"];
-    [self addChild:grossini];
-    [grossini setPosition:ccp(100,200)];
     
-//    [grossini runAction:[CCMoveBy actionWithDuration:1 position:ccp(150,0)]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS:) name:@"NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYER_1_D_PAD_RIGHT_PRESS:) name:@"NOTIFICATION_PLAYER_1_D_PAD_RIGHT_PRESS" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYER_1_D_PAD_DOWN_PRESS:) name:@"NOTIFICATION_PLAYER_1_D_PAD_DOWN_PRESS" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYER_1_D_PAD_LEFT_PRESS:) name:@"NOTIFICATION_PLAYER_1_D_PAD_LEFT_PRESS" object:nil];
     
-    id sequence = [CCSequence actions:
-                          [CCMoveBy actionWithDuration:1
-                                              position:ccp(150,0)],
-                          [CCMoveBy actionWithDuration:1
-                                              position:ccp(-150,0)],
-              nil];
-    id repeatedSequence = [CCRepeatForever actionWithAction:sequence];
     
-    [grossini runAction:repeatedSequence];
+    
+
+
+    
+    
 }
 
 
@@ -51,5 +48,31 @@
 {
     DebugLogWhereAmI();
 }
+
+
+#pragma mark - Observers
+
+- (void) observer_NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS:(NSNotification *)aNotification
+{
+    DebugLogWhereAmI();
+}
+
+- (void) observer_NOTIFICATION_PLAYER_1_D_PAD_RIGHT_PRESS:(NSNotification *)aNotification
+{
+    DebugLogWhereAmI();
+}
+
+- (void) observer_NOTIFICATION_PLAYER_1_D_PAD_DOWN_PRESS:(NSNotification *)aNotification
+{
+    DebugLogWhereAmI();
+}
+
+- (void) observer_NOTIFICATION_PLAYER_1_D_PAD_LEFT_PRESS:(NSNotification *)aNotification
+{
+    DebugLogWhereAmI();
+}
+
+
+
 
 @end

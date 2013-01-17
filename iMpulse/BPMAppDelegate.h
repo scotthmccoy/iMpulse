@@ -11,7 +11,7 @@
 
 @interface BPMAppDelegate : UIResponder <UIApplicationDelegate, CCDirectorDelegate>
 {
-    CCDirectorIOS* director;
+
 }
 
 @property (strong, nonatomic) UIWindow *window;
