@@ -158,29 +158,34 @@ static BPMKeyboardListener* _singleton = nil;
 
     //DebugLog(@"pos = [%i]", cursorLocation);
 
-    NSString* notificationName = nil;
+    NSString* firstNotificationName = nil;
+    NSString* secondNotificationName = nil;
     
     //Where is the cursor?
     switch (cursorLocation)
     {
         case 0:
             //DebugLog(@"Up Arrow Pressed");
-            notificationName = @"NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS";
+            firstNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS";
+            secondNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_UP_RELEASE";
             break;
             
         case 1:
             //DebugLog(@"Left Arrow Pressed");
-            notificationName = @"NOTIFICATION_PLAYER_1_D_PAD_LEFT_PRESS";
+            firstNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_LEFT_PRESS";
+            secondNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_LEFT_RELEASE";
             break;
             
         case 3:
             //DebugLog(@"Right Arrow Pressed");
-            notificationName = @"NOTIFICATION_PLAYER_1_D_PAD_RIGHT_PRESS";
+            firstNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_RIGHT_PRESS";
+            secondNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_RIGHT_RELEASE";
             break;
             
         case 4:
             //DebugLog(@"Down Arrow Pressed");
-            notificationName = @"NOTIFICATION_PLAYER_1_D_PAD_DOWN_PRESS";            
+            firstNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_DOWN_PRESS";
+            secondNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_DOWN_RELEASE";            
             break;
             
         default:
@@ -188,12 +193,23 @@ static BPMKeyboardListener* _singleton = nil;
             break;
     }
     
-    DebugLog(@"%@", notificationName);
+    DebugLog(@"%@", firstNotificationName);
 
     //Post the notification
-    if (notificationName)
+    if (firstNotificationName)
     {
-        [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+        //Post the first notification
+        [[NSNotificationCenter defaultCenter] postNotificationName:firstNotificationName object:nil];
+
+        //In half a second, post the second notification
+        dispatch_after
+        (
+            dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC),
+            dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0),
+            ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:secondNotificationName object:nil];
+            }
+        );
     }
     
     ///////////////////////////////////////////////////////////////////////////////////////////
