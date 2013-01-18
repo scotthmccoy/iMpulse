@@ -201,11 +201,13 @@
 - (void) observer_NOTIFICATION_PLAYER_1_RIGHT_SHOULDER_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    buttonNHighlight.opacity = 255;
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_LEFT_SHOULDER_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    buttonUHighlight.opacity = 255;
 }
 
 
@@ -261,11 +263,13 @@
 - (void) observer_NOTIFICATION_PLAYER_1_RIGHT_SHOULDER_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    buttonNHighlight.opacity = 0;
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_LEFT_SHOULDER_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    buttonUHighlight.opacity = 0;
 }
 
 
