@@ -36,6 +36,7 @@
 		6C44AF9316A9F6EB000AD721 /* controller_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C44AF7616A9F6EB000AD721 /* controller_front.png */; };
 		6C44AF9416A9F6EB000AD721 /* controller_front@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C44AF7716A9F6EB000AD721 /* controller_front@2x.png */; };
 		6C44AF9516A9F6EB000AD721 /* grossini.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C44AF7816A9F6EB000AD721 /* grossini.png */; };
+		6C44AF9816AA08B6000AD721 /* BPMControllerSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C44AF9716AA08B6000AD721 /* BPMControllerSprite.m */; };
 		6C48D30816A55CA700FD409B /* aabb.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D12B16A55CA600FD409B /* aabb.c */; };
 		6C48D30916A55CA700FD409B /* ChangeLog in Resources */ = {isa = PBXBuildFile; fileRef = 6C48D12C16A55CA600FD409B /* ChangeLog */; };
 		6C48D30B16A55CA700FD409B /* mat4stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D12F16A55CA600FD409B /* mat4stack.c */; };
@@ -246,6 +247,8 @@
 		6C44AF7616A9F6EB000AD721 /* controller_front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = controller_front.png; sourceTree = "<group>"; };
 		6C44AF7716A9F6EB000AD721 /* controller_front@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "controller_front@2x.png"; sourceTree = "<group>"; };
 		6C44AF7816A9F6EB000AD721 /* grossini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grossini.png; sourceTree = "<group>"; };
+		6C44AF9616AA08B6000AD721 /* BPMControllerSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMControllerSprite.h; sourceTree = "<group>"; };
+		6C44AF9716AA08B6000AD721 /* BPMControllerSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMControllerSprite.m; sourceTree = "<group>"; };
 		6C48D11B16A55CA600FD409B /* aabb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aabb.h; sourceTree = "<group>"; };
 		6C48D11D16A55CA600FD409B /* mat4stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mat4stack.h; sourceTree = "<group>"; };
 		6C48D11E16A55CA600FD409B /* matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
@@ -968,6 +971,8 @@
 			children = (
 				6C48D43616A7738200FD409B /* BPMCocosNavigationController.h */,
 				6C48D43716A7738200FD409B /* BPMCocosNavigationController.m */,
+				6C44AF9616AA08B6000AD721 /* BPMControllerSprite.h */,
+				6C44AF9716AA08B6000AD721 /* BPMControllerSprite.m */,
 				6C48D43816A7738200FD409B /* BPMScene.h */,
 				6C48D43916A7738200FD409B /* BPMScene.m */,
 			);
@@ -1425,6 +1430,7 @@
 				6C48D43416A7730600FD409B /* BPMMediaKeysListenerWindow.m in Sources */,
 				6C48D43A16A7738200FD409B /* BPMCocosNavigationController.m in Sources */,
 				6C48D43B16A7738200FD409B /* BPMScene.m in Sources */,
+				6C44AF9816AA08B6000AD721 /* BPMControllerSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

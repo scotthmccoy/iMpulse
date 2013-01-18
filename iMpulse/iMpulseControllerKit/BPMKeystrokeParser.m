@@ -73,7 +73,20 @@ static BPMKeystrokeParser* _singleton = nil;
     }
     
     //Get which controller event this character maps to, if any
-    NSDictionary* keyMap = [_keyMappings valueForKey:input];
+    NSDictionary* keyMap;
+    
+    //The @ character (and probably other characters) cannot be encoded.
+    @try
+    {
+         keyMap = [_keyMappings valueForKey:input];
+    }
+    @catch (id exception)
+    {
+        //Bail
+        DebugLog(@"Exception: [%@] Could not map key [%@]. Bailing.", exception, input);
+        return;
+    }
+
     
     //Does a mapping for that key exist?
     if (keyMap)

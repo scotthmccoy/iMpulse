@@ -10,27 +10,12 @@
 #import "CCScene.h"
 
 
-@class CCSprite;
+//@class CCSprite;
+@class BPMControllerSprite;
 
 @interface BPMScene : CCScene
 {
-    CCSprite* controllerContainer;
-    CCSprite* controllerFront;
-    CCSprite* controllerBack;
-    CCSprite* controllerBackArrow;
-    
-    CCSprite* buttonDPadUpHighlight;
-    CCSprite* buttonDPadRightHighlight;
-    CCSprite* buttonDPadDownHighlight;
-    CCSprite* buttonDPadLeftHighlight;
-    
-    CCSprite* buttonWHighlight;
-    CCSprite* buttonMHighlight;
-    CCSprite* buttonVHighlight;
-    CCSprite* buttonAHighlight;
-    
-    CCSprite* buttonUHighlight;
-    CCSprite* buttonNHighlight;
+    BPMControllerSprite* controller;
 }
 
 - (void) setupiMpulseControllerObservers;
