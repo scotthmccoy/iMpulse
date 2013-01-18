@@ -21,15 +21,14 @@ TODO:
 One potential complication - You can put the controller into MAW mode but the iOS app is simply not going to be able to tell when you released a key.
 
 
+TODO: compound sprites with backgrounds. How big is the parent sprite, and how do I position it?
 
-DONE: state machine for basic keys, test for both players
-TODO: map arrow keys into state machine (Not doable since arrow keys don't have an upstate, even on iOS)
-TODO: map media keys into state machine (not doable since media keys don't have an upstate)
-TODO: art. Download cocos2d.
+__block CGRect holderRect = CGRectZero;
+
+[holder visitDescendantsUsingBlock:^(CCNode* node) {
+	itemRect = CGRectUnion(holderRect, node.boundingBox);
+}];	
+
+holder.contentSize = holderRect.size;
 
 
-
-For the state machine, when it's in MAW mode, we don't have key up events. So tracking the state is worthless.
-
-How do I want to store the state? Two arrays? More dictionaries?
-This should be as fast as possible.

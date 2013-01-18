@@ -9,7 +9,11 @@
 //Header
 #import "BPMScene.h"
 
+//Cocos
 #import "cocos2d.h"
+
+//Other
+#import "BPMUtilities.h"
 
 @implementation BPMScene
 
@@ -28,12 +32,45 @@
 {
     DebugLogWhereAmI();
     
+    //Must do this on every onEnter
     [super onEnter];
     
-    [self setupObservers];
+    //Add observers for iMpulse Controller Events
+    [self setupiMpulseControllerObservers];
+    
+    //////////////////////////////
+    //Create Some Sprites
+    //////////////////////////////
+    controllerFront = [CCSprite spriteWithFile:@"controller_front.png"];
+    controllerFront.position = ccp(0,0);
+    
+    controllerBack = [CCSprite spriteWithFile:@"controller_back.png"];
+    controllerBack.position = ccp(40,-120);
+    
+    
+    controllerBackArrow = [CCSprite spriteWithFile:@"controller_backside_arrow.png"];
+    controllerBackArrow.position = ccp(-107,-99);
+    
+    //Create a container to hold the other sprites
+    controllerContainer = [CCSprite node];
+    controllerContainer.ignoreAnchorPointForPosition = YES;
+    
+    //controllerContainer.anchorPoint = ccp(0,0);
+    controllerContainer.position = ccp(250,200);
+
+    //////////////////////////////
+    //Add sprites to screen
+    //////////////////////////////
+    [controllerContainer addChild:controllerBackArrow];
+    [controllerContainer addChild:controllerFront];
+    [controllerContainer addChild:controllerBack];
+    [self addChild:controllerContainer];
     
 
-
+//    DebugLog(@"controllerContainer.contentSize = %f, %f", controllerContainer.boundingBox.size.width, controllerContainer.boundingBox.size.height);
+//    [controllerContainer setTextureRect:CGRectMake( 0, 0, controllerContainer.contentSize.width, controllerContainer.contentSize.height)];
+//    controllerContainer.color = ccORANGE;
+    
 
     
 }
@@ -264,7 +301,7 @@
 
 
 #pragma mark - Observer Setup
-- (void) setupObservers
+- (void) setupiMpulseControllerObservers
 {
     //Player 1 Press
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS:) name:@"NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS" object:nil];

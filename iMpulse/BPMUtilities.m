@@ -58,4 +58,14 @@
     }
 }
 
++ (NSString*) pointToString:(CGPoint)point
+{
+    return [NSString stringWithFormat:@"(%f,%f)", point.x, point.y];
+}
+
++ (NSString*) rectToString:(CGRect)rect
+{
+    return [NSString stringWithFormat:@"(%f,%f),(%fx%f)", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height];
+}
+
 @end

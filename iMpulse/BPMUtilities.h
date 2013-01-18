@@ -13,4 +13,7 @@
 + (NSString *) pathForResource: (NSString *) resource;
 + (UIColor *) debugLayoutColor;
 
++ (NSString*) rectToString:(CGRect)rect;
++ (NSString*) pointToString:(CGPoint)point;
+
 @end

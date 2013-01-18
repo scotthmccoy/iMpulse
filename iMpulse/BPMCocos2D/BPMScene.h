@@ -9,6 +9,17 @@
 //Superclass
 #import "CCScene.h"
 
+
+@class CCSprite;
+
 @interface BPMScene : CCScene
+{
+    CCSprite* controllerContainer;
+    CCSprite* controllerFront;
+    CCSprite* controllerBack;
+    CCSprite* controllerBackArrow;
+}
+
+- (void) setupiMpulseControllerObservers;
 
 @end
