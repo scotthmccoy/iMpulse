@@ -201,7 +201,7 @@ static BPMKeyboardListener* _singleton = nil;
         //Post the first notification
         [[NSNotificationCenter defaultCenter] postNotificationName:firstNotificationName object:nil];
 
-        //In half a second, post the second notification
+        //In a fraction of a second, post the second notification. This will cause the key to release.
         dispatch_after
         (
             dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC),

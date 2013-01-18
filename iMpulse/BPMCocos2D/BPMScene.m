@@ -59,7 +59,7 @@
     controllerContainer.position = ccp(250,200);
 
     //////////////////////////////
-    //Add sprites to screen
+    //Add main sprites to screen
     //////////////////////////////
     [controllerContainer addChild:controllerBackArrow];
     [controllerContainer addChild:controllerFront];
@@ -67,9 +67,7 @@
     [self addChild:controllerContainer];
     
 
-//    DebugLog(@"controllerContainer.contentSize = %f, %f", controllerContainer.boundingBox.size.width, controllerContainer.boundingBox.size.height);
-//    [controllerContainer setTextureRect:CGRectMake( 0, 0, controllerContainer.contentSize.width, controllerContainer.contentSize.height)];
-//    controllerContainer.color = ccORANGE;
+
 
     
     ///////////////////////////////////////////
@@ -91,11 +89,6 @@
     buttonDPadLeftHighlight.position = ccp(72,99);
     buttonDPadLeftHighlight.opacity = 0;
 
-    
-    
-    
-    
-    
     buttonWHighlight = [CCSprite spriteWithFile:@"button_w_highlight.png"];
     buttonWHighlight.position = ccp(203,72);
     buttonWHighlight.opacity = 0;
@@ -112,9 +105,6 @@
     buttonAHighlight.position = ccp(175,98);
     buttonAHighlight.opacity = 0;
     
-    
-    
-    
     [controllerFront addChild:buttonDPadUpHighlight];
     [controllerFront addChild:buttonDPadRightHighlight];
     [controllerFront addChild:buttonDPadDownHighlight];
@@ -129,8 +119,18 @@
     
     
     ///////////////////////////////////////////
-    //Add button highlights to Controller Front
+    //Add button highlights to Controller Back
     ///////////////////////////////////////////
+    buttonUHighlight = [CCSprite spriteWithFile:@"button_u_highlight.png"];
+    buttonUHighlight.position = ccp(69,58);
+    buttonUHighlight.opacity = 0;
+    
+    buttonNHighlight = [CCSprite spriteWithFile:@"button_n_highlight.png"];
+    buttonNHighlight.position = ccp(151,58);
+    buttonNHighlight.opacity = 0;
+    
+    [controllerBack addChild:buttonNHighlight];
+    [controllerBack addChild:buttonUHighlight];
 }
 
 
@@ -149,24 +149,28 @@
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self hideDPadHighlights];
     buttonDPadUpHighlight.opacity = 255;
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_RIGHT_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self hideDPadHighlights];
     buttonDPadRightHighlight.opacity = 255;
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_DOWN_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self hideDPadHighlights];
     buttonDPadDownHighlight.opacity = 255;
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_LEFT_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self hideDPadHighlights];
     buttonDPadLeftHighlight.opacity = 255;
 }
 
@@ -435,6 +439,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYER_2_LEFT_SHOULDER_RELEASE:) name:@"NOTIFICATION_PLAYER_2_LEFT_SHOULDER_RELEASE" object:nil];
 }
 
-
+#pragma mark - Helper Methods
+- (void) hideDPadHighlights
+{
+    buttonDPadUpHighlight.opacity = 0;
+    buttonDPadRightHighlight.opacity = 0;
+    buttonDPadDownHighlight.opacity = 0;
+    buttonDPadLeftHighlight.opacity = 0;
+}
 
 @end
