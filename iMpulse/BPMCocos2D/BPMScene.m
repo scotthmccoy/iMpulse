@@ -70,8 +70,27 @@
 //    DebugLog(@"controllerContainer.contentSize = %f, %f", controllerContainer.boundingBox.size.width, controllerContainer.boundingBox.size.height);
 //    [controllerContainer setTextureRect:CGRectMake( 0, 0, controllerContainer.contentSize.width, controllerContainer.contentSize.height)];
 //    controllerContainer.color = ccORANGE;
-    
 
+    
+    //////////////////////////////////
+    //Add button highlights to screen
+    //////////////////////////////////
+    CCSprite* buttonWHighlight = [CCSprite spriteWithFile:@"button_w_highlight.png"];
+    buttonWHighlight.position = ccp(203,72);
+
+    CCSprite* buttonMHighlight = [CCSprite spriteWithFile:@"button_m_highlight.png"];
+    buttonMHighlight.position = ccp(203,124);
+    
+    CCSprite* buttonVHighlight = [CCSprite spriteWithFile:@"button_v_highlight.png"];
+    buttonVHighlight.position = ccp(229,98);
+    
+    CCSprite* buttonAHighlight = [CCSprite spriteWithFile:@"button_a_highlight.png"];
+    buttonAHighlight.position = ccp(175,98);
+    
+    [controllerFront addChild:buttonWHighlight];
+    [controllerFront addChild:buttonMHighlight];
+    [controllerFront addChild:buttonVHighlight];
+    [controllerFront addChild:buttonAHighlight];
     
 }
 
