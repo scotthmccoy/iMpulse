@@ -18,6 +18,19 @@
     CCSprite* controllerFront;
     CCSprite* controllerBack;
     CCSprite* controllerBackArrow;
+    
+    CCSprite* buttonDPadUpHighlight;
+    CCSprite* buttonDPadRightHighlight;
+    CCSprite* buttonDPadDownHighlight;
+    CCSprite* buttonDPadLeftHighlight;
+    
+    CCSprite* buttonWHighlight;
+    CCSprite* buttonMHighlight;
+    CCSprite* buttonVHighlight;
+    CCSprite* buttonAHighlight;
+    
+    CCSprite* buttonUHighlight;
+    CCSprite* buttonNHighlight;
 }
 
 - (void) setupiMpulseControllerObservers;
