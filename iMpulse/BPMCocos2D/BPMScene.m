@@ -37,62 +37,148 @@
     [super onEnter];
     
     //Create bg
-    CCSprite* bg = [CCSprite spriteWithFile:@"background.png"];
+    CCSprite* bg = [CCSprite spriteWithFile:@"bgScene.png"];
     bg.ignoreAnchorPointForPosition = YES;
     
     ///////////////
     //Create tabs
     ///////////////
-    CCMenuItemImage * menuItem1 = [CCMenuItemImage itemWithNormalImage:@"btn_help_inactive.png"
-                                                         selectedImage: @"btn_help_active.png"
+    CCMenuItemImage* mnuInstructions = [CCMenuItemImage itemWithNormalImage:@"btn_instructions_inactive.png"
+                                                         selectedImage: @"btn_instructions_active.png"
                                                                 target:self
-                                                              selector:@selector(doSomethingOne:)];
+                                                              selector:@selector(callback_mnuInstructions:)];
     
-    CCMenuItemImage * menuItem2 = [CCMenuItemImage itemWithNormalImage:@"btn_info_inactive.png"
-                                                         selectedImage: @"btn_info_active.png"
+    CCMenuItemImage* mnuDevTool = [CCMenuItemImage itemWithNormalImage:@"btn_devtool_inactive.png"
+                                                         selectedImage: @"btn_devtool_active.png"
                                                                 target:self
-                                                              selector:@selector(doSomethingTwo:)];
+                                                              selector:@selector(callback_mnuDevTool:)];
     
     
-    CCMenuItemImage * menuItem3 = [CCMenuItemImage itemWithNormalImage:@"btn_main_inactive.png"
+    CCMenuItemImage* mnuMain = [CCMenuItemImage itemWithNormalImage:@"btn_main_inactive.png"
                                                          selectedImage: @"btn_main_active.png"
                                                                 target:self
-                                                              selector:@selector(doSomethingThree:)]; 
+                                                              selector:@selector(callback_mnuMain:)];
     
     
     // Create a menu and add your menu items to it
-    CCMenu * myMenu = [CCMenu menuWithItems:menuItem1, menuItem2, menuItem3, nil];
+    tabMenu = [CCMenu menuWithItems:mnuInstructions, mnuDevTool, mnuMain, nil];
     
     // Arrange the menu items vertically
-    [myMenu alignItemsHorizontally];
-    myMenu.position = ccp(415,297);
+    [tabMenu alignItemsHorizontally];
+    tabMenu.position = ccp(415,297);
 
     
     
     
+    ///////////////////
+    //Create Main Layer
+    ///////////////////
+    lyrMain = [[CCLayer alloc] init];
+    lyrMain.visible = NO;
+    
     //Create the controller sprite
     controller = [BPMControllerSprite sprite];
     controller.position = ccp(315,180);
+    [lyrMain addChild:controller];
     
-    //Add Sprites
+    //TODO: add all the other buttons
+    
+    
+    
+    
+    ///////////////////
+    //Create DevTool Layer
+    ///////////////////
+    lyrDevTool = [[CCLayer alloc] init];
+    lyrDevTool.visible = NO;
+    
+    //Create its background
+    CCSprite* bgDevTool = [CCSprite spriteWithFile:@"bgDevTool.png"];
+    bgDevTool.ignoreAnchorPointForPosition = YES;
+    bgDevTool.position = ccp(26,15);
+    
+    //Create label
+    CCLabelTTF* label = [CCLabelTTF labelWithString:@"Test Test Test" dimensions:bgDevTool.contentSize hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap  fontName:@"Courier New" fontSize:10.0];
+    label.position = ccp(30,13);
+    label.ignoreAnchorPointForPosition = YES;    
+    label.string = @"Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test TestTest Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test ";
+    
+    
+    [lyrDevTool addChild:bgDevTool];
+    [lyrDevTool addChild:label];
+    
+    //TODO: add a UITextView
+
+    //TODO: make the Kit have a delegate Logging method, and point it here.
+    
+    
+    
+    
+    
+    ///////////////////
+    //Create Instructions Layer
+    ///////////////////
+    lyrInstructions = [[CCLayer alloc] init];
+    lyrInstructions.visible = NO;
+    
+    CCSprite* bgInstructions = [CCSprite spriteWithFile:@"bgInstructions.png"];
+    bgInstructions.ignoreAnchorPointForPosition = YES;
+    [lyrInstructions addChild:bgInstructions];
+    
+    
+    ///////////////////////
+    //Add children to self
+    ///////////////////////
     [self addChild:bg];
-    [self addChild:controller];
-    [self addChild:myMenu];    
+
+    [self addChild:lyrDevTool];
+    [self addChild:lyrInstructions];
+    [self addChild:lyrMain];
     
+    [self addChild:tabMenu];
+    
+    //Select the Main tab
+    [mnuMain activate];
 }
-                      
-                      
-- (void) doSomethingOne: (CCMenuItem  *) menuItem
+
+#pragma mark - Menu Button Callbacks
+- (void) callback_mnuDevTool: (CCMenuItem  *) menuItem
 {
-	NSLog(@"The first menu was called");
+    DebugLogWhereAmI();
+    
+    //Treat the menu as radio buttons
+    [BPMUtilities cocosRadioButtons:menuItem];
+
+    //Toggle layer visibility
+    lyrMain.visible = NO;
+    lyrInstructions.visible = NO;
+    lyrDevTool.visible = YES;
 }
-- (void) doSomethingTwo: (CCMenuItem  *) menuItem
+
+- (void) callback_mnuInstructions: (CCMenuItem  *) menuItem
 {
-	NSLog(@"The second menu was called");
+    DebugLogWhereAmI();
+    
+    //Treat the menu as radio buttons
+    [BPMUtilities cocosRadioButtons:menuItem];
+    
+    //Toggle layer visibility
+    lyrMain.visible = NO;
+    lyrInstructions.visible = YES;
+    lyrDevTool.visible = NO;
 }
-- (void) doSomethingThree: (CCMenuItem  *) menuItem
+
+- (void) callback_mnuMain: (CCMenuItem  *) menuItem
 {
-	NSLog(@"The third menu was called");
+    DebugLogWhereAmI();
+    
+    //Treat the menu as radio buttons
+    [BPMUtilities cocosRadioButtons:menuItem];
+    
+    //Toggle layer visibility
+    lyrMain.visible = YES;
+    lyrInstructions.visible = NO;
+    lyrDevTool.visible = NO;
 }
 
 

@@ -6,7 +6,12 @@
 //  Copyright (c) 2012 Scott McCoy. All rights reserved.
 //
 
+//Header
 #import "BPMUtilities.h"
+
+//Cocos2d
+#import "cocos2d.h"
+
 
 @implementation BPMUtilities
 
@@ -66,6 +71,40 @@
 + (NSString*) rectToString:(CGRect)rect
 {
     return [NSString stringWithFormat:@"(%f,%f),(%fx%f)", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height];
+}
+
+
+#pragma mark - Cocos Stuff that should probably be in categories
+
+//This seems to be a feature missing from cocos2d -
+//The ability to make radio buttons. Drop this into a callback for a CCMenu and it will set selected on the
+//current menuItem and unselected on every other one.
++ (void) cocosRadioButtons:(CCMenuItem*)menuItem
+{
+    for (CCMenuItem* item in menuItem.parent.children)
+    {
+        if (item == menuItem)
+        {
+            [menuItem selected];
+        }
+        else
+        {
+            [item unselected];
+        }
+    }
+}
+
+
++ (void) runAction:(CCAction*) action onChildrenOfNode: (CCNode*) node
+{
+    for( CCNode *childNode in [node children])
+    {
+        //Visit children of nodes recursively
+        [BPMUtilities runAction:action onChildrenOfNode:childNode];
+
+        //Have to make a copy of the action, or else only the first node visited actually performs it.
+        [childNode runAction:[action copy]];
+    }
 }
 
 @end

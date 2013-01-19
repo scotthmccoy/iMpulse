@@ -12,11 +12,20 @@
 
 //@class CCSprite;
 @class BPMControllerSprite;
+@class CCLayer;
+@class CCMenu;
 
 @interface BPMScene : CCScene
 {
+    CCMenu* tabMenu;
+    
+    CCLayer* lyrMain;
+    CCLayer* lyrDevTool;
+    CCLayer* lyrInstructions;    
+    
     BPMControllerSprite* controller;
 }
+
 
 
 
