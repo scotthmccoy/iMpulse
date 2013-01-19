@@ -12,9 +12,16 @@
 //For MPMusicPlayerController
 #import <AVFoundation/AVFoundation.h>
 
+//Protocol
+#import "BPMLoggingDelegate.h"
+
 @interface BPMMediaKeysListenerWindow : UIWindow
 {
     AVAudioPlayer* theAudio;
 }
+
++ (BPMMediaKeysListenerWindow*)singleton;
+
+@property (readwrite) id<BPMLoggingDelegate> loggingDelegate;
 
 @end

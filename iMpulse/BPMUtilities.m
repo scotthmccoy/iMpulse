@@ -73,6 +73,10 @@
     return [NSString stringWithFormat:@"(%f,%f),(%fx%f)", rect.origin.x, rect.origin.y, rect.size.width, rect.size.height];
 }
 
++ (NSString*) sizeToString:(CGSize)size
+{
+    return [NSString stringWithFormat:@"(%fx%f)", size.width, size.height];
+}
 
 #pragma mark - Cocos Stuff that should probably be in categories
 

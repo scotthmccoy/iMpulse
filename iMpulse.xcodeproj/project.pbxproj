@@ -283,6 +283,7 @@
 		6C44B00816AA7E95000AD721 /* btn_main_inactive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_main_inactive@2x.png"; sourceTree = "<group>"; };
 		6C44B01516AA7EA4000AD721 /* bgInstructions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgInstructions.png; sourceTree = "<group>"; };
 		6C44B01616AA7EA4000AD721 /* bgInstructions@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgInstructions@2x.png"; sourceTree = "<group>"; };
+		6C44B01916AA9443000AD721 /* BPMLoggingDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPMLoggingDelegate.h; sourceTree = "<group>"; };
 		6C48D11B16A55CA600FD409B /* aabb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aabb.h; sourceTree = "<group>"; };
 		6C48D11D16A55CA600FD409B /* mat4stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mat4stack.h; sourceTree = "<group>"; };
 		6C48D11E16A55CA600FD409B /* matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
@@ -1051,6 +1052,7 @@
 				6C48D42916A772BA00FD409B /* BPMKeyboardListener.m */,
 				6C48D42A16A772BA00FD409B /* BPMKeystrokeParser.h */,
 				6C48D42B16A772BB00FD409B /* BPMKeystrokeParser.m */,
+				6C44B01916AA9443000AD721 /* BPMLoggingDelegate.h */,
 				6C48D42616A772BA00FD409B /* BPMControllerState.h */,
 				6C48D42716A772BA00FD409B /* BPMControllerState.m */,
 				6C48D42C16A772BB00FD409B /* iMpulseControllerKeyMapping.plist */,

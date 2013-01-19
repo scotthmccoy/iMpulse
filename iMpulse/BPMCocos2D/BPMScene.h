@@ -9,21 +9,33 @@
 //Superclass
 #import "CCScene.h"
 
+//Protocol
+#import "BPMLoggingDelegate.h"
 
-//@class CCSprite;
+
+//Cocos Classes
 @class BPMControllerSprite;
 @class CCLayer;
 @class CCMenu;
+@class CCLabelTTF;
 
-@interface BPMScene : CCScene
+@interface BPMScene : CCScene <BPMLoggingDelegate>
 {
     CCMenu* tabMenu;
     
+    //Main Layer
     CCLayer* lyrMain;
-    CCLayer* lyrDevTool;
-    CCLayer* lyrInstructions;    
-    
     BPMControllerSprite* controller;
+    
+    //Dev Tool Layer
+    CCLayer* lyrDevTool;
+    NSMutableString* strLog;
+    CCLabelTTF* lblDevTool;
+    NSDateFormatter* dateFormat;
+    
+    
+    //Instructions Layer
+    CCLayer* lyrInstructions;    
 }
 
 

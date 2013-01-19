@@ -16,7 +16,7 @@
 static BPMControllerState* _singleton = nil;
 
 //Singleton method
-+ (id)singleton
++ (BPMControllerState*)singleton
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

@@ -20,11 +20,12 @@
 
 @implementation BPMKeyboardListener
 
+@synthesize loggingDelegate;
 
 //For +singleton method
 static BPMKeyboardListener* _singleton = nil;
 //Singleton method
-+ (id)singleton
++ (BPMKeyboardListener*)singleton
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -201,6 +202,13 @@ static BPMKeyboardListener* _singleton = nil;
         //Post the first notification
         [[NSNotificationCenter defaultCenter] postNotificationName:firstNotificationName object:nil];
 
+        //Log the message to the logger
+        if (self.loggingDelegate)
+        {
+            [self.loggingDelegate log:firstNotificationName];
+        }
+        
+
         //In a fraction of a second, post the second notification. This will cause the key to release.
         dispatch_after
         (
@@ -208,6 +216,12 @@ static BPMKeyboardListener* _singleton = nil;
             dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0),
             ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName:secondNotificationName object:nil];
+                
+                //Log the message to the logger
+                if (self.loggingDelegate)
+                {
+                    [self.loggingDelegate log:secondNotificationName];
+                }
             }
         );
     }

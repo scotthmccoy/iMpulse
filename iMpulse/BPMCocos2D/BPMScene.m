@@ -13,6 +13,11 @@
 #import "cocos2d.h"
 #import "BPMControllerSprite.h"
 
+//For logging delegate
+#import "BPMKeystrokeParser.h"
+#import "BPMMediaKeysListenerWindow.h"
+#import "BPMKeyboardListener.h"
+
 //Other
 #import "BPMUtilities.h"
 
@@ -97,15 +102,30 @@
     bgDevTool.ignoreAnchorPointForPosition = YES;
     bgDevTool.position = ccp(26,15);
     
+
+    
     //Create label
-    CCLabelTTF* label = [CCLabelTTF labelWithString:@"Test Test Test" dimensions:bgDevTool.contentSize hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap  fontName:@"Courier New" fontSize:10.0];
-    label.position = ccp(30,13);
-    label.ignoreAnchorPointForPosition = YES;    
-    label.string = @"Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test TestTest Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test ";
+    lblDevTool = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(428, 248) hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap  fontName:@"Courier New" fontSize:10.0];
+    lblDevTool.position = ccp(30,13);
+    lblDevTool.ignoreAnchorPointForPosition = YES;    
+
+    //Become the logging delegate for all the controller kit classes.
+    [BPMKeystrokeParser singleton].loggingDelegate = self;
+    [BPMKeyboardListener singleton].loggingDelegate = self;
+    [BPMMediaKeysListenerWindow singleton].loggingDelegate = self;
+
+    //Create log string
+    strLog = [[NSMutableString alloc] init];
+    
+    //Create dateFormatter
+    dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateStyle:NSDateFormatterShortStyle];
+    [dateFormat setTimeStyle:NSDateFormatterLongStyle];
     
     
+    //Add Children
     [lyrDevTool addChild:bgDevTool];
-    [lyrDevTool addChild:label];
+    [lyrDevTool addChild:lblDevTool];
     
     //TODO: add a UITextView
 
@@ -144,7 +164,7 @@
 #pragma mark - Menu Button Callbacks
 - (void) callback_mnuDevTool: (CCMenuItem  *) menuItem
 {
-    DebugLogWhereAmI();
+    //DebugLogWhereAmI();
     
     //Treat the menu as radio buttons
     [BPMUtilities cocosRadioButtons:menuItem];
@@ -157,7 +177,7 @@
 
 - (void) callback_mnuInstructions: (CCMenuItem  *) menuItem
 {
-    DebugLogWhereAmI();
+    //DebugLogWhereAmI();
     
     //Treat the menu as radio buttons
     [BPMUtilities cocosRadioButtons:menuItem];
@@ -170,7 +190,7 @@
 
 - (void) callback_mnuMain: (CCMenuItem  *) menuItem
 {
-    DebugLogWhereAmI();
+    //DebugLogWhereAmI();
     
     //Treat the menu as radio buttons
     [BPMUtilities cocosRadioButtons:menuItem];
@@ -183,7 +203,27 @@
 
 
 
-
+#pragma mark - BPMKeystrokeParserLoggingDelegate
+- (void) log:(NSString*)message
+{
+    //Force onto main thread
+    if (![NSThread isMainThread])
+    {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self log:message];
+        });
+        
+        return;
+    }
+    
+    //TODO: only keep 20 lines of output
+    
+    NSString* strDate = [dateFormat stringFromDate:[NSDate date]];
+    
+    [strLog appendFormat:@"[%@] %@\n", strDate, message];
+        
+    lblDevTool.string = strLog;
+}
 
 
 

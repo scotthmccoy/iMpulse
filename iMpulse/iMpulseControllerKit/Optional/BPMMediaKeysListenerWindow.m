@@ -18,6 +18,24 @@
 
 @implementation BPMMediaKeysListenerWindow
 
+@synthesize loggingDelegate;
+
+
+//For +singleton method
+static BPMMediaKeysListenerWindow* _singleton = nil;
+//Singleton method
++ (BPMMediaKeysListenerWindow*)singleton
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        //Set the ivar
+        _singleton = [[BPMMediaKeysListenerWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    });
+    
+    return _singleton;
+}
+
+
 - (id)initWithFrame:(CGRect)frame;
 {
     self = [super initWithFrame:frame];
@@ -79,6 +97,12 @@
     if (notificationName)
     {
         [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+    }
+    
+    //Log the message to the logger
+    if (self.loggingDelegate)
+    {
+        [self.loggingDelegate log:notificationName];
     }
 }
 

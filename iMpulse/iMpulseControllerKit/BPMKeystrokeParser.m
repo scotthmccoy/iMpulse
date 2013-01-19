@@ -23,6 +23,7 @@
 @interface BPMControllerState (private)
 
 - (NSString*) notificationStringWithBase:(NSString*)base andPlayerNumber:(int)playerNumber andPressed:(BOOL)pressed;
+
 - (void) setKeyMapWithButtonId:(int)buttonIdInt andCharacter:(NSString*)character notificationBase:(NSString*)notificationBase playerNumber:(int)playerNumberInt isPressed:(BOOL)isPressedBool;
 
 @end
@@ -30,11 +31,13 @@
 
 @implementation BPMKeystrokeParser
 
+@synthesize loggingDelegate;
+
 //For +singleton method
 static BPMKeystrokeParser* _singleton = nil;
 
 //Singleton method
-+ (id)singleton
++ (BPMKeystrokeParser*)singleton
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -117,6 +120,12 @@ static BPMKeystrokeParser* _singleton = nil;
     
     //Post a notification
     [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+    
+    //Log the message to the logger
+    if (self.loggingDelegate)
+    {
+        [self.loggingDelegate log:notificationName];
+    }
 }
 
 

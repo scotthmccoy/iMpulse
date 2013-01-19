@@ -41,7 +41,7 @@ typedef enum
 }
 
 
-+ (id) singleton;
++ (BPMControllerState*)singleton;
 
 
 #pragma mark - getters and setters

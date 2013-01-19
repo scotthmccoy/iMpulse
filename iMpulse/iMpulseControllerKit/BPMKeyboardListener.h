@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+//Protocol
+#import "BPMLoggingDelegate.h"
+
 @interface BPMKeyboardListener : NSObject <UITextViewDelegate>
 {
     @private
@@ -15,10 +18,9 @@
     BOOL isResetting;
 }
 
+@property (readwrite) id<BPMLoggingDelegate> loggingDelegate;
 
-
-
-+ (id) singleton;
++ (BPMKeyboardListener*)singleton;
 - (id) init;
 - (void) setupWithParentView:(UIView*)parent;
 

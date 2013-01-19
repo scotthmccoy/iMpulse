@@ -19,6 +19,7 @@
 
 + (NSString*) rectToString:(CGRect)rect;
 + (NSString*) pointToString:(CGPoint)point;
++ (NSString*) sizeToString:(CGSize)size;
 
 + (void) cocosRadioButtons:(CCMenuItem*)menuItem;
 + (void) runAction:(CCAction*) action onChildrenOfNode: (CCNode*) node;

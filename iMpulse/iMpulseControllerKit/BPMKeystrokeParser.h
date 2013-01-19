@@ -8,14 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
+//Protocol
+#import "BPMLoggingDelegate.h"
+
 @interface BPMKeystrokeParser : NSObject
 {
     NSDictionary* _keyMappings;
 }
 
-+ (id) singleton;
+@property (readwrite) id<BPMLoggingDelegate> loggingDelegate;
+
++ (BPMKeystrokeParser*)singleton;
 - (id) init;
 - (void) takeInput:(NSString*) input;
 - (NSString*) notificationStringWithBase:(NSString*)base andPlayerNumber:(int)playerNumber andPressed:(BOOL)pressed;
+
+
+
 
 @end

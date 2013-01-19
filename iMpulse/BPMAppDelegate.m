@@ -27,7 +27,7 @@
     //Instead of using a normal UIWindow, here we use one that has a looping sound file playing on it
     //This keeps it conveniently global, and since Window is high up in the responder tree, it's a good place
     //to capture media key events. Please note that in a normal app, this step will not be neccessary.
-    self.window = [[BPMMediaKeysListenerWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = [BPMMediaKeysListenerWindow singleton];
     self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
     
