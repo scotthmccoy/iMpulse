@@ -36,10 +36,16 @@
     //Must do this on every onEnter
     [super onEnter];
     
+    //Create bg
+    CCSprite* bg = [CCSprite spriteWithFile:@"background.png"];
+    bg.ignoreAnchorPointForPosition = YES;
+    
     //Create the controller sprite
     controller = [BPMControllerSprite sprite];
-    controller.position = ccp(300,200);
+    controller.position = ccp(315,180);
     
+    //Add Sprites
+    [self addChild:bg];
     [self addChild:controller];
     
 }

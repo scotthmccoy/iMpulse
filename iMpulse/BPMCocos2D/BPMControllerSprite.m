@@ -176,8 +176,6 @@
     DebugLogWhereAmI();
     [self hideDPadHighlights];
     buttonDPadUpHighlight.opacity = 255;
-    
-    [self setSouthpawMode:YES];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_RIGHT_PRESS:(NSNotification *)aNotification
@@ -192,8 +190,6 @@
     DebugLogWhereAmI();
     [self hideDPadHighlights];
     buttonDPadDownHighlight.opacity = 255;
-    
-    [self setSouthpawMode:NO];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_LEFT_PRESS:(NSNotification *)aNotification

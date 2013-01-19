@@ -18,6 +18,6 @@
     BPMControllerSprite* controller;
 }
 
-- (void) setupiMpulseControllerObservers;
+
 
 @end
