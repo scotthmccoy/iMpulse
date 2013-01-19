@@ -161,6 +161,9 @@
     
     //Select the Main tab
     [mnuMain activate];
+    
+    //Put a message into the log so that it looks ready to receive input.
+    [self log:@"DEVTOOL READY TO ACCEPT CONTROLLER INPUT."];
 }
 
 #pragma mark - Menu Button Callbacks

@@ -194,7 +194,7 @@ static BPMKeyboardListener* _singleton = nil;
             break;
     }
     
-    DebugLog(@"%@", firstNotificationName);
+    //DebugLog(@"%@", firstNotificationName);
 
     //Post the notification
     if (firstNotificationName)
