@@ -114,8 +114,10 @@
     [BPMKeyboardListener singleton].loggingDelegate = self;
     [BPMMediaKeysListenerWindow singleton].loggingDelegate = self;
 
-    //Create log string
+    //Create log array and mutable string
+    arrayLog = [[NSMutableArray alloc] init];
     strLog = [[NSMutableString alloc] init];
+
     
     //Create dateFormatter
     dateFormat = [[NSDateFormatter alloc] init];
@@ -216,13 +218,31 @@
         return;
     }
     
-    //TODO: only keep 20 lines of output
-    
+
+    //Create the log message
     NSString* strDate = [dateFormat stringFromDate:[NSDate date]];
+    NSString* logMessage = [NSString stringWithFormat:@"[%@] %@", strDate, message];
     
-    [strLog appendFormat:@"[%@] %@\n", strDate, message];
-        
+    //Add it to the rolling log
+    [arrayLog addObject:logMessage];
+    
+    //If it's more than 20 items, remove the oldest.
+    if ([arrayLog count] > 20)
+    {
+        [arrayLog removeObjectAtIndex:0];
+    }
+    
+    //Walk the array and make the string that will go into the label
+    for (NSString* msg in arrayLog)
+    {
+        [strLog appendFormat:@"%@\n", msg];
+    }
+    
+    //Set the label string
     lblDevTool.string = strLog;
+    
+    //Wipe out strLog
+    [strLog setString:@""];
 }
 
 

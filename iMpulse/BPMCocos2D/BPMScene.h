@@ -29,6 +29,7 @@
     
     //Dev Tool Layer
     CCLayer* lyrDevTool;
+    NSMutableArray* arrayLog;
     NSMutableString* strLog;
     CCLabelTTF* lblDevTool;
     NSDateFormatter* dateFormat;
