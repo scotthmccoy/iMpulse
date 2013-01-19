@@ -26,8 +26,13 @@
     CCSprite* buttonAHighlight;
     
     CCSprite* buttonUHighlight;
-    CCSprite* buttonNHighlight;    
+    CCSprite* buttonNHighlight;
+    
+    BOOL southpawMode;
 }
+
+- (void) setSouthpawMode:(BOOL)isOn;
+
 
 + (id) sprite;
 

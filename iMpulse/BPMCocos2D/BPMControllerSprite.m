@@ -12,6 +12,8 @@
 //Cocos2d
 #import "cocos2d.h"
 
+
+
 @implementation BPMControllerSprite
 
 
@@ -132,6 +134,41 @@
 }
 
 
+- (void) setSouthpawMode:(BOOL)isOn
+{
+    //If it's already in the requested state, bail.
+    if (isOn == southpawMode)
+        return;
+    
+    //Set the new state
+    southpawMode = isOn;
+    
+    //Rotate
+    ccTime duration = 0.5;
+    
+    //Determine what angle to rotate to
+    if (southpawMode)
+    {
+        //Rotate to upside-down
+        [controllerFront runAction:[CCRotateTo actionWithDuration:duration angle:180]];
+        [controllerBack runAction:[CCRotateTo actionWithDuration:duration angle:180]];
+        
+        //Move the front upwards a few px
+        [controllerFront runAction:[CCMoveTo actionWithDuration:duration position:ccp(0,30)]];
+    }
+    else
+    {
+        //Rotate back to normal
+        [controllerFront runAction:[CCRotateTo actionWithDuration:duration angle:0]];
+        [controllerBack runAction:[CCRotateTo actionWithDuration:duration angle:0]];
+
+        //Move the front back down.
+        [controllerFront runAction:[CCMoveTo actionWithDuration:duration position:ccp(0,0)]];
+    }
+}
+
+
+
 #pragma mark - Observers - Player 1 Press
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS:(NSNotification *)aNotification
@@ -139,6 +176,8 @@
     DebugLogWhereAmI();
     [self hideDPadHighlights];
     buttonDPadUpHighlight.opacity = 255;
+    
+    [self setSouthpawMode:YES];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_RIGHT_PRESS:(NSNotification *)aNotification
@@ -153,6 +192,8 @@
     DebugLogWhereAmI();
     [self hideDPadHighlights];
     buttonDPadDownHighlight.opacity = 255;
+    
+    [self setSouthpawMode:NO];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_LEFT_PRESS:(NSNotification *)aNotification
