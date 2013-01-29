@@ -18,6 +18,7 @@
 @class CCLayer;
 @class CCMenu;
 @class CCLabelTTF;
+@class CCMenuItemImage;
 
 @interface BPMScene : CCScene <BPMLoggingDelegate>
 {
@@ -26,6 +27,15 @@
     //Main Layer
     CCLayer* lyrMain;
     BPMControllerSprite* controller;
+    CCMenuItemImage* btn_os_ios;
+    CCMenuItemImage* btn_os_maw;
+    CCMenuItemImage* btn_game;
+    CCMenuItemImage* btn_media;
+    CCMenuItemImage* btn_player_1;
+    CCMenuItemImage* btn_player_2;
+    CCMenuItemImage* btn_orientation_right;
+    CCMenuItemImage* btn_orientation_left;
+    
     
     //Dev Tool Layer
     CCLayer* lyrDevTool;

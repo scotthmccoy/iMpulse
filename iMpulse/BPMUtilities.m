@@ -78,7 +78,7 @@
     return [NSString stringWithFormat:@"(%fx%f)", size.width, size.height];
 }
 
-#pragma mark - Cocos Stuff that should probably be in categories
+#pragma mark - Cocos Stuff that should really be in categories
 
 //This seems to be a feature missing from cocos2d -
 //The ability to make radio buttons. Drop this into a callback for a CCMenu and it will set selected on the
@@ -109,6 +109,22 @@
         //Have to make a copy of the action, or else only the first node visited actually performs it.
         [childNode runAction:[action copy]];
     }
+}
+
+//Pass in a CCMenuItem, it returns the index of its parent's selected menu item.
++ (int) getMenuSelectedIndex:(CCMenuItem*) menuItem
+{
+    int selectedIndex = 0;
+    
+    for (CCMenuItem* item in menuItem.parent.children)
+    {
+        if (item == menuItem)
+            return selectedIndex;
+        
+        selectedIndex++;
+    }
+    
+    return -1;
 }
 
 @end
