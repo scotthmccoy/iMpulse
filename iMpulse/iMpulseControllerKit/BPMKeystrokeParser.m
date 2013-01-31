@@ -15,6 +15,7 @@
 
 //Keys for dictionaries
 #define KEY_NOTIFICATION_STRING @"notificationString"
+#define KEY_NOTIFICATION_STRING_AUTO_RELEASE @"notificationStringAutoRelease"
 #define KEY_BUTTON_ID @"buttonId"
 #define KEY_PLAYER_NUMBER @"playerNumber"
 #define KEY_IS_PRESSED @"isPressed"
@@ -55,6 +56,7 @@ static BPMKeystrokeParser* _singleton = nil;
     
     if (self)
     {
+        //Parse the conf file!
         [self parseConfFile];
     }
     return self;
@@ -101,6 +103,13 @@ static BPMKeystrokeParser* _singleton = nil;
     {
         //Bail
         DebugLog(@"Could not map key [%@]. Bailing.", input);
+
+        //Log the message to the logger
+        if (self.loggingDelegate)
+        {
+            [self.loggingDelegate log:[NSString stringWithFormat:@"Could not map key [%@].", input]];
+        }
+        
         return;
     }
     
@@ -115,6 +124,30 @@ static BPMKeystrokeParser* _singleton = nil;
     int isPressed = [numIsPressed boolValue];
     int playerNumber = [numPlayerNumber intValue];
     
+    //Consume that data
+    [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:notificationName];
+    
+    //Are we in MAW mode?
+    if ([[BPMControllerState singleton] selectedOS] == BPMControllerOSMAW)
+    {
+        //Get the auto-release notification
+        NSString* autoReleaseNotificationName = [keyMap objectForKey:KEY_NOTIFICATION_STRING_AUTO_RELEASE];
+
+        //In a fraction of a second, consume the data.
+        dispatch_after
+        (
+             dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC),
+             dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0),
+             ^{
+                [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:autoReleaseNotificationName];
+             }
+        );
+    }
+}
+
+
+- (void) updateControllerStateForButtonID:(BPMControllerButton)buttonID setState:(BOOL)isPressed forPlayer:(int)playerNumber andPostNotification:(NSString*)notificationName
+{
     //Update controller state
     [[BPMControllerState singleton] setState:isPressed forPlayer:playerNumber andButtonID:buttonID];
     
@@ -128,7 +161,6 @@ static BPMKeystrokeParser* _singleton = nil;
     }
 }
 
-
 #pragma mark - Configuration File
 - (NSString*) confFileName
 {
@@ -137,8 +169,10 @@ static BPMKeystrokeParser* _singleton = nil;
 
 - (NSString*) confFilePath
 {
+    //Get the full path to the file
     NSString* path = [BPMUtilities pathForResource:[self confFileName]];
 
+    //Check if it exists
     if ([[NSFileManager defaultManager] fileExistsAtPath:path])
         return path;
     
@@ -147,13 +181,13 @@ static BPMKeystrokeParser* _singleton = nil;
 
 - (void) parseConfFile
 {
+    DebugLogWhereAmI();
+    
     //Set up the keyMappings dict
     _keyMappings = [[NSMutableDictionary alloc] init];
     
     //Read in the conf file
     NSDictionary* confFile = [NSDictionary dictionaryWithContentsOfFile:[self confFilePath]];
-    //DebugLog(@"confFile = [%@]", confFile);
-
     
     //Get the controller's selected operating system.
     BPMControllerOS OS = [[BPMControllerState singleton] selectedOS];
@@ -167,7 +201,6 @@ static BPMKeystrokeParser* _singleton = nil;
         //Get a dict representing a single button on the controller
         NSDictionary* button = [confFile objectForKey:key];
         
-        //If it's iOS, we also need the release character
         if (OS == BPMControllerOSiOS)
         {
             BPMControllerButton buttonId = [[button valueForKeyPath:KEY_BUTTON_ID] intValue];
@@ -176,6 +209,8 @@ static BPMKeystrokeParser* _singleton = nil;
 
             NSString* player1KeyPress = [button valueForKeyPath:@"OS.iOS.player1KeyPress"];
             NSString* player2KeyPress = [button valueForKeyPath:@"OS.iOS.player2KeyPress"];
+            
+            //If it's iOS, we also need the release character            
             NSString* player1KeyRelease = [button valueForKeyPath:@"OS.iOS.player1KeyRelease"];
             NSString* player2KeyRelease = [button valueForKeyPath:@"OS.iOS.player2KeyRelease"];
 
@@ -187,11 +222,21 @@ static BPMKeystrokeParser* _singleton = nil;
         }
         else if (OS == BPMControllerOSMAW)
         {
-            //TODO: parse the MAW keys
+            BPMControllerButton buttonId = [[button valueForKeyPath:KEY_BUTTON_ID] intValue];
+            
+            NSString* notificationBase = [button valueForKeyPath:KEY_NOTIFICATION_STRING];
+            
+            //For MAW mode, we don't have a mapping for the release key.
+            NSString* player1KeyPress = [button valueForKeyPath:@"OS.MAW.player1KeyPress"];
+            NSString* player2KeyPress = [button valueForKeyPath:@"OS.MAW.player2KeyPress"];
+            
+            //Make key Mappings. This will also create the auto release.
+            [self setKeyMapWithButtonId:buttonId andCharacter:player1KeyPress notificationBase:notificationBase playerNumber:1 isPressed:YES];
+            [self setKeyMapWithButtonId:buttonId andCharacter:player2KeyPress notificationBase:notificationBase playerNumber:2 isPressed:YES];
         }
     }
     
-    //DebugLog(@"_keyMappings = [%@]", _keyMappings);
+    DebugLog(@"_keyMappings = [%@]", _keyMappings);
 }
 
 //Concatenates together the notification string. Result is something like "NOTIFICATION_PLAYER_1_D_PAD_LEFT_RELEASE"
@@ -229,7 +274,7 @@ static BPMKeystrokeParser* _singleton = nil;
 }
 
 //Creates a button map dictionary and adds it to the collection.
-//TODO: Use a data structure class with getters and setters for faster access
+//TODO: Use a data structure class (instead of NSDictionary) with getters and setters for faster access
 - (void) setKeyMapWithButtonId:(int)buttonIdInt andCharacter:(NSString*)character notificationBase:(NSString*)notificationBase playerNumber:(int)playerNumberInt isPressed:(BOOL)isPressedBool
 {
     //Create a dict to hold data
@@ -239,6 +284,15 @@ static BPMKeystrokeParser* _singleton = nil;
     NSString* notification = [self notificationStringWithBase:notificationBase andPlayerNumber:playerNumberInt andPressed:isPressedBool];
     [keyMap setValue:notification forKey:KEY_NOTIFICATION_STRING];
 
+    //Are we in MAW mode?
+    if ([[BPMControllerState singleton] selectedOS] == BPMControllerOSMAW)
+    {
+        //Also create an auto-release notification
+        //Create and set the notification string
+        NSString* notification = [self notificationStringWithBase:notificationBase andPlayerNumber:playerNumberInt andPressed:NO];
+        [keyMap setValue:notification forKey:KEY_NOTIFICATION_STRING_AUTO_RELEASE];
+    }
+    
     //Create and set the buttonID
     NSNumber* buttonId = [NSNumber numberWithInt:buttonIdInt];
     [keyMap setValue:buttonId forKey:KEY_BUTTON_ID];

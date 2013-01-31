@@ -20,9 +20,9 @@
 			<key>iOS</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>W</string>
+				<string>w</string>
 				<key>player1KeyRelease</key>
-				<string>E</string>
+				<string>e</string>
 				<key>player2KeyPress</key>
 				<string>[</string>
 				<key>player2KeyRelease</key>
@@ -48,13 +48,13 @@
 			<key>iOS</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>D</string>
+				<string>d</string>
 				<key>player1KeyRelease</key>
-				<string>C</string>
+				<string>c</string>
 				<key>player2KeyPress</key>
-				<string>I</string>
+				<string>i</string>
 				<key>player2KeyRelease</key>
-				<string>M</string>
+				<string>m</string>
 			</dict>
 		</dict>
 	</dict>
@@ -76,13 +76,13 @@
 			<key>iOS</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>X</string>
+				<string>x</string>
 				<key>player1KeyRelease</key>
-				<string>Z</string>
+				<string>z</string>
 				<key>player2KeyPress</key>
-				<string>S</string>
+				<string>s</string>
 				<key>player2KeyRelease</key>
-				<string>B</string>
+				<string>b</string>
 			</dict>
 		</dict>
 	</dict>
@@ -104,13 +104,13 @@
 			<key>iOS</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>A</string>
+				<string>a</string>
 				<key>player1KeyRelease</key>
-				<string>Q</string>
+				<string>q</string>
 				<key>player2KeyPress</key>
-				<string>U</string>
+				<string>u</string>
 				<key>player2KeyRelease</key>
-				<string>F</string>
+				<string>f</string>
 			</dict>
 		</dict>
 	</dict>
@@ -132,9 +132,9 @@
 			<key>iOS</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>O</string>
+				<string>o</string>
 				<key>player1KeyRelease</key>
-				<string>G</string>
+				<string>g</string>
 				<key>player2KeyPress</key>
 				<string>7</string>
 				<key>player2KeyRelease</key>
@@ -160,9 +160,9 @@
 			<key>iOS</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>Y</string>
+				<string>y</string>
 				<key>player1KeyRelease</key>
-				<string>T</string>
+				<string>t</string>
 				<key>player2KeyPress</key>
 				<string>3</string>
 				<key>player2KeyRelease</key>
@@ -188,9 +188,9 @@
 			<key>iOS</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>K</string>
+				<string>k</string>
 				<key>player1KeyRelease</key>
-				<string>P</string>
+				<string>p</string>
 				<key>player2KeyPress</key>
 				<string>1</string>
 				<key>player2KeyRelease</key>
@@ -216,9 +216,9 @@
 			<key>iOS</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>L</string>
+				<string>l</string>
 				<key>player1KeyRelease</key>
-				<string>V</string>
+				<string>v</string>
 				<key>player2KeyPress</key>
 				<string>5</string>
 				<key>player2KeyRelease</key>
@@ -244,9 +244,9 @@
 			<key>iOS</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>J</string>
+				<string>j</string>
 				<key>player1KeyRelease</key>
-				<string>N</string>
+				<string>n</string>
 				<key>player2KeyPress</key>
 				<string>-</string>
 				<key>player2KeyRelease</key>
@@ -272,9 +272,9 @@
 			<key>iOS</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>H</string>
+				<string>h</string>
 				<key>player1KeyRelease</key>
-				<string>R</string>
+				<string>r</string>
 				<key>player2KeyPress</key>
 				<string>9</string>
 				<key>player2KeyRelease</key>

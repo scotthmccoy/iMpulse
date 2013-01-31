@@ -20,6 +20,7 @@
 
 //Other
 #import "BPMUtilities.h"
+#import "BPMControllerState.h"
 
 @implementation BPMScene
 
@@ -210,6 +211,14 @@
     //////////////////////////////
     controller = [BPMControllerSprite sprite];
     controller.position = ccp(320,180);
+
+    //Make it a bit smaller
+    controller.scale = 0.85;
+    
+    //Set the player to 1
+    controller.selectedPlayer = 1;
+    
+    //Add it
     [lyrMain addChild:controller];
     
     
@@ -339,26 +348,38 @@
 
 - (void) callback_btn_os_toggle: (CCMenuItemToggle  *) menuItem
 {
-
+    //Clear all highlights
+    [controller reset];
+    
     if (menuItem.selectedIndex == 0)
     {
         DebugLog(@"iOS Mode");
+        [BPMControllerState singleton].selectedOS = BPMControllerOSiOS;
     }
     else if (menuItem.selectedIndex == 1)
     {
         DebugLog(@"MAW Mode");
+        [BPMControllerState singleton].selectedOS = BPMControllerOSMAW;
     }
+    
+    //Set up the keystroke parser for the newly-selected OS
+    [[BPMKeystrokeParser singleton] parseConfFile];
 }
 
 - (void) callback_btn_player_toggle: (CCMenuItemToggle  *) menuItem
 {
+    //Clear all highlights
+    [controller reset];
+    
     if (menuItem.selectedIndex == 0)
     {
         DebugLog(@"Player 1");
+        controller.selectedPlayer = 1;
     }
     else if (menuItem.selectedIndex == 1)
     {
         DebugLog(@"Player 2");
+        controller.selectedPlayer = 2;
     }
 }
 
@@ -367,10 +388,12 @@
     if (menuItem.selectedIndex == 0)
     {
         DebugLog(@"Right-Handed Mode");
+        [controller setSouthpawMode:NO];
     }
     else if (menuItem.selectedIndex == 1)
     {
         DebugLog(@"Southpaw Mode");
+        [controller setSouthpawMode:YES];
     }
 }
 

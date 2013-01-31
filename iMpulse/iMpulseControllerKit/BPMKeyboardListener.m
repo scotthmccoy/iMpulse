@@ -146,6 +146,12 @@ static BPMKeyboardListener* _singleton = nil;
 //To parse these, we set up a UITextView and watch for the cursor changing positions.
 - (void)textViewDidChangeSelection:(UITextView *)textView
 {
+    //We only care about selection changes if the controller is in MAW mode.
+    if ([[BPMControllerState singleton] selectedOS] != BPMControllerOSMAW)
+    {
+        return;
+    }
+    
     //Get the cursor location
     int cursorLocation = textView.selectedRange.location;
     

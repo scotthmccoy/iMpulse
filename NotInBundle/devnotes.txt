@@ -21,8 +21,6 @@ TODO:
 One potential complication - You can put the controller into MAW mode but the iOS app is simply not going to be able to tell when you released a key.
 
 
-TODO: compound sprites with backgrounds. How big is the parent sprite, and how do I position it?
-
 __block CGRect holderRect = CGRectZero;
 
 [holder visitDescendantsUsingBlock:^(CCNode* node) {

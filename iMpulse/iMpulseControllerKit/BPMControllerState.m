@@ -10,6 +10,9 @@
 
 @implementation BPMControllerState
 
+
+//This assumes that both players will be using the same OS Mode.
+//At some point we might let each player use a different OS mode for some crazy hacking or something.
 @synthesize selectedOS;
 
 //For +singleton method

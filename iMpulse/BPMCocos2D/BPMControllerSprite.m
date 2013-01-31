@@ -16,7 +16,7 @@
 
 @implementation BPMControllerSprite
 
-
+@synthesize selectedPlayer;
 
 + (id) sprite
 {
@@ -174,65 +174,61 @@
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    [self hideDPadHighlights];
-    buttonDPadUpHighlight.opacity = 255;
+    [self setHighlightState:YES forHighlight:buttonDPadUpHighlight onlyForPlayer:1 clearDPad:YES];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_RIGHT_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    [self hideDPadHighlights];
-    buttonDPadRightHighlight.opacity = 255;
+    [self setHighlightState:YES forHighlight:buttonDPadRightHighlight onlyForPlayer:1 clearDPad:YES];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_DOWN_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    [self hideDPadHighlights];
-    buttonDPadDownHighlight.opacity = 255;
+    [self setHighlightState:YES forHighlight:buttonDPadDownHighlight onlyForPlayer:1 clearDPad:YES];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_LEFT_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    [self hideDPadHighlights];
-    buttonDPadLeftHighlight.opacity = 255;
+    [self setHighlightState:YES forHighlight:buttonDPadLeftHighlight onlyForPlayer:1 clearDPad:YES];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_V_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonVHighlight.opacity = 255;
+    [self setHighlightState:YES forHighlight:buttonVHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_M_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonMHighlight.opacity = 255;
+    [self setHighlightState:YES forHighlight:buttonMHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_W_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonWHighlight.opacity = 255;
+    [self setHighlightState:YES forHighlight:buttonWHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_A_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonAHighlight.opacity = 255;
+    [self setHighlightState:YES forHighlight:buttonAHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_RIGHT_SHOULDER_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonNHighlight.opacity = 255;
+    [self setHighlightState:YES forHighlight:buttonUHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_LEFT_SHOULDER_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonUHighlight.opacity = 255;
+    [self setHighlightState:YES forHighlight:buttonNHighlight onlyForPlayer:1];
 }
 
 
@@ -240,172 +236,212 @@
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_UP_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonDPadUpHighlight.opacity = 0;
+    [self setHighlightState:NO forHighlight:buttonDPadUpHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_RIGHT_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonDPadRightHighlight.opacity = 0;
+    [self setHighlightState:NO forHighlight:buttonDPadRightHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_DOWN_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonDPadDownHighlight.opacity = 0;
+    [self setHighlightState:NO forHighlight:buttonDPadDownHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_D_PAD_LEFT_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonDPadLeftHighlight.opacity = 0;
+    [self setHighlightState:NO forHighlight:buttonDPadLeftHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_V_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonVHighlight.opacity = 0;
+    [self setHighlightState:NO forHighlight:buttonVHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_M_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonMHighlight.opacity = 0;
+    [self setHighlightState:NO forHighlight:buttonMHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_W_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonWHighlight.opacity = 0;
+    [self setHighlightState:NO forHighlight:buttonWHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_A_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonAHighlight.opacity = 0;
+    [self setHighlightState:NO forHighlight:buttonAHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_RIGHT_SHOULDER_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonNHighlight.opacity = 0;
+    [self setHighlightState:NO forHighlight:buttonUHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_LEFT_SHOULDER_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    buttonUHighlight.opacity = 0;
+    [self setHighlightState:NO forHighlight:buttonNHighlight onlyForPlayer:1];
 }
 
 
 
-#pragma mark - Observers - Player 2 Press
+#pragma mark - Observers - Player 1 Press
 
 - (void) observer_NOTIFICATION_PLAYER_2_D_PAD_UP_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:YES forHighlight:buttonDPadUpHighlight onlyForPlayer:2 clearDPad:YES];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_D_PAD_RIGHT_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:YES forHighlight:buttonDPadRightHighlight onlyForPlayer:2 clearDPad:YES];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_D_PAD_DOWN_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:YES forHighlight:buttonDPadDownHighlight onlyForPlayer:2 clearDPad:YES];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_D_PAD_LEFT_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:YES forHighlight:buttonDPadLeftHighlight onlyForPlayer:2 clearDPad:YES];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_V_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:YES forHighlight:buttonVHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_M_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:YES forHighlight:buttonMHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_W_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:YES forHighlight:buttonWHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_A_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:YES forHighlight:buttonAHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_RIGHT_SHOULDER_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:YES forHighlight:buttonUHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_LEFT_SHOULDER_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:YES forHighlight:buttonNHighlight onlyForPlayer:2];
 }
 
-#pragma mark - Observers - Player 2 Release
 
+#pragma mark - Observers - Player 2 Release
 - (void) observer_NOTIFICATION_PLAYER_2_D_PAD_UP_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:NO forHighlight:buttonDPadUpHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_D_PAD_RIGHT_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:NO forHighlight:buttonDPadRightHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_D_PAD_DOWN_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:NO forHighlight:buttonDPadDownHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_D_PAD_LEFT_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:NO forHighlight:buttonDPadLeftHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_V_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:NO forHighlight:buttonVHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_M_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:NO forHighlight:buttonMHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_W_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:NO forHighlight:buttonWHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_A_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:NO forHighlight:buttonAHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_RIGHT_SHOULDER_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:NO forHighlight:buttonUHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_LEFT_SHOULDER_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
+    [self setHighlightState:NO forHighlight:buttonNHighlight onlyForPlayer:2];
 }
 
 
+#pragma mark - Highlight Toggle
+- (void) setHighlightState:(BOOL)on forHighlight:(CCSprite*)sprite onlyForPlayer:(int)playerNumber clearDPad:(BOOL)clearDPad
+{
+    //Bail if the Player Number differs from what we expect
+    if (self.selectedPlayer != playerNumber)
+        return;
+    
+    //Don't overlap multiple D-Pad highlights
+    if (clearDPad)
+    {
+        [self hideDPadHighlights];
+    }
+    
+    //Set it to 255 if it's now on, or 0 if it's not.
+    sprite.opacity = on ? 255 : 0;
+}
 
 
+- (void) setHighlightState:(BOOL)on forHighlight:(CCSprite*)sprite onlyForPlayer:(int)playerNumber
+{
+    [self setHighlightState:on forHighlight:sprite onlyForPlayer:playerNumber clearDPad:NO];
+}
 
 #pragma mark - Observer Setup
 - (void) setupiMpulseControllerObservers
@@ -479,6 +515,25 @@
     buttonDPadDownHighlight.opacity = 0;
     buttonDPadLeftHighlight.opacity = 0;
 }
+
+- (void) hideButtonHighlights
+{
+    buttonAHighlight.opacity = 0;
+    buttonMHighlight.opacity = 0;
+    buttonWHighlight.opacity = 0;
+    buttonVHighlight.opacity = 0;
+    
+    buttonNHighlight.opacity = 0;
+    buttonUHighlight.opacity = 0;
+}
+
+
+- (void) reset
+{
+    [self hideDPadHighlights];
+    [self hideButtonHighlights];
+}
+
 
 
 @end

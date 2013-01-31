@@ -11,6 +11,9 @@
 //Protocol
 #import "BPMLoggingDelegate.h"
 
+//For enum
+#import "BPMControllerState.h"
+
 @interface BPMKeystrokeParser : NSObject
 {
     NSDictionary* _keyMappings;
@@ -23,7 +26,7 @@
 - (void) takeInput:(NSString*) input;
 - (NSString*) notificationStringWithBase:(NSString*)base andPlayerNumber:(int)playerNumber andPressed:(BOOL)pressed;
 
-
-
+- (void) parseConfFile;
+- (void) updateControllerStateForButtonID:(BPMControllerButton) buttonID setState:(BOOL)isPressed forPlayer:(int)playerNumber andPostNotification:(NSString*)notificationName;
 
 @end

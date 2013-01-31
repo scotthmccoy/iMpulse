@@ -31,7 +31,11 @@
     BOOL southpawMode;
 }
 
+@property (readwrite) int selectedPlayer;
+
 - (void) setSouthpawMode:(BOOL)isOn;
+- (void) setHighlightState:(BOOL)on forHighlight:(CCSprite*)sprite onlyForPlayer:(int)playerNumber;
+- (void) reset;
 
 
 + (id) sprite;
