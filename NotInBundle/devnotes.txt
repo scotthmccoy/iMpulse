@@ -30,3 +30,6 @@ __block CGRect holderRect = CGRectZero;
 holder.contentSize = holderRect.size;
 
 Recursively visiting nodes was a fun idea but impractical given that node opacity is not multiplicative with children.
+
+This is a token change to the project to demo how git works.
+
