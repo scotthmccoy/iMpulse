@@ -46,15 +46,18 @@
         controllerBackArrow = [CCSprite spriteWithFile:@"controller_backside_arrow.png"];
         controllerBackArrow.position = ccp(-107,-99);
         
+        //Media Keys
         mediaNextTrack = [CCSprite spriteWithFile:@"media_nexttrack_overlay.png"];
         mediaNextTrack.position = ccp(0, -50);
+        mediaNextTrack.opacity = 0;
         
         mediaPreviousTrack = [CCSprite spriteWithFile:@"media_previoustrack_overlay.png"];
         mediaPreviousTrack.position = ccp(0, -50);
+        mediaPreviousTrack.opacity = 0;
         
-        mediaPausePlay = [CCSprite spriteWithFile:@"media_playpause_overlay.png"];
-        mediaPausePlay.position = ccp(0, -50);
-
+        mediaPlayPause = [CCSprite spriteWithFile:@"media_playpause_overlay.png"];
+        mediaPlayPause.position = ccp(0, -50);
+        mediaPlayPause.opacity = 0;
         
         
         //////////////////////////////
@@ -66,7 +69,7 @@
         
         [self addChild:mediaNextTrack];
         [self addChild:mediaPreviousTrack];
-        [self addChild:mediaPausePlay];
+        [self addChild:mediaPlayPause];
         
         
         
@@ -185,17 +188,20 @@
 
 - (void) observer_NOTIFICATION_PLAYPAUSE_PRESS:(NSNotification*)aNotification
 {
-    DebugLogWhereAmI();    
+    DebugLogWhereAmI();
+    [mediaPlayPause runAction:[CCFadeOut actionWithDuration:1.0]];
 }
 
 - (void) observer_NOTIFICATION_PREVIOUSTRACK_PRESS:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
+    [mediaPreviousTrack runAction:[CCFadeOut actionWithDuration:1.0]];
 }
 
 - (void) observer_NOTIFICATION_NEXTTRACK_PRESS:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
+    [mediaNextTrack runAction:[CCFadeOut actionWithDuration:1.0]];
 }
 
 
