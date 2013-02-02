@@ -15,7 +15,7 @@
 				<key>player1KeyPress</key>
 				<string>ARROW_UP</string>
 				<key>player2KeyPress</key>
-				<string>I</string>
+				<string>i</string>
 			</dict>
 			<key>iOS</key>
 			<dict>
@@ -43,7 +43,7 @@
 				<key>player1KeyPress</key>
 				<string>ARROW_RIGHT</string>
 				<key>player2KeyPress</key>
-				<string>L</string>
+				<string>l</string>
 			</dict>
 			<key>iOS</key>
 			<dict>
@@ -71,7 +71,7 @@
 				<key>player1KeyPress</key>
 				<string>ARROW_DOWN</string>
 				<key>player2KeyPress</key>
-				<string>K</string>
+				<string>k</string>
 			</dict>
 			<key>iOS</key>
 			<dict>
@@ -99,7 +99,7 @@
 				<key>player1KeyPress</key>
 				<string>LEFT_ARROW</string>
 				<key>player2KeyPress</key>
-				<string>J</string>
+				<string>j</string>
 			</dict>
 			<key>iOS</key>
 			<dict>
@@ -125,9 +125,9 @@
 			<key>MAW</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>M</string>
+				<string>m</string>
 				<key>player2KeyPress</key>
-				<string>T</string>
+				<string>t</string>
 			</dict>
 			<key>iOS</key>
 			<dict>
@@ -153,9 +153,9 @@
 			<key>MAW</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>V</string>
+				<string>v</string>
 				<key>player2KeyPress</key>
-				<string>H</string>
+				<string>h</string>
 			</dict>
 			<key>iOS</key>
 			<dict>
@@ -181,9 +181,9 @@
 			<key>MAW</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>W</string>
+				<string>w</string>
 				<key>player2KeyPress</key>
-				<string>G</string>
+				<string>g</string>
 			</dict>
 			<key>iOS</key>
 			<dict>
@@ -209,9 +209,9 @@
 			<key>MAW</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>A</string>
+				<string>a</string>
 				<key>player2KeyPress</key>
-				<string>F</string>
+				<string>f</string>
 			</dict>
 			<key>iOS</key>
 			<dict>
@@ -237,9 +237,9 @@
 			<key>MAW</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>N</string>
+				<string>n</string>
 				<key>player2KeyPress</key>
-				<string>B</string>
+				<string>b</string>
 			</dict>
 			<key>iOS</key>
 			<dict>
@@ -265,9 +265,9 @@
 			<key>MAW</key>
 			<dict>
 				<key>player1KeyPress</key>
-				<string>U</string>
+				<string>u</string>
 				<key>player2KeyPress</key>
-				<string>C</string>
+				<string>c</string>
 			</dict>
 			<key>iOS</key>
 			<dict>
