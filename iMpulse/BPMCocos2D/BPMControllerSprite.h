@@ -25,8 +25,8 @@
     CCSprite* buttonVHighlight;
     CCSprite* buttonAHighlight;
     
-    CCSprite* buttonUHighlight;
-    CCSprite* buttonNHighlight;
+    CCSprite* buttonRightShoulderHighlight;
+    CCSprite* buttonLeftShoulderHighlight;
     
     BOOL southpawMode;
 }

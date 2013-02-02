@@ -18,6 +18,7 @@
 
 @synthesize selectedPlayer;
 
+
 + (id) sprite
 {
     //node calls [self init]
@@ -39,7 +40,7 @@
         controllerFront.position = ccp(0,0);
         
         controllerBack = [CCSprite spriteWithFile:@"controller_back.png"];
-        controllerBack.position = ccp(40,-120);
+        controllerBack.position = ccp(38,-120);
         
         
         controllerBackArrow = [CCSprite spriteWithFile:@"controller_backside_arrow.png"];
@@ -110,17 +111,17 @@
         ///////////////////////////////////////////
         //Add button highlights to Controller Back
         ///////////////////////////////////////////
-        buttonUHighlight = [CCSprite spriteWithFile:@"button_u_highlight.png"];
-        buttonUHighlight.position = ccp(69,58);
-        buttonUHighlight.opacity = 0;
+        buttonRightShoulderHighlight = [CCSprite spriteWithFile:@"button_right_shoulder_highlight.png"];
+        buttonRightShoulderHighlight.position = ccp(74,56);
+        buttonRightShoulderHighlight.opacity = 0;
         
-        buttonNHighlight = [CCSprite spriteWithFile:@"button_n_highlight.png"];
-        buttonNHighlight.position = ccp(151,58);
-        buttonNHighlight.opacity = 0;
+        buttonLeftShoulderHighlight = [CCSprite spriteWithFile:@"button_left_shoulder_highlight.png"];
+        buttonLeftShoulderHighlight.position = ccp(158,56);
+        buttonLeftShoulderHighlight.opacity = 0;
         
         //Add sprites to back
-        [controllerBack addChild:buttonNHighlight];
-        [controllerBack addChild:buttonUHighlight];
+        [controllerBack addChild:buttonLeftShoulderHighlight];
+        [controllerBack addChild:buttonRightShoulderHighlight];
         
         
         //////////////////////////////////////////////
@@ -222,13 +223,13 @@
 - (void) observer_NOTIFICATION_PLAYER_1_RIGHT_SHOULDER_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    [self setHighlightState:YES forHighlight:buttonUHighlight onlyForPlayer:1];
+    [self setHighlightState:YES forHighlight:buttonRightShoulderHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_LEFT_SHOULDER_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    [self setHighlightState:YES forHighlight:buttonNHighlight onlyForPlayer:1];
+    [self setHighlightState:YES forHighlight:buttonLeftShoulderHighlight onlyForPlayer:1];
 }
 
 
@@ -284,13 +285,13 @@
 - (void) observer_NOTIFICATION_PLAYER_1_RIGHT_SHOULDER_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    [self setHighlightState:NO forHighlight:buttonUHighlight onlyForPlayer:1];
+    [self setHighlightState:NO forHighlight:buttonRightShoulderHighlight onlyForPlayer:1];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_1_LEFT_SHOULDER_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    [self setHighlightState:NO forHighlight:buttonNHighlight onlyForPlayer:1];
+    [self setHighlightState:NO forHighlight:buttonLeftShoulderHighlight onlyForPlayer:1];
 }
 
 
@@ -348,13 +349,13 @@
 - (void) observer_NOTIFICATION_PLAYER_2_RIGHT_SHOULDER_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    [self setHighlightState:YES forHighlight:buttonUHighlight onlyForPlayer:2];
+    [self setHighlightState:YES forHighlight:buttonRightShoulderHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_LEFT_SHOULDER_PRESS:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    [self setHighlightState:YES forHighlight:buttonNHighlight onlyForPlayer:2];
+    [self setHighlightState:YES forHighlight:buttonLeftShoulderHighlight onlyForPlayer:2];
 }
 
 
@@ -410,13 +411,13 @@
 - (void) observer_NOTIFICATION_PLAYER_2_RIGHT_SHOULDER_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    [self setHighlightState:NO forHighlight:buttonUHighlight onlyForPlayer:2];
+    [self setHighlightState:NO forHighlight:buttonRightShoulderHighlight onlyForPlayer:2];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_LEFT_SHOULDER_RELEASE:(NSNotification *)aNotification
 {
     DebugLogWhereAmI();
-    [self setHighlightState:NO forHighlight:buttonNHighlight onlyForPlayer:2];
+    [self setHighlightState:NO forHighlight:buttonLeftShoulderHighlight onlyForPlayer:2];
 }
 
 
@@ -433,8 +434,11 @@
         [self hideDPadHighlights];
     }
     
+    //If we're in southpaw mode, we need the mirror of the highlight.
+    CCSprite* target = [self getSpriteOrMirror:sprite];
+    
     //Set it to 255 if it's now on, or 0 if it's not.
-    sprite.opacity = on ? 255 : 0;
+    target.opacity = on ? 255 : 0;
 }
 
 
@@ -523,8 +527,8 @@
     buttonWHighlight.opacity = 0;
     buttonVHighlight.opacity = 0;
     
-    buttonNHighlight.opacity = 0;
-    buttonUHighlight.opacity = 0;
+    buttonLeftShoulderHighlight.opacity = 0;
+    buttonRightShoulderHighlight.opacity = 0;
 }
 
 
@@ -534,6 +538,44 @@
     [self hideButtonHighlights];
 }
 
+- (CCSprite*) getSpriteOrMirror:(CCSprite*) sprite
+{
+    if (!southpawMode)
+        return sprite;
+    
+    if (sprite == buttonDPadUpHighlight)
+        return buttonDPadDownHighlight;
+    
+    if (sprite == buttonDPadRightHighlight)
+        return buttonDPadLeftHighlight;
+    
+    if (sprite == buttonDPadDownHighlight)
+        return buttonDPadUpHighlight;
+    
+    if (sprite == buttonDPadLeftHighlight)
+        return buttonDPadRightHighlight;
+    
+    if (sprite == buttonWHighlight)
+        return buttonMHighlight;
+    
+    if (sprite == buttonMHighlight)
+        return buttonWHighlight;
+
+    if (sprite == buttonVHighlight)
+        return buttonAHighlight;
+    
+    if (sprite == buttonAHighlight)
+        return buttonVHighlight;
+    
+    if (sprite == buttonRightShoulderHighlight)
+        return buttonLeftShoulderHighlight;
+    
+    if (sprite == buttonLeftShoulderHighlight)
+        return buttonRightShoulderHighlight;
+    
+    DebugLog(@"This sprite has no mirror");
+    return nil;
+}
 
 
 @end
