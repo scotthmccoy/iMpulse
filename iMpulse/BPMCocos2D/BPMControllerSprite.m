@@ -160,26 +160,21 @@
     southpawMode = isOn;
     
     //Rotate
-    ccTime duration = 0.5;
+    ccTime duration = 0.25;
     
     //Determine what angle to rotate to
     if (southpawMode)
     {
         //Rotate to upside-down
-        [controllerFront runAction:[CCRotateTo actionWithDuration:duration angle:180]];
-        [controllerBack runAction:[CCRotateTo actionWithDuration:duration angle:180]];
-        
-        //Move the front upwards a few px
-        [controllerFront runAction:[CCMoveTo actionWithDuration:duration position:ccp(0,30)]];
+        [self runAction:[CCRotateTo actionWithDuration:duration angle:180]];
+        [self runAction:[CCMoveBy actionWithDuration:duration position: ccp(0,-80)]];
     }
     else
     {
-        //Rotate back to normal
-        [controllerFront runAction:[CCRotateTo actionWithDuration:duration angle:0]];
-        [controllerBack runAction:[CCRotateTo actionWithDuration:duration angle:0]];
+        //Rotate to upside-down
+        [self runAction:[CCRotateTo actionWithDuration:duration angle:0]];
+        [self runAction:[CCMoveBy actionWithDuration:duration position: ccp(0,80)]];
 
-        //Move the front back down.
-        [controllerFront runAction:[CCMoveTo actionWithDuration:duration position:ccp(0,0)]];
     }
 }
 

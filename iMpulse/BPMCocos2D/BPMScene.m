@@ -213,7 +213,7 @@
     controller.position = ccp(320,180);
 
     //Make it a bit smaller
-    controller.scale = 0.85;
+    //controller.scale = 0.85;
     
     //Set the player to 1
     controller.selectedPlayer = 1;
