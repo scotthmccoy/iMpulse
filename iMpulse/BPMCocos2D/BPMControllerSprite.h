@@ -28,12 +28,6 @@
     CCSprite* buttonRightShoulderHighlight;
     CCSprite* buttonLeftShoulderHighlight;
     
-    CCSprite* mediaNextTrack;
-    CCSprite* mediaPreviousTrack;
-    CCSprite* mediaSeekForward;
-    CCSprite* mediaSeekBackward;
-    CCSprite* mediaPlayPause;
-    
     BOOL southpawMode;
 }
 

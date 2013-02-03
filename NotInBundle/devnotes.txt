@@ -33,3 +33,6 @@ Recursively visiting nodes was a fun idea but impractical given that node opacit
 
 This is a token change to the project to demo how git works.
 
+
+TODO: relinquish the audio channel upon app exit so that the app doesn't show up in the Media slot in task manager
+

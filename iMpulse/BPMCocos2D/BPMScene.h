@@ -19,6 +19,7 @@
 @class CCMenu;
 @class CCLabelTTF;
 @class CCMenuItemImage;
+@class CCSprite;
 
 @interface BPMScene : CCScene <BPMLoggingDelegate>
 {
@@ -46,7 +47,14 @@
     
     
     //Instructions Layer
-    CCLayer* lyrInstructions;    
+    CCLayer* lyrInstructions;
+    
+    //Media Key Sprites
+    CCSprite* mediaNextTrack;
+    CCSprite* mediaPreviousTrack;
+    CCSprite* mediaSeekForward;
+    CCSprite* mediaSeekBackward;
+    CCSprite* mediaPlayPause;
 }
 
 
