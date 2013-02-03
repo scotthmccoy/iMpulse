@@ -37,6 +37,12 @@
     CCMenuItemImage* btn_orientation_right;
     CCMenuItemImage* btn_orientation_left;
     
+    CCMenu* mnu_os_toggle;
+    CCMenu* mnu_orientation_toggle;
+    CCMenu* mnu_game_media_toggle;
+    CCMenu* mnu_player_toggle;
+    
+    CCSprite* mediaModeButtonBlockerOverlay;
     
     //Dev Tool Layer
     CCLayer* lyrDevTool;

@@ -193,16 +193,16 @@
         [self runAction:[CCMoveTo actionWithDuration:duration position:ccpAdd(basePosition, mediaModeOffset)]];
         [self runAction:[CCScaleTo actionWithDuration:duration scale:0.8]];
         
-        //Show the media Key Guide
-        mediaKeyGuideFront.opacity = 255;
-        mediaKeyGuideBack.opacity = 255;
+        //Fade in the media Key Guide after a brief delay
+        [mediaKeyGuideFront runAction:[CCSequence actions:[CCDelayTime actionWithDuration:duration], [CCFadeIn actionWithDuration:duration], nil]];
+        [mediaKeyGuideBack runAction:[CCSequence actions:[CCDelayTime actionWithDuration:duration], [CCFadeIn actionWithDuration:duration], nil]];
     }
     else
     {
         //Leaving Media Mode
         [self runAction:[CCScaleTo actionWithDuration:duration scale:1.0]];
 
-
+        //Are we in Southpaw Mode?
         if (southpawMode)
         {
             //Return to southpaw mode position and rotation
@@ -216,9 +216,10 @@
             [self runAction:[CCMoveTo actionWithDuration:duration position:basePosition]];
         }
         
-        //Hide the media Key Guide
-        mediaKeyGuideFront.opacity = 0;
-        mediaKeyGuideBack.opacity = 0;
+
+        //Fade out the Media Guide
+        [mediaKeyGuideFront runAction:[CCFadeOut actionWithDuration:duration]];
+        [mediaKeyGuideBack runAction:[CCFadeOut actionWithDuration:duration]];
     }
     
 }

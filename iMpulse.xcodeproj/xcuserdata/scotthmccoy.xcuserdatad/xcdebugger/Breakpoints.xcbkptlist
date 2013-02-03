@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iMpulse/BPMCocos2D/BPMControllerSprite.m"
-         timestampString = "381553539.974787"
+         timestampString = "381553954.914826"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "179"
-         endingLineNumber = "179"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
          landmarkName = "-setMediaMode:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iMpulse/BPMCocos2D/BPMControllerSprite.m"
-         timestampString = "381553539.974787"
+         timestampString = "381553954.914826"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "151"
-         endingLineNumber = "151"
+         startingLineNumber = "147"
+         endingLineNumber = "147"
          landmarkName = "-setSouthpawMode:"
          landmarkType = "5">
       </FileBreakpoint>

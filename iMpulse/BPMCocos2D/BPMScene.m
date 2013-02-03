@@ -102,7 +102,7 @@
     btn_os_toggle.ignoreAnchorPointForPosition = YES;
     
     //Create a single-item menu out of the toggle item
-    CCMenu *mnu_os_toggle = [CCMenu menuWithItems:btn_os_toggle, nil];
+    mnu_os_toggle = [CCMenu menuWithItems:btn_os_toggle, nil];
     
     //Position the menu
     mnu_os_toggle.position = ccp(3, 216);
@@ -135,7 +135,7 @@
     btn_game_media_toggle.ignoreAnchorPointForPosition = YES;
     
     //Create a single-item menu out of the toggle item
-    CCMenu *mnu_game_media_toggle = [CCMenu menuWithItems:btn_game_media_toggle, nil];
+    mnu_game_media_toggle = [CCMenu menuWithItems:btn_game_media_toggle, nil];
     
     //Position the menu
     mnu_game_media_toggle.position = ccp(3, 178);
@@ -165,7 +165,7 @@
     btn_player_toggle.ignoreAnchorPointForPosition = YES;
     
     //Create a single-item menu out of the toggle item
-    CCMenu *mnu_player_toggle = [CCMenu menuWithItems:btn_player_toggle, nil];
+    mnu_player_toggle = [CCMenu menuWithItems:btn_player_toggle, nil];
     
     //Position the menu
     mnu_player_toggle.position = ccp(3, 66);
@@ -195,7 +195,7 @@
     btn_orientation_toggle.ignoreAnchorPointForPosition = YES;
     
     //Create a single-item menu out of the toggle item
-    CCMenu *mnu_orientation_toggle = [CCMenu menuWithItems:btn_orientation_toggle, nil];
+    mnu_orientation_toggle = [CCMenu menuWithItems:btn_orientation_toggle, nil];
     
     //Position the menu
     mnu_orientation_toggle.position = ccp(3, 2);
@@ -204,6 +204,15 @@
     [lyrMain addChild:mnu_orientation_toggle];
 
     
+    
+    //////////////////////////////////////////////////////////////////////////////////////////
+    //Create hidden overlay to block Orientation and Player Select buttons while in Media mode
+    //////////////////////////////////////////////////////////////////////////////////////////
+    mediaModeButtonBlockerOverlay = [CCSprite spriteWithFile:@"media_player_and_orientation_overlay.png"];
+    mediaModeButtonBlockerOverlay.ignoreAnchorPointForPosition = YES;
+    mediaModeButtonBlockerOverlay.position = ccp(2,3);
+    mediaModeButtonBlockerOverlay.opacity = 0;
+    [lyrMain addChild:mediaModeButtonBlockerOverlay];
     
     
     //////////////////////////////
@@ -385,15 +394,32 @@
     if (menuItem.selectedIndex == 0)
     {
         DebugLog(@"Game Mode");
+        
+        //Put the controller sprite into media mode
         [controller setMediaMode:NO];
+
+        //Hide the overlay
+        mediaModeButtonBlockerOverlay.opacity = 0;
+        
+        //Enable the menus
+        mnu_player_toggle.isTouchEnabled = YES;
+        mnu_orientation_toggle.isTouchEnabled = YES;
     }
     else if (menuItem.selectedIndex == 1)
     {
         DebugLog(@"Media Mode");
+        
+        //Take the controller sprite out of media mode
         [controller setMediaMode:YES];
+        
+        //Hide the overlay
+        mediaModeButtonBlockerOverlay.opacity = 255;
+                
+        //Disable the menus
+        mnu_player_toggle.isTouchEnabled = NO;
+        mnu_orientation_toggle.isTouchEnabled = NO;
     }
 }
-
 - (void) callback_btn_os_toggle: (CCMenuItemToggle  *) menuItem
 {
     //Clear all highlights
