@@ -191,7 +191,7 @@
         
         //Move and scale to fit on screen
         [self runAction:[CCMoveTo actionWithDuration:duration position:ccpAdd(basePosition, mediaModeOffset)]];
-        [self runAction:[CCScaleTo actionWithDuration:duration scale:0.8]];
+        [self runAction:[CCScaleTo actionWithDuration:duration scale:0.88]];
         
         //Fade in the media Key Guide after a brief delay
         [mediaKeyGuideFront runAction:[CCSequence actions:[CCDelayTime actionWithDuration:duration], [CCFadeIn actionWithDuration:duration], nil]];

@@ -12,7 +12,7 @@
 //TODO: This is really not a good place to define these
 #define basePosition ccp(320,180)
 #define southpawOffset ccp(0,-80)
-#define mediaModeOffset ccp(40,-50)
+#define mediaModeOffset ccp(40,-42)
 
 
 @interface BPMControllerSprite : CCSprite

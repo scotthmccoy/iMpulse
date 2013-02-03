@@ -7,3 +7,4 @@ TODO: detect BlueTooth devices
 (Low Priority)
 TODO:key mapping file should really have the key be named Notificatin Base instead of notification string
 TODO:Sort media and mode overlays better
+TODO:iPhone 5 screen position

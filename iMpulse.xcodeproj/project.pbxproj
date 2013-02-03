@@ -1823,11 +1823,13 @@
 				GCC_PREFIX_HEADER = "iMpulse/iMpulse-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/external/kazmath/include/\"/**";
 				INFOPLIST_FILE = "iMpulse/iMpulse-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/\"/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/cocos2d-iphone-2.0/\"/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1840,11 +1842,13 @@
 				GCC_PREFIX_HEADER = "iMpulse/iMpulse-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/external/kazmath/include/\"/**";
 				INFOPLIST_FILE = "iMpulse/iMpulse-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/\"/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/cocos2d-iphone-2.0/\"/**";
 				WRAPPER_EXTENSION = app;
 			};
