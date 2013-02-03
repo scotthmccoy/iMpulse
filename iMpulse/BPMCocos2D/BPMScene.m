@@ -210,7 +210,7 @@
     //Create the controller sprite
     //////////////////////////////
     controller = [BPMControllerSprite sprite];
-    controller.position = ccp(320,180);
+    controller.position = basePosition;
 
     //Make it a bit smaller
     //controller.scale = 0.85;
@@ -385,10 +385,12 @@
     if (menuItem.selectedIndex == 0)
     {
         DebugLog(@"Game Mode");
+        [controller setMediaMode:NO];
     }
     else if (menuItem.selectedIndex == 1)
     {
         DebugLog(@"Media Mode");
+        [controller setMediaMode:YES];
     }
 }
 

@@ -12,8 +12,6 @@
 //Cocos2d
 #import "cocos2d.h"
 
-
-
 @implementation BPMControllerSprite
 
 @synthesize selectedPlayer;
@@ -91,6 +89,10 @@
         buttonAHighlight.position = ccp(175,98);
         buttonAHighlight.opacity = 0;
         
+        mediaKeyGuideFront = [CCSprite spriteWithFile:@"media_key_guide_front.png"];
+        mediaKeyGuideFront.position = ccp(128, 99);
+        mediaKeyGuideFront.opacity = 0;
+        
         //Add sprites to front
         [controllerFront addChild:buttonDPadUpHighlight];
         [controllerFront addChild:buttonDPadRightHighlight];
@@ -102,6 +104,7 @@
         [controllerFront addChild:buttonVHighlight];
         [controllerFront addChild:buttonAHighlight];
         
+        [controllerFront addChild:mediaKeyGuideFront];
         
         
         
@@ -116,9 +119,15 @@
         buttonLeftShoulderHighlight.position = ccp(158,56);
         buttonLeftShoulderHighlight.opacity = 0;
         
+        mediaKeyGuideBack = [CCSprite spriteWithFile:@"media_key_guide_back.png"];
+        mediaKeyGuideBack.position = ccp(109,89);
+        mediaKeyGuideBack.opacity = 0;
+        
         //Add sprites to back
         [controllerBack addChild:buttonLeftShoulderHighlight];
         [controllerBack addChild:buttonRightShoulderHighlight];
+        [controllerBack addChild:mediaKeyGuideBack];
+        
         
         
         //////////////////////////////////////////////
@@ -149,18 +158,70 @@
     {
         //Rotate to upside-down
         [self runAction:[CCRotateTo actionWithDuration:duration angle:180]];
-        [self runAction:[CCMoveBy actionWithDuration:duration position: ccp(0,-80)]];
+        [self runAction:[CCMoveTo actionWithDuration:duration position: ccpAdd(basePosition, southpawOffset)]];
     }
     else
     {
-        //Rotate to upside-down
+        //Rotate to rightside-up
         [self runAction:[CCRotateTo actionWithDuration:duration angle:0]];
-        [self runAction:[CCMoveBy actionWithDuration:duration position: ccp(0,80)]];
+        [self runAction:[CCMoveTo actionWithDuration:duration position:basePosition]];
 
     }
 }
 
+- (void) setMediaMode:(BOOL)isOn
+{
+    //If it's already in the requested state, bail.
+    if (isOn == mediaMode)
+        return;
+    
+    //Set the new state
+    mediaMode = isOn;
+    
+    //Animation Time
+    ccTime duration = 0.25;
+    
+    
+    if (mediaMode)
+    {
+        //Entering Media Mode
 
+        //Rotate it to sit vertically
+        [self runAction:[CCRotateTo actionWithDuration:duration angle:90]];
+        
+        //Move and scale to fit on screen
+        [self runAction:[CCMoveTo actionWithDuration:duration position:ccpAdd(basePosition, mediaModeOffset)]];
+        [self runAction:[CCScaleTo actionWithDuration:duration scale:0.8]];
+        
+        //Show the media Key Guide
+        mediaKeyGuideFront.opacity = 255;
+        mediaKeyGuideBack.opacity = 255;
+    }
+    else
+    {
+        //Leaving Media Mode
+        [self runAction:[CCScaleTo actionWithDuration:duration scale:1.0]];
+
+
+        if (southpawMode)
+        {
+            //Return to southpaw mode position and rotation
+            [self runAction:[CCRotateTo actionWithDuration:duration angle:180]];
+            [self runAction:[CCMoveTo actionWithDuration:duration position:ccpAdd(basePosition, southpawOffset)]];
+        }
+        else
+        {
+            //Return to base position and rotation
+            [self runAction:[CCRotateTo actionWithDuration:duration angle:0]];
+            [self runAction:[CCMoveTo actionWithDuration:duration position:basePosition]];
+        }
+        
+        //Hide the media Key Guide
+        mediaKeyGuideFront.opacity = 0;
+        mediaKeyGuideBack.opacity = 0;
+    }
+    
+}
 
 
 
