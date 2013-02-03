@@ -404,6 +404,9 @@
         //Enable the menus
         mnu_player_toggle.isTouchEnabled = YES;
         mnu_orientation_toggle.isTouchEnabled = YES;
+        
+        //Unhide the Player Menu
+        mnu_player_toggle.opacity = 255;
     }
     else if (menuItem.selectedIndex == 1)
     {
@@ -418,6 +421,9 @@
         //Disable the menus
         mnu_player_toggle.isTouchEnabled = NO;
         mnu_orientation_toggle.isTouchEnabled = NO;
+        
+        //Hide the Player Menu
+        mnu_player_toggle.opacity = 0;
     }
 }
 - (void) callback_btn_os_toggle: (CCMenuItemToggle  *) menuItem
