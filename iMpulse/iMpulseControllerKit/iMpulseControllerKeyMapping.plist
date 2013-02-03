@@ -285,56 +285,56 @@
 	<key>Mode Change - Media</key>
 	<dict>
 		<key>notificationString</key>
-		<string>MODE_MEDIA</string>
+		<string>NOTIFICATION_MODE_MEDIA</string>
 		<key>keyPress</key>
 		<string>!</string>
 	</dict>
 	<key>Mode Change - Game</key>
 	<dict>
 		<key>notificationString</key>
-		<string>MODE_GAME</string>
+		<string>NOTIFICATION_MODE_GAME</string>
 		<key>keyPress</key>
 		<string>@</string>
 	</dict>
 	<key>Mode Change - MAW</key>
 	<dict>
 		<key>notificationString</key>
-		<string>MODE_MAW</string>
+		<string>NOTIFICATION_MODE_MAW</string>
 		<key>keyPress</key>
 		<string>#</string>
 	</dict>
 	<key>Mode Change - iOS</key>
 	<dict>
 		<key>notificationString</key>
-		<string>MODE_IOS</string>
+		<string>NOTIFICATION_MODE_IOS</string>
 		<key>keyPress</key>
 		<string>$</string>
 	</dict>
 	<key>Mode Change - Left Hand</key>
 	<dict>
 		<key>notificationString</key>
-		<string>MODE_LEFT</string>
+		<string>NOTIFICATION_MODE_LEFT</string>
 		<key>keyPress</key>
 		<string>%</string>
 	</dict>
 	<key>Mode Change - Right Hand</key>
 	<dict>
 		<key>notificationString</key>
-		<string>MODE_RIGHT</string>
+		<string>NOTIFICATION_MODE_RIGHT</string>
 		<key>keyPress</key>
 		<string>^</string>
 	</dict>
 	<key>Mode Change - Player 1</key>
 	<dict>
 		<key>notificationString</key>
-		<string>MODE_PLAYER1</string>
+		<string>NOTIFICATION_MODE_PLAYER1</string>
 		<key>keyPress</key>
 		<string>&amp;</string>
 	</dict>
 	<key>Mode Change - Player 2</key>
 	<dict>
 		<key>notificationString</key>
-		<string>MODE_PLAYER2</string>
+		<string>NOTIFICATION_MODE_PLAYER2</string>
 		<key>keyPress</key>
 		<string>*</string>
 	</dict>

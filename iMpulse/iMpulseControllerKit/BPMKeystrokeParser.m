@@ -77,13 +77,13 @@ static BPMKeystrokeParser* _singleton = nil;
         input = [input substringToIndex:1];
     }
     
-    //Get which controller event this character maps to, if any
+    //Get which controller event this character maps to, (if any)
     NSDictionary* keyMap;
     
     //The @ character (and probably other characters) cannot be encoded.
     @try
     {
-         keyMap = [_keyMappings valueForKey:input];
+         keyMap = [_keyMappings objectForKey:input];
     }
     @catch (id exception)
     {
@@ -113,35 +113,58 @@ static BPMKeystrokeParser* _singleton = nil;
         return;
     }
     
-    //Extract values
-    NSString* notificationName = [keyMap objectForKey:KEY_NOTIFICATION_STRING];
+    //Is this a mode change?
     NSNumber* numButtonID = [keyMap objectForKey:KEY_BUTTON_ID];
-    NSNumber* numIsPressed = [keyMap objectForKey:KEY_IS_PRESSED];
-    NSNumber* numPlayerNumber = [keyMap objectForKey:KEY_PLAYER_NUMBER];
     
-    //Convert to primitive types
-    BPMControllerButton buttonID = [numButtonID intValue];
-    int isPressed = [numIsPressed boolValue];
-    int playerNumber = [numPlayerNumber intValue];
-    
-    //Consume that data
-    [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:notificationName];
-    
-    //Are we in MAW mode?
-    if ([[BPMControllerState singleton] selectedOS] == BPMControllerOSMAW)
+    if (numButtonID)
     {
-        //Get the auto-release notification
-        NSString* autoReleaseNotificationName = [keyMap objectForKey:KEY_NOTIFICATION_STRING_AUTO_RELEASE];
+        //It's a normal key press (or release). 
+        
+        //Extract values
+        NSString* notificationName = [keyMap objectForKey:KEY_NOTIFICATION_STRING];
+        NSNumber* numIsPressed = [keyMap objectForKey:KEY_IS_PRESSED];
+        NSNumber* numPlayerNumber = [keyMap objectForKey:KEY_PLAYER_NUMBER];
+        
+        //Convert to primitive types
+        BPMControllerButton buttonID = [numButtonID intValue];
+        int isPressed = [numIsPressed boolValue];
+        int playerNumber = [numPlayerNumber intValue];
+        
+        //Consume that data
+        [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:notificationName];
+        
+        //Are we in MAW mode?
+        if ([[BPMControllerState singleton] selectedOS] == BPMControllerOSMAW)
+        {
+            //Get the auto-release notification
+            NSString* autoReleaseNotificationName = [keyMap objectForKey:KEY_NOTIFICATION_STRING_AUTO_RELEASE];
 
-        //In a fraction of a second, consume the data.
-        dispatch_after
-        (
-             dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC),
-             dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0),
-             ^{
-                [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:autoReleaseNotificationName];
-             }
-        );
+            //In a fraction of a second, consume the data.
+            dispatch_after
+            (
+                 dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC),
+                 dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0),
+                 ^{
+                    [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:autoReleaseNotificationName];
+                 }
+            );
+        }
+    }
+    else
+    {
+        //Mode Change.
+        
+        //Fetch the notification name
+        NSString* notificationName = [keyMap objectForKey:KEY_NOTIFICATION_STRING];
+
+        //Post a notification
+        [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+        
+        //Log the message to the logger
+        if (self.loggingDelegate)
+        {
+            [self.loggingDelegate log:notificationName];
+        }
     }
 }
 

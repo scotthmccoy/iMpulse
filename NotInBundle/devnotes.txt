@@ -3,3 +3,6 @@ TODO: Mode Change Keys - auto detection
 TODO: sounds
 TODO: overlay of orienatation and Player selection buttons
 TODO: detect BlueTooth devices
+
+(Low Priority)
+TODO:key mapping file should really have the key be named Notificatin Base instead of notification string
