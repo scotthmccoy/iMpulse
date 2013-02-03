@@ -201,38 +201,59 @@ static BPMKeystrokeParser* _singleton = nil;
         //Get a dict representing a single button on the controller
         NSDictionary* button = [confFile objectForKey:key];
         
-        if (OS == BPMControllerOSiOS)
+        //Some characters are mode changes, and are OS-agnostic. Check if this is one of those by looking for an OS.
+        if ([button valueForKeyPath:@"OS"])
         {
-            BPMControllerButton buttonId = [[button valueForKeyPath:KEY_BUTTON_ID] intValue];
-            
-            NSString* notificationBase = [button valueForKeyPath:KEY_NOTIFICATION_STRING];
+            //Normal Keystroke
+            if (OS == BPMControllerOSiOS)
+            {
+                BPMControllerButton buttonId = [[button valueForKeyPath:KEY_BUTTON_ID] intValue];
+                
+                NSString* notificationBase = [button valueForKeyPath:KEY_NOTIFICATION_STRING];
 
-            NSString* player1KeyPress = [button valueForKeyPath:@"OS.iOS.player1KeyPress"];
-            NSString* player2KeyPress = [button valueForKeyPath:@"OS.iOS.player2KeyPress"];
-            
-            //If it's iOS, we also need the release character            
-            NSString* player1KeyRelease = [button valueForKeyPath:@"OS.iOS.player1KeyRelease"];
-            NSString* player2KeyRelease = [button valueForKeyPath:@"OS.iOS.player2KeyRelease"];
+                NSString* player1KeyPress = [button valueForKeyPath:@"OS.iOS.player1KeyPress"];
+                NSString* player2KeyPress = [button valueForKeyPath:@"OS.iOS.player2KeyPress"];
+                
+                //If it's iOS, we also need the release character            
+                NSString* player1KeyRelease = [button valueForKeyPath:@"OS.iOS.player1KeyRelease"];
+                NSString* player2KeyRelease = [button valueForKeyPath:@"OS.iOS.player2KeyRelease"];
 
-            //Make key Mappings
-            [self setKeyMapWithButtonId:buttonId andCharacter:player1KeyPress notificationBase:notificationBase playerNumber:1 isPressed:YES];
-            [self setKeyMapWithButtonId:buttonId andCharacter:player2KeyPress notificationBase:notificationBase playerNumber:2 isPressed:YES];
-            [self setKeyMapWithButtonId:buttonId andCharacter:player1KeyRelease notificationBase:notificationBase playerNumber:1 isPressed:NO];
-            [self setKeyMapWithButtonId:buttonId andCharacter:player2KeyRelease notificationBase:notificationBase playerNumber:2 isPressed:NO];
+                //Make key Mappings
+                [self setKeyMapWithButtonId:buttonId andCharacter:player1KeyPress notificationBase:notificationBase playerNumber:1 isPressed:YES];
+                [self setKeyMapWithButtonId:buttonId andCharacter:player2KeyPress notificationBase:notificationBase playerNumber:2 isPressed:YES];
+                [self setKeyMapWithButtonId:buttonId andCharacter:player1KeyRelease notificationBase:notificationBase playerNumber:1 isPressed:NO];
+                [self setKeyMapWithButtonId:buttonId andCharacter:player2KeyRelease notificationBase:notificationBase playerNumber:2 isPressed:NO];
+            }
+            else if (OS == BPMControllerOSMAW)
+            {
+                BPMControllerButton buttonId = [[button valueForKeyPath:KEY_BUTTON_ID] intValue];
+                
+                NSString* notificationBase = [button valueForKeyPath:KEY_NOTIFICATION_STRING];
+                
+                //For MAW mode, we don't have a mapping for the release key.
+                NSString* player1KeyPress = [button valueForKeyPath:@"OS.MAW.player1KeyPress"];
+                NSString* player2KeyPress = [button valueForKeyPath:@"OS.MAW.player2KeyPress"];
+                
+                //Make key Mappings. This will also create the auto release.
+                [self setKeyMapWithButtonId:buttonId andCharacter:player1KeyPress notificationBase:notificationBase playerNumber:1 isPressed:YES];
+                [self setKeyMapWithButtonId:buttonId andCharacter:player2KeyPress notificationBase:notificationBase playerNumber:2 isPressed:YES];
+            }
         }
-        else if (OS == BPMControllerOSMAW)
+        else
         {
-            BPMControllerButton buttonId = [[button valueForKeyPath:KEY_BUTTON_ID] intValue];
+            //Mode Change character. We only need the notification name and the button.
+            NSString* notificationString = [button valueForKeyPath:KEY_NOTIFICATION_STRING];
+            NSString* keyPress = [button valueForKeyPath:@"keyPress"];
             
-            NSString* notificationBase = [button valueForKeyPath:KEY_NOTIFICATION_STRING];
             
-            //For MAW mode, we don't have a mapping for the release key.
-            NSString* player1KeyPress = [button valueForKeyPath:@"OS.MAW.player1KeyPress"];
-            NSString* player2KeyPress = [button valueForKeyPath:@"OS.MAW.player2KeyPress"];
+            //Create the keyMap
+            NSMutableDictionary* keyMap = [[NSMutableDictionary alloc] init];
             
-            //Make key Mappings. This will also create the auto release.
-            [self setKeyMapWithButtonId:buttonId andCharacter:player1KeyPress notificationBase:notificationBase playerNumber:1 isPressed:YES];
-            [self setKeyMapWithButtonId:buttonId andCharacter:player2KeyPress notificationBase:notificationBase playerNumber:2 isPressed:YES];
+            //set the notification string in the keyMap
+            [keyMap setValue:notificationString forKey:KEY_NOTIFICATION_STRING];
+            
+            //add it to _keyMappings
+            [_keyMappings setValue:keyMap forKey:keyPress];
         }
     }
     

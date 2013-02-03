@@ -201,8 +201,7 @@ static BPMKeyboardListener* _singleton = nil;
     }
     
     //DebugLog(@"%@", firstNotificationName);
-    
-    firstNotificationName = @"NOTIFICATION_PLAYPAUSE_PRESS";
+
 
     //Post the notification
     if (firstNotificationName)

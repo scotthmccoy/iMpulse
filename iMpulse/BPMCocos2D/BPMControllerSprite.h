@@ -30,6 +30,8 @@
     
     CCSprite* mediaNextTrack;
     CCSprite* mediaPreviousTrack;
+    CCSprite* mediaSeekForward;
+    CCSprite* mediaSeekBackward;
     CCSprite* mediaPlayPause;
     
     BOOL southpawMode;

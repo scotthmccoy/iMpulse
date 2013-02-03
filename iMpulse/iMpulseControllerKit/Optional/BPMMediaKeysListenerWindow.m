@@ -74,18 +74,33 @@ static BPMMediaKeysListenerWindow* _singleton = nil;
         switch (event.subtype)
         {  
             case UIEventSubtypeRemoteControlTogglePlayPause:
-                DebugLog(@"PlayPause");
-                notificationName = @"NOTIFICATION_PLAYPAUSE_PRESS";
+                notificationName = @"NOTIFICATION_PLAYPAUSE";
                 break;
                 
             case UIEventSubtypeRemoteControlPreviousTrack:
-                DebugLog(@"Previous");
-                notificationName = @"NOTIFICATION_PREVIOUSTRACK_PRESS";
+                notificationName = @"NOTIFICATION_PREVIOUSTRACK";
                 break;
                 
             case UIEventSubtypeRemoteControlNextTrack:
-                DebugLog(@"Next");
-                notificationName = @"NOTIFICATION_NEXTTRACK_PRESS";                
+                notificationName = @"NOTIFICATION_NEXTTRACK";                
+                break;
+
+                
+                
+            case UIEventSubtypeRemoteControlBeginSeekingBackward:
+                notificationName = @"NOTIFICATION_SEEKBACK_BEGIN";
+                break;
+                
+            case UIEventSubtypeRemoteControlEndSeekingBackward:
+                notificationName = @"NOTIFICATION_SEEKBACK_END";
+                break;
+                
+            case UIEventSubtypeRemoteControlBeginSeekingForward:
+                notificationName = @"NOTIFICATION_SEEKFORWARD_BEGIN";
+                break;
+                
+            case UIEventSubtypeRemoteControlEndSeekingForward:
+                notificationName = @"NOTIFICATION_SEEKFORWARD_END";
                 break;
                 
             default:
@@ -96,7 +111,12 @@ static BPMMediaKeysListenerWindow* _singleton = nil;
     //Post the notification
     if (notificationName)
     {
+        DebugLog(@"Posting [%@]", notificationName);
         [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+    }
+    else
+    {
+        DebugLog(@"Unrecognized event [%@]", event);
     }
     
     //Log the message to the logger
