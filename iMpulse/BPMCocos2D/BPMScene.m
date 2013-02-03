@@ -285,30 +285,74 @@
     //////////////////////////
     //Create Media Key Sprites
     //////////////////////////
-    CGPoint mediaKeyOverlayPosition = ccp(480/2, 320/2);
+    CGPoint overlayPosition = ccp(480/2, 320/2);
     
     mediaPlayPause = [CCSprite spriteWithFile:@"media_playpause_overlay.png"];
-    mediaPlayPause.position = mediaKeyOverlayPosition;
+    mediaPlayPause.position = overlayPosition;
     mediaPlayPause.opacity = 0;
     
     mediaNextTrack = [CCSprite spriteWithFile:@"media_nexttrack_overlay.png"];
-    mediaNextTrack.position = mediaKeyOverlayPosition;
+    mediaNextTrack.position = overlayPosition;
     mediaNextTrack.opacity = 0;
     
     mediaPreviousTrack = [CCSprite spriteWithFile:@"media_previoustrack_overlay.png"];
-    mediaPreviousTrack.position = mediaKeyOverlayPosition;
+    mediaPreviousTrack.position = overlayPosition;
     mediaPreviousTrack.opacity = 0;
     
     mediaSeekBackward = [CCSprite spriteWithFile:@"media_seekback_overlay.png"];
-    mediaSeekBackward.position = mediaKeyOverlayPosition;
+    mediaSeekBackward.position = overlayPosition;
     mediaSeekBackward.opacity = 0;
     
     mediaSeekForward = [CCSprite spriteWithFile:@"media_seekforward_overlay.png"];
-    mediaSeekForward.position = mediaKeyOverlayPosition;
+    mediaSeekForward.position = overlayPosition;
     mediaSeekForward.opacity = 0;
     
     
-    //Media Keys
+    //Create mode overlay sprite
+    modeGame = [CCSprite spriteWithFile:@"mode_game_overlay.png"];
+    modeGame.position = overlayPosition;
+    modeGame.opacity = 0;
+    
+    modeMedia = [CCSprite spriteWithFile:@"mode_media_overlay.png"];
+    modeMedia.position = overlayPosition;
+    modeMedia.opacity = 0;
+
+    modeIOS = [CCSprite spriteWithFile:@"mode_ios_overlay.png"];
+    modeIOS.position = overlayPosition;
+    modeIOS.opacity = 0;
+    
+    modeMAW = [CCSprite spriteWithFile:@"mode_maw_overlay.png"];
+    modeMAW.position = overlayPosition;
+    modeMAW.opacity = 0;
+    
+    modeLeft = [CCSprite spriteWithFile:@"mode_left_overlay.png"];
+    modeLeft.position = overlayPosition;
+    modeLeft.opacity = 0;
+    
+    modeRight = [CCSprite spriteWithFile:@"mode_right_overlay.png"];
+    modeRight.position = overlayPosition;
+    modeRight.opacity = 0;
+    
+    modePlayer1 = [CCSprite spriteWithFile:@"mode_player1_overlay.png"];
+    modePlayer1.position = overlayPosition;
+    modePlayer1.opacity = 0;
+    
+    modePlayer2 = [CCSprite spriteWithFile:@"mode_player2_overlay.png"];
+    modePlayer2.position = overlayPosition;
+    modePlayer2.opacity = 0;
+    
+    
+    //Add observers for Mode Change notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_MEDIA:) name:@"NOTIFICATION_MODE_MEDIA" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_GAME:) name:@"NOTIFICATION_MODE_GAME" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_MAW:) name:@"NOTIFICATION_MODE_MAW" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_IOS:) name:@"NOTIFICATION_MODE_IOS" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_LEFT:) name:@"NOTIFICATION_MODE_LEFT" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_RIGHT:) name:@"NOTIFICATION_MODE_RIGHT" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_PLAYER1:) name:@"NOTIFICATION_MODE_PLAYER1" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_PLAYER2:) name:@"NOTIFICATION_MODE_PLAYER2" object:nil];  
+    
+    //Add observers for Media Key notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYPAUSE:) name:@"NOTIFICATION_PLAYPAUSE" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PREVIOUSTRACK:) name:@"NOTIFICATION_PREVIOUSTRACK" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_NEXTTRACK:) name:@"NOTIFICATION_NEXTTRACK" object:nil];
@@ -339,6 +383,17 @@
     [self addChild:mediaPreviousTrack];
     [self addChild:mediaSeekBackward];
     [self addChild:mediaSeekForward];
+    
+    [self addChild:modeGame];
+    [self addChild:modeMedia];
+    [self addChild:modeIOS];
+    [self addChild:modeMAW];
+    [self addChild:modeLeft];
+    [self addChild:modeRight];
+    [self addChild:modePlayer1];
+    [self addChild:modePlayer2];
+
+    
     
     //Select the Main tab
     [mnuMain activate];
@@ -562,6 +617,59 @@
     DebugLogWhereAmI();
     [mediaSeekBackward runAction:[CCFadeOut actionWithDuration:1.0]];
 }
+
+
+
+
+#pragma mark - Observers - Mode Changes
+- (void) observer_NOTIFICATION_MODE_MEDIA:(NSNotification*)aNotification
+{
+    DebugLogWhereAmI();
+    [modeMedia runAction:[CCFadeOut actionWithDuration:1.0]];
+}
+
+- (void) observer_NOTIFICATION_MODE_GAME:(NSNotification*)aNotification
+{
+    DebugLogWhereAmI();
+    [modeGame runAction:[CCFadeOut actionWithDuration:1.0]];
+}
+
+- (void) observer_NOTIFICATION_MODE_MAW:(NSNotification*)aNotification
+{
+    DebugLogWhereAmI();
+    [modeMAW runAction:[CCFadeOut actionWithDuration:1.0]];
+}
+
+- (void) observer_NOTIFICATION_MODE_IOS:(NSNotification*)aNotification
+{
+    DebugLogWhereAmI();
+    [modeIOS runAction:[CCFadeOut actionWithDuration:1.0]];
+}
+
+- (void) observer_NOTIFICATION_MODE_LEFT:(NSNotification*)aNotification
+{
+    DebugLogWhereAmI();
+    [modeLeft runAction:[CCFadeOut actionWithDuration:1.0]];
+}
+
+- (void) observer_NOTIFICATION_MODE_RIGHT:(NSNotification*)aNotification
+{
+    DebugLogWhereAmI();
+    [modeRight runAction:[CCFadeOut actionWithDuration:1.0]];
+}
+
+- (void) observer_NOTIFICATION_MODE_PLAYER1:(NSNotification*)aNotification
+{
+    DebugLogWhereAmI();
+    [modePlayer1 runAction:[CCFadeOut actionWithDuration:1.0]];
+}
+
+- (void) observer_NOTIFICATION_MODE_PLAYER2:(NSNotification*)aNotification
+{
+    DebugLogWhereAmI();
+    [modePlayer2 runAction:[CCFadeOut actionWithDuration:1.0]];
+}
+
 
 
 

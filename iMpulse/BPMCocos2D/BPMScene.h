@@ -61,6 +61,16 @@
     CCSprite* mediaSeekForward;
     CCSprite* mediaSeekBackward;
     CCSprite* mediaPlayPause;
+    
+    //Mode Change Sprites
+    CCSprite* modeMedia;
+    CCSprite* modeGame;
+    CCSprite* modeMAW;
+    CCSprite* modeIOS;
+    CCSprite* modeLeft;
+    CCSprite* modeRight;
+    CCSprite* modePlayer1;
+    CCSprite* modePlayer2;
 }
 
 
