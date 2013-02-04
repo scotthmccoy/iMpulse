@@ -179,7 +179,7 @@
     mediaMode = isOn;
     
     //Animation Time
-    ccTime duration = 0.25;
+    ccTime duration = 0.125;
     
     
     if (mediaMode)
