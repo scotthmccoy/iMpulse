@@ -164,7 +164,7 @@ static BPMKeyboardListener* _singleton = nil;
     
 
     //DebugLog(@"pos = [%i]", cursorLocation);
-
+    NSString* keyName = nil;
     NSString* firstNotificationName = nil;
     NSString* secondNotificationName = nil;
     
@@ -173,24 +173,28 @@ static BPMKeyboardListener* _singleton = nil;
     {
         case 0:
             //DebugLog(@"Up Arrow Pressed");
+            keyName = @"ARROWUP";
             firstNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS";
             secondNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_UP_RELEASE";
             break;
             
         case 1:
             //DebugLog(@"Left Arrow Pressed");
+            keyName = @"ARROWLEFT";
             firstNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_LEFT_PRESS";
             secondNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_LEFT_RELEASE";
             break;
             
         case 3:
             //DebugLog(@"Right Arrow Pressed");
+            keyName = @"ARROWRIGHT";
             firstNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_RIGHT_PRESS";
             secondNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_RIGHT_RELEASE";
             break;
             
         case 4:
             //DebugLog(@"Down Arrow Pressed");
+            keyName = @"ARROWDOWN";            
             firstNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_DOWN_PRESS";
             secondNotificationName = @"NOTIFICATION_PLAYER_1_D_PAD_DOWN_RELEASE";            
             break;
@@ -212,7 +216,7 @@ static BPMKeyboardListener* _singleton = nil;
         //Log the message to the logger
         if (self.loggingDelegate)
         {
-            [self.loggingDelegate log:firstNotificationName];
+            [self.loggingDelegate log:[NSString stringWithFormat:@"[%@], %@", keyName, firstNotificationName]];
         }
         
 
@@ -227,7 +231,7 @@ static BPMKeyboardListener* _singleton = nil;
                 //Log the message to the logger
                 if (self.loggingDelegate)
                 {
-                    [self.loggingDelegate log:secondNotificationName];
+                    [self.loggingDelegate log:[NSString stringWithFormat:@"[AUTO], %@", secondNotificationName]];
                 }
             }
         );

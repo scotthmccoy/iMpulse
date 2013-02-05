@@ -111,6 +111,7 @@
 -(void) applicationWillResignActive:(UIApplication *)application
 {
     [[CCDirector sharedDirector] pause];
+    exit(0);
 }
 
 // call got rejected
@@ -122,6 +123,7 @@
 -(void) applicationDidEnterBackground:(UIApplication*)application
 {
     [[CCDirector sharedDirector] stopAnimation];
+    exit(0);
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application

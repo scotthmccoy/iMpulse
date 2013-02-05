@@ -131,7 +131,8 @@ static BPMKeystrokeParser* _singleton = nil;
         int playerNumber = [numPlayerNumber intValue];
         
         //Consume that data
-        [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:notificationName];
+        NSString* firstMessage = [NSString stringWithFormat:@"[%@] %@", input, notificationName];
+        [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:notificationName andLog:firstMessage];
         
         //Are we in MAW mode?
         if ([[BPMControllerState singleton] selectedOS] == BPMControllerOSMAW)
@@ -145,7 +146,8 @@ static BPMKeystrokeParser* _singleton = nil;
                  dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC),
                  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0),
                  ^{
-                    [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:autoReleaseNotificationName];
+                     NSString* autoReleaseMessage = [NSString stringWithFormat:@"[AUTO] %@", notificationName];
+                     [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:autoReleaseNotificationName andLog:autoReleaseMessage];
                  }
             );
         }
@@ -163,13 +165,13 @@ static BPMKeystrokeParser* _singleton = nil;
         //Log the message to the logger
         if (self.loggingDelegate)
         {
-            [self.loggingDelegate log:notificationName];
+            [self.loggingDelegate log:[NSString stringWithFormat:@"[%@] %@", input, notificationName]];
         }
     }
 }
 
 
-- (void) updateControllerStateForButtonID:(BPMControllerButton)buttonID setState:(BOOL)isPressed forPlayer:(int)playerNumber andPostNotification:(NSString*)notificationName
+- (void) updateControllerStateForButtonID:(BPMControllerButton)buttonID setState:(BOOL)isPressed forPlayer:(int)playerNumber andPostNotification:(NSString*)notificationName andLog:(NSString*)logMessage
 {
     //Update controller state
     [[BPMControllerState singleton] setState:isPressed forPlayer:playerNumber andButtonID:buttonID];
@@ -180,7 +182,7 @@ static BPMKeystrokeParser* _singleton = nil;
     //Log the message to the logger
     if (self.loggingDelegate)
     {
-        [self.loggingDelegate log:notificationName];
+        [self.loggingDelegate log:logMessage];
     }
 }
 

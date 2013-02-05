@@ -262,9 +262,7 @@
     
     //Create dateFormatter
     dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateStyle:NSDateFormatterShortStyle];
-    [dateFormat setTimeStyle:NSDateFormatterLongStyle];
-    
+    [dateFormat setDateFormat:@"HH:mm:ss"];
     
     //Add Children
     [lyrDevTool addChild:bgDevTool];

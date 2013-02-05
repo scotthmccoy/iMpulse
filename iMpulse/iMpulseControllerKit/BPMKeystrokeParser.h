@@ -27,6 +27,5 @@
 - (NSString*) notificationStringWithBase:(NSString*)base andPlayerNumber:(int)playerNumber andPressed:(BOOL)pressed;
 
 - (void) parseConfFile;
-- (void) updateControllerStateForButtonID:(BPMControllerButton) buttonID setState:(BOOL)isPressed forPlayer:(int)playerNumber andPostNotification:(NSString*)notificationName;
-
+- (void) updateControllerStateForButtonID:(BPMControllerButton)buttonID setState:(BOOL)isPressed forPlayer:(int)playerNumber andPostNotification:(NSString*)notificationName andLog:(NSString*)logMessage;
 @end
