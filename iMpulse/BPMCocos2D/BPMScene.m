@@ -98,7 +98,7 @@
                                                               selector:nil];
     
     //Create a toggleItem out of the buttons
-    CCMenuItemToggle *btn_os_toggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(callback_btn_os_toggle:) items:btn_os_ios, btn_os_maw, nil];
+    btn_os_toggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(callback_btn_os_toggle:) items:btn_os_ios, btn_os_maw, nil];
     btn_os_toggle.ignoreAnchorPointForPosition = YES;
     
     //Create a single-item menu out of the toggle item
@@ -625,52 +625,63 @@
 - (void) observer_NOTIFICATION_MODE_MEDIA:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
-    [modeMedia runAction:[CCFadeOut actionWithDuration:1.0]];
+    [self modeChangeFadeout:modeMedia];
+    
+    //Select the Media Mode
+    btn_os_toggle.selectedIndex = 1;
 }
 
 - (void) observer_NOTIFICATION_MODE_GAME:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
-    [modeGame runAction:[CCFadeOut actionWithDuration:1.0]];
+    [self modeChangeFadeout:modeGame];
 }
 
 - (void) observer_NOTIFICATION_MODE_MAW:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
-    [modeMAW runAction:[CCFadeOut actionWithDuration:1.0]];
+    [self modeChangeFadeout:modeMAW];
 }
 
 - (void) observer_NOTIFICATION_MODE_IOS:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
-    [modeIOS runAction:[CCFadeOut actionWithDuration:1.0]];
+    [self modeChangeFadeout:modePlayer2];
 }
 
 - (void) observer_NOTIFICATION_MODE_LEFT:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
-    [modeLeft runAction:[CCFadeOut actionWithDuration:1.0]];
+    [self modeChangeFadeout:modeLeft];
 }
 
 - (void) observer_NOTIFICATION_MODE_RIGHT:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
-    [modeRight runAction:[CCFadeOut actionWithDuration:1.0]];
+    [self modeChangeFadeout:modeRight];
 }
 
 - (void) observer_NOTIFICATION_MODE_PLAYER1:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
-    [modePlayer1 runAction:[CCFadeOut actionWithDuration:1.0]];
+    [self modeChangeFadeout:modePlayer1];
 }
 
 - (void) observer_NOTIFICATION_MODE_PLAYER2:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
-    [modePlayer2 runAction:[CCFadeOut actionWithDuration:1.0]];
+    [self modeChangeFadeout:modePlayer2];
 }
 
 
-
+#pragma mark - Mode Change Fadeout
+- (void) modeChangeFadeout:(CCSprite*) sprite
+{
+    [sprite runAction:[CCSequence actions:
+                       [CCFadeIn actionWithDuration:0.25],
+                       [CCDelayTime actionWithDuration:1.0],
+                       [CCFadeOut actionWithDuration:0.25],
+                       nil]];
+}
 
 @end

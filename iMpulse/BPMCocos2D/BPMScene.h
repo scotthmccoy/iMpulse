@@ -20,6 +20,7 @@
 @class CCLabelTTF;
 @class CCMenuItemImage;
 @class CCSprite;
+@class CCMenuItemToggle;
 
 @interface BPMScene : CCScene <BPMLoggingDelegate>
 {
@@ -36,6 +37,8 @@
     CCMenuItemImage* btn_player_2;
     CCMenuItemImage* btn_orientation_right;
     CCMenuItemImage* btn_orientation_left;
+    
+    CCMenuItemToggle *btn_os_toggle;
     
     CCMenu* mnu_os_toggle;
     CCMenu* mnu_orientation_toggle;

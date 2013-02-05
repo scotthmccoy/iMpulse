@@ -1,8 +1,7 @@
 TODO: relinquish the audio channel upon app exit so that the app doesn't show up in the Media slot in task manager
-TODO: Mode Change Keys - auto detection
 TODO: sounds
-TODO: overlay of orienatation and Player selection buttons
 TODO: detect BlueTooth devices
+TODO: exit(0) on quit
 
 (Low Priority)
 TODO:key mapping file should really have the key be named Notificatin Base instead of notification string

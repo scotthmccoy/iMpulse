@@ -631,7 +631,7 @@
         return buttonRightShoulderHighlight;
     
     DebugLog(@"This sprite has no mirror");
-    return nil;
+    return sprite;
 }
 
 
