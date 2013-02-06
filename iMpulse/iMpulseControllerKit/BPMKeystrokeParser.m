@@ -146,7 +146,7 @@ static BPMKeystrokeParser* _singleton = nil;
                  dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC),
                  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0),
                  ^{
-                     NSString* autoReleaseMessage = [NSString stringWithFormat:@"[AUTO] %@", notificationName];
+                     NSString* autoReleaseMessage = [NSString stringWithFormat:@"[AUTO] %@", autoReleaseNotificationName];
                      [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:autoReleaseNotificationName andLog:autoReleaseMessage];
                  }
             );
