@@ -62,31 +62,31 @@
         buttonDPadUpHighlight.opacity = 0;
         
         buttonDPadRightHighlight = [CCSprite spriteWithFile:@"button_dpadright_highlight.png"];
-        buttonDPadRightHighlight.position = ccp(72,99);
+        buttonDPadRightHighlight.position = ccp(71,102);
         buttonDPadRightHighlight.opacity = 0;
         
         buttonDPadDownHighlight = [CCSprite spriteWithFile:@"button_dpaddown_highlight.png"];
-        buttonDPadDownHighlight.position = ccp(72,99);
+        buttonDPadDownHighlight.position = ccp(72,102);
         buttonDPadDownHighlight.opacity = 0;
         
         buttonDPadLeftHighlight = [CCSprite spriteWithFile:@"button_dpadleft_highlight.png"];
-        buttonDPadLeftHighlight.position = ccp(72,99);
+        buttonDPadLeftHighlight.position = ccp(72,97);
         buttonDPadLeftHighlight.opacity = 0;
         
         buttonWHighlight = [CCSprite spriteWithFile:@"button_w_highlight.png"];
-        buttonWHighlight.position = ccp(203,72);
+        buttonWHighlight.position = ccp(202,72);
         buttonWHighlight.opacity = 0;
         
         buttonMHighlight = [CCSprite spriteWithFile:@"button_m_highlight.png"];
-        buttonMHighlight.position = ccp(203,124);
+        buttonMHighlight.position = ccp(202,129);
         buttonMHighlight.opacity = 0;
         
         buttonVHighlight = [CCSprite spriteWithFile:@"button_v_highlight.png"];
-        buttonVHighlight.position = ccp(229,98);
+        buttonVHighlight.position = ccp(227,100);
         buttonVHighlight.opacity = 0;
         
         buttonAHighlight = [CCSprite spriteWithFile:@"button_a_highlight.png"];
-        buttonAHighlight.position = ccp(175,98);
+        buttonAHighlight.position = ccp(174,100);
         buttonAHighlight.opacity = 0;
         
         mediaKeyGuideFront = [CCSprite spriteWithFile:@"media_key_guide_front.png"];
@@ -112,11 +112,11 @@
         //Add button highlights to Controller Back
         ///////////////////////////////////////////
         buttonRightShoulderHighlight = [CCSprite spriteWithFile:@"button_right_shoulder_highlight.png"];
-        buttonRightShoulderHighlight.position = ccp(74,56);
+        buttonRightShoulderHighlight.position = ccp(75,56);
         buttonRightShoulderHighlight.opacity = 0;
         
         buttonLeftShoulderHighlight = [CCSprite spriteWithFile:@"button_left_shoulder_highlight.png"];
-        buttonLeftShoulderHighlight.position = ccp(158,56);
+        buttonLeftShoulderHighlight.position = ccp(159,56);
         buttonLeftShoulderHighlight.opacity = 0;
         
         mediaKeyGuideBack = [CCSprite spriteWithFile:@"media_key_guide_back.png"];
