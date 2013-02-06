@@ -131,7 +131,7 @@
                                                            selector:nil];
     
     //Create a toggleItem out of the buttons
-    CCMenuItemToggle *btn_game_media_toggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(callback_btn_game_media_toggle:) items:btn_game, btn_media, nil];
+    btn_game_media_toggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(callback_btn_game_media_toggle:) items:btn_game, btn_media, nil];
     btn_game_media_toggle.ignoreAnchorPointForPosition = YES;
     
     //Create a single-item menu out of the toggle item
@@ -161,7 +161,7 @@
                                                              selector:nil];
     
     //Create a toggleItem out of the buttons
-    CCMenuItemToggle *btn_player_toggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(callback_btn_player_toggle:) items:btn_player_1, btn_player_2, nil];
+    btn_player_toggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(callback_btn_player_toggle:) items:btn_player_1, btn_player_2, nil];
     btn_player_toggle.ignoreAnchorPointForPosition = YES;
     
     //Create a single-item menu out of the toggle item
@@ -191,7 +191,7 @@
                                                                 selector:nil];
     
     //Create a toggleItem out of the buttons
-    CCMenuItemToggle *btn_orientation_toggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(callback_btn_orientation_toggle:) items:btn_orientation_right, btn_orientation_left, nil];
+    btn_orientation_toggle = [CCMenuItemToggle itemWithTarget:self selector:@selector(callback_btn_orientation_toggle:) items:btn_orientation_right, btn_orientation_left, nil];
     btn_orientation_toggle.ignoreAnchorPointForPosition = YES;
     
     //Create a single-item menu out of the toggle item
@@ -625,50 +625,80 @@
     DebugLogWhereAmI();
     [self modeChangeFadeout:modeMedia];
     
-    //Select the Media Mode
-    btn_os_toggle.selectedIndex = 1;
+    //Select Media Mode
+    btn_game_media_toggle.selectedIndex = 0;
+    [btn_game_media_toggle activate];
 }
 
 - (void) observer_NOTIFICATION_MODE_GAME:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
     [self modeChangeFadeout:modeGame];
+    
+    //Select Game Mode
+    btn_game_media_toggle.selectedIndex = 1;
+    [btn_game_media_toggle activate];
 }
 
 - (void) observer_NOTIFICATION_MODE_MAW:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
     [self modeChangeFadeout:modeMAW];
+    
+    //Select OS Mode
+    btn_os_toggle.selectedIndex = 0;
+    [btn_os_toggle activate];
 }
 
 - (void) observer_NOTIFICATION_MODE_IOS:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
-    [self modeChangeFadeout:modePlayer2];
+    [self modeChangeFadeout:modeIOS];
+    
+    //Select OS Mode
+    btn_os_toggle.selectedIndex = 1;
+    [btn_os_toggle activate];
 }
 
 - (void) observer_NOTIFICATION_MODE_LEFT:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
     [self modeChangeFadeout:modeLeft];
+    
+    //Select Orientation Mode
+    btn_orientation_toggle.selectedIndex = 0;
+    [btn_orientation_toggle activate];
 }
 
 - (void) observer_NOTIFICATION_MODE_RIGHT:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
     [self modeChangeFadeout:modeRight];
+    
+    //Select Orientation Mode
+    btn_orientation_toggle.selectedIndex = 1;
+    [btn_orientation_toggle activate];
+    
 }
 
 - (void) observer_NOTIFICATION_MODE_PLAYER1:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
     [self modeChangeFadeout:modePlayer1];
+    
+    //Select Player 1
+    btn_player_toggle.selectedIndex = 1;
+    [btn_player_toggle activate];
 }
 
 - (void) observer_NOTIFICATION_MODE_PLAYER2:(NSNotification*)aNotification
 {
     DebugLogWhereAmI();
     [self modeChangeFadeout:modePlayer2];
+    
+    //Select Player 2
+    btn_player_toggle.selectedIndex = 0;
+    [btn_player_toggle activate];
 }
 
 

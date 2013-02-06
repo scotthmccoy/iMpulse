@@ -24,39 +24,60 @@
 
 @interface BPMScene : CCScene <BPMLoggingDelegate>
 {
+    //Tabs on the top right
     CCMenu* tabMenu;
     
+    ////////////
     //Main Layer
+    ////////////    
     CCLayer* lyrMain;
     BPMControllerSprite* controller;
+    
+    //OS Mode selector
+    CCMenu* mnu_os_toggle;
+    CCMenuItemToggle* btn_os_toggle;
     CCMenuItemImage* btn_os_ios;
     CCMenuItemImage* btn_os_maw;
+    
+    //Game or Media mode selector
+    CCMenu* mnu_game_media_toggle;
+    CCMenuItemToggle* btn_game_media_toggle;
     CCMenuItemImage* btn_game;
     CCMenuItemImage* btn_media;
+    
+    //Player 1 and Player 2 Selector
+    CCMenu* mnu_player_toggle;    
+    CCMenuItemToggle* btn_player_toggle;
     CCMenuItemImage* btn_player_1;
     CCMenuItemImage* btn_player_2;
+
+    //Left and Right Hand mode selector
+    CCMenuItemToggle* btn_orientation_toggle;    
+    CCMenu* mnu_orientation_toggle;
     CCMenuItemImage* btn_orientation_right;
     CCMenuItemImage* btn_orientation_left;
     
-    CCMenuItemToggle *btn_os_toggle;
-    
-    CCMenu* mnu_os_toggle;
-    CCMenu* mnu_orientation_toggle;
-    CCMenu* mnu_game_media_toggle;
-    CCMenu* mnu_player_toggle;
-    
+    //Covers up the player and orientation buttons
     CCSprite* mediaModeButtonBlockerOverlay;
     
+    ////////////////
     //Dev Tool Layer
+    ////////////////
     CCLayer* lyrDevTool;
     NSMutableArray* arrayLog;
     NSMutableString* strLog;
     CCLabelTTF* lblDevTool;
     NSDateFormatter* dateFormat;
     
-    
+    ////////////////////
     //Instructions Layer
+    ////////////////////
     CCLayer* lyrInstructions;
+
+    
+    /////////////////////////
+    //Media and Mode overlays
+    /////////////////////////
     
     //Media Key Sprites
     CCSprite* mediaNextTrack;
