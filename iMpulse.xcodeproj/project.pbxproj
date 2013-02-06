@@ -280,6 +280,18 @@
 		6CFF77FE16C3094600043DCE /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF77F416C3094600043DCE /* Icon@2x.png */; };
 		6CFF77FF16C3094600043DCE /* Itunes1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF77F516C3094600043DCE /* Itunes1024x1024.png */; };
 		6CFF780016C3094600043DCE /* Itunes512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF77F616C3094600043DCE /* Itunes512x512.png */; };
+		6CFF780716C30B0B00043DCE /* mode_change_detected.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF780116C30B0B00043DCE /* mode_change_detected.wav */; };
+		6CFF780816C30B0B00043DCE /* btn_button_press.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF780216C30B0B00043DCE /* btn_button_press.wav */; };
+		6CFF780916C30B0B00043DCE /* btn_d_pad_release.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF780316C30B0B00043DCE /* btn_d_pad_release.wav */; };
+		6CFF780A16C30B0B00043DCE /* btn_d_pad_press.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF780416C30B0B00043DCE /* btn_d_pad_press.wav */; };
+		6CFF780B16C30B0B00043DCE /* btn_shoulder_press.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF780516C30B0B00043DCE /* btn_shoulder_press.wav */; };
+		6CFF780C16C30B0B00043DCE /* btn_shoulder_release.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF780616C30B0B00043DCE /* btn_shoulder_release.wav */; };
+		6CFF781716C30D2600043DCE /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFF780F16C30D2600043DCE /* CDAudioManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6CFF781816C30D2600043DCE /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFF781216C30D2600043DCE /* CDOpenALSupport.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6CFF781916C30D2600043DCE /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFF781416C30D2600043DCE /* CocosDenshion.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6CFF781A16C30D2600043DCE /* SimpleAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFF781616C30D2600043DCE /* SimpleAudioEngine.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6CFF781C16C30E0600043DCE /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFF781B16C30E0600043DCE /* OpenAL.framework */; };
+		6CFF781E16C30E1000043DCE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFF781D16C30E0F00043DCE /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -703,6 +715,23 @@
 		6CFF77F416C3094600043DCE /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		6CFF77F516C3094600043DCE /* Itunes1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Itunes1024x1024.png; sourceTree = "<group>"; };
 		6CFF77F616C3094600043DCE /* Itunes512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Itunes512x512.png; sourceTree = "<group>"; };
+		6CFF780116C30B0B00043DCE /* mode_change_detected.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mode_change_detected.wav; sourceTree = "<group>"; };
+		6CFF780216C30B0B00043DCE /* btn_button_press.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = btn_button_press.wav; sourceTree = "<group>"; };
+		6CFF780316C30B0B00043DCE /* btn_d_pad_release.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = btn_d_pad_release.wav; sourceTree = "<group>"; };
+		6CFF780416C30B0B00043DCE /* btn_d_pad_press.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = btn_d_pad_press.wav; sourceTree = "<group>"; };
+		6CFF780516C30B0B00043DCE /* btn_shoulder_press.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = btn_shoulder_press.wav; sourceTree = "<group>"; };
+		6CFF780616C30B0B00043DCE /* btn_shoulder_release.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = btn_shoulder_release.wav; sourceTree = "<group>"; };
+		6CFF780E16C30D2600043DCE /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
+		6CFF780F16C30D2600043DCE /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
+		6CFF781016C30D2600043DCE /* CDConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDConfig.h; sourceTree = "<group>"; };
+		6CFF781116C30D2600043DCE /* CDOpenALSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDOpenALSupport.h; sourceTree = "<group>"; };
+		6CFF781216C30D2600043DCE /* CDOpenALSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDOpenALSupport.m; sourceTree = "<group>"; };
+		6CFF781316C30D2600043DCE /* CocosDenshion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosDenshion.h; sourceTree = "<group>"; };
+		6CFF781416C30D2600043DCE /* CocosDenshion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosDenshion.m; sourceTree = "<group>"; };
+		6CFF781516C30D2600043DCE /* SimpleAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine.h; sourceTree = "<group>"; };
+		6CFF781616C30D2600043DCE /* SimpleAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAudioEngine.m; sourceTree = "<group>"; };
+		6CFF781B16C30E0600043DCE /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		6CFF781D16C30E0F00043DCE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -710,11 +739,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CAFED7E16A55A5400077B71 /* AVFoundation.framework in Frameworks */,
+				6CFF781E16C30E1000043DCE /* AudioToolbox.framework in Frameworks */,
+				6CFF781C16C30E0600043DCE /* OpenAL.framework in Frameworks */,
 				6C48D41E16A636B400FD409B /* CoreBluetooth.framework in Frameworks */,
 				6C48D41716A568BF00FD409B /* QuartzCore.framework in Frameworks */,
 				6C48D41516A5687700FD409B /* libz.dylib in Frameworks */,
 				6C48D3DF16A5660200FD409B /* OpenGLES.framework in Frameworks */,
-				6CAFED7E16A55A5400077B71 /* AVFoundation.framework in Frameworks */,
 				6CC1BEBE1697C19700400329 /* MediaPlayer.framework in Frameworks */,
 				6CE70820168E353400248E54 /* UIKit.framework in Frameworks */,
 				6CE70822168E353400248E54 /* Foundation.framework in Frameworks */,
@@ -989,6 +1020,7 @@
 		6C48D16416A55CA600FD409B /* cocos2d */ = {
 			isa = PBXGroup;
 			children = (
+				6CFF780D16C30D2600043DCE /* CocosDenshion */,
 				6C48D16516A55CA600FD409B /* CCAction.h */,
 				6C48D16616A55CA600FD409B /* CCAction.m */,
 				6C48D16716A55CA600FD409B /* CCActionCamera.h */,
@@ -1268,6 +1300,12 @@
 		6C48D45616A8C8FC00FD409B /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				6CFF780116C30B0B00043DCE /* mode_change_detected.wav */,
+				6CFF780216C30B0B00043DCE /* btn_button_press.wav */,
+				6CFF780316C30B0B00043DCE /* btn_d_pad_release.wav */,
+				6CFF780416C30B0B00043DCE /* btn_d_pad_press.wav */,
+				6CFF780516C30B0B00043DCE /* btn_shoulder_press.wav */,
+				6CFF780616C30B0B00043DCE /* btn_shoulder_release.wav */,
 				6C48D45716A8C8FC00FD409B /* snd_blank.aiff */,
 			);
 			path = audio;
@@ -1327,6 +1365,8 @@
 		6CE7081E168E353400248E54 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CFF781D16C30E0F00043DCE /* AudioToolbox.framework */,
+				6CFF781B16C30E0600043DCE /* OpenAL.framework */,
 				6C48D41D16A636B300FD409B /* CoreBluetooth.framework */,
 				6C48D41616A568BF00FD409B /* QuartzCore.framework */,
 				6C48D41416A5687700FD409B /* libz.dylib */,
@@ -1405,6 +1445,22 @@
 				6CFF77F616C3094600043DCE /* Itunes512x512.png */,
 			);
 			path = app_icons;
+			sourceTree = "<group>";
+		};
+		6CFF780D16C30D2600043DCE /* CocosDenshion */ = {
+			isa = PBXGroup;
+			children = (
+				6CFF780E16C30D2600043DCE /* CDAudioManager.h */,
+				6CFF780F16C30D2600043DCE /* CDAudioManager.m */,
+				6CFF781016C30D2600043DCE /* CDConfig.h */,
+				6CFF781116C30D2600043DCE /* CDOpenALSupport.h */,
+				6CFF781216C30D2600043DCE /* CDOpenALSupport.m */,
+				6CFF781316C30D2600043DCE /* CocosDenshion.h */,
+				6CFF781416C30D2600043DCE /* CocosDenshion.m */,
+				6CFF781516C30D2600043DCE /* SimpleAudioEngine.h */,
+				6CFF781616C30D2600043DCE /* SimpleAudioEngine.m */,
+			);
+			path = CocosDenshion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1615,6 +1671,12 @@
 				6CFF77FE16C3094600043DCE /* Icon@2x.png in Resources */,
 				6CFF77FF16C3094600043DCE /* Itunes1024x1024.png in Resources */,
 				6CFF780016C3094600043DCE /* Itunes512x512.png in Resources */,
+				6CFF780716C30B0B00043DCE /* mode_change_detected.wav in Resources */,
+				6CFF780816C30B0B00043DCE /* btn_button_press.wav in Resources */,
+				6CFF780916C30B0B00043DCE /* btn_d_pad_release.wav in Resources */,
+				6CFF780A16C30B0B00043DCE /* btn_d_pad_press.wav in Resources */,
+				6CFF780B16C30B0B00043DCE /* btn_shoulder_press.wav in Resources */,
+				6CFF780C16C30B0B00043DCE /* btn_shoulder_release.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1773,6 +1835,10 @@
 				6C48D43A16A7738200FD409B /* BPMCocosNavigationController.m in Sources */,
 				6C48D43B16A7738200FD409B /* BPMScene.m in Sources */,
 				6C44AF9816AA08B6000AD721 /* BPMControllerSprite.m in Sources */,
+				6CFF781716C30D2600043DCE /* CDAudioManager.m in Sources */,
+				6CFF781816C30D2600043DCE /* CDOpenALSupport.m in Sources */,
+				6CFF781916C30D2600043DCE /* CocosDenshion.m in Sources */,
+				6CFF781A16C30D2600043DCE /* SimpleAudioEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

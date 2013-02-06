@@ -11,6 +11,7 @@
 
 //Cocos2d
 #import "cocos2d.h"
+#import "SimpleAudioEngine.h"
 
 @implementation BPMControllerSprite
 
@@ -496,6 +497,52 @@
     
     //Set it to 255 if it's now on, or 0 if it's not.
     target.opacity = on ? 255 : 0;
+    
+    /////////////
+    //Play sounds
+    /////////////    
+    if
+    (
+        target == buttonDPadUpHighlight ||
+        target == buttonDPadDownHighlight ||
+        target == buttonDPadLeftHighlight ||
+        target == buttonDPadRightHighlight
+    )
+    {
+        //D-Pad
+        if (on)
+        {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"btn_d_pad_press.wav"];
+        }
+        else
+        {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"btn_d_pad_release.wav"];
+        }
+    }
+    else if
+    (
+        target == buttonRightShoulderHighlight ||
+        target == buttonLeftShoulderHighlight
+    )
+    {
+        //Shoulder button
+        if (on)
+        {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"btn_shoulder_press.wav"];
+        }
+        else
+        {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"btn_shoulder_release.wav"];
+        }
+    }
+    else
+    {
+        //All other buttons
+        if (on)
+        {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"btn_button_press.wav"];
+        }
+    }
 }
 
 

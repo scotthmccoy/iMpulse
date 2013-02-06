@@ -11,7 +11,9 @@
 
 //Cocos
 #import "cocos2d.h"
+#import "SimpleAudioEngine.h"
 #import "BPMControllerSprite.h"
+
 
 //For logging delegate
 #import "BPMKeystrokeParser.h"
@@ -705,11 +707,15 @@
 #pragma mark - Mode Change Fadeout
 - (void) modeChangeFadeout:(CCSprite*) sprite
 {
+    //Fade in the mode change overlay
     [sprite runAction:[CCSequence actions:
                        [CCFadeIn actionWithDuration:0.25],
                        [CCDelayTime actionWithDuration:1.0],
                        [CCFadeOut actionWithDuration:0.25],
                        nil]];
+    
+    //Play a sound
+    [[SimpleAudioEngine sharedEngine] playEffect:@"mode_change_detected.wav"];
 }
 
 @end
