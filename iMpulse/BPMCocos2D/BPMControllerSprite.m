@@ -63,7 +63,7 @@
         buttonDPadUpHighlight.opacity = 0;
         
         buttonDPadRightHighlight = [CCSprite spriteWithFile:@"button_dpadright_highlight.png"];
-        buttonDPadRightHighlight.position = ccp(71,102);
+        buttonDPadRightHighlight.position = ccp(71,100);
         buttonDPadRightHighlight.opacity = 0;
         
         buttonDPadDownHighlight = [CCSprite spriteWithFile:@"button_dpaddown_highlight.png"];
@@ -71,19 +71,19 @@
         buttonDPadDownHighlight.opacity = 0;
         
         buttonDPadLeftHighlight = [CCSprite spriteWithFile:@"button_dpadleft_highlight.png"];
-        buttonDPadLeftHighlight.position = ccp(72,97);
+        buttonDPadLeftHighlight.position = ccp(73,100);
         buttonDPadLeftHighlight.opacity = 0;
         
         buttonWHighlight = [CCSprite spriteWithFile:@"button_w_highlight.png"];
-        buttonWHighlight.position = ccp(202,72);
+        buttonWHighlight.position = ccp(203,72);
         buttonWHighlight.opacity = 0;
         
         buttonMHighlight = [CCSprite spriteWithFile:@"button_m_highlight.png"];
-        buttonMHighlight.position = ccp(202,129);
+        buttonMHighlight.position = ccp(202,128);
         buttonMHighlight.opacity = 0;
         
         buttonVHighlight = [CCSprite spriteWithFile:@"button_v_highlight.png"];
-        buttonVHighlight.position = ccp(227,100);
+        buttonVHighlight.position = ccp(230,100);
         buttonVHighlight.opacity = 0;
         
         buttonAHighlight = [CCSprite spriteWithFile:@"button_a_highlight.png"];
@@ -541,6 +541,10 @@
         if (on)
         {
             [[SimpleAudioEngine sharedEngine] playEffect:@"btn_button_press.wav"];
+        }
+        else
+        {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"btn_shoulder_release.wav"];
         }
     }
 }
