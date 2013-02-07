@@ -49,16 +49,40 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYER_2_W_PRESS:) name:@"NOTIFICATION_PLAYER_2_W_PRESS" object:nil];
 
+
+        
+        //Media
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_NEXTTRACK:) name:@"NOTIFICATION_NEXTTRACK" object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_SEEKFORWARD_BEGIN:) name:@"NOTIFICATION_SEEKFORWARD_BEGIN" object:nil];        
+        
+        
+        //Maw
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYER_2_D_PAD_RIGHT_RELEASE:) name:@"NOTIFICATION_PLAYER_2_D_PAD_RIGHT_RELEASE" object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS:) name:@"NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS" object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYER_1_V_RELEASE:) name:@"NOTIFICATION_PLAYER_1_V_RELEASE" object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYER_1_M_RELEASE:) name:@"NOTIFICATION_PLAYER_1_M_RELEASE" object:nil];        
+
+        
+        
+        //Unknown
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_COULD_NOT_MAP_KEY:) name:@"NOTIFICATION_COULD_NOT_MAP_KEY" object:nil];
+        
     }
     
     return self;
 }
 
 
-- (void) doneSetupWithIsMAW:(BOOL)isMaw andIsMedia:(BOOL)isMedia andIsPlayer1:(BOOL)isPlayer1 andIsSouthPaw:(BOOL)isSouthPaw
+- (void) doneSetupWithIsMAW:(BOOL)isMaw andIsMedia:(BOOL)isMedia andIsPlayer2:(BOOL)isPlayer2 andIsSouthPaw:(BOOL)isSouthPaw
 {
     DebugLogWhereAmI();
+    DebugLog(@"Is MAW: [%i], isMedia: [%i], isPlayer2:[%i], isSouthPaw:[%i]", isMaw, isMedia, isPlayer2, isSouthPaw);
+    
+    
     //Kill all observers
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
@@ -70,63 +94,78 @@
 
 #pragma mark - Observers
 
-//If we get an M, we know we're in Northpaw
+//iOS. If we get an M Press Event, we know it's in normal orientation mode
 - (void) observer_NOTIFICATION_PLAYER_1_M_PRESS:(NSNotification*)aNotification
 {
-    //Get the Key
-    NSString* key = [aNotification.userInfo objectForKey:@"input"];
-    DebugLog(@"[%@]", key);
-
-    if ([key isEqualToString:@"o"])
-    {
-        [self doneSetupWithIsMAW:NO andIsMedia:NO andIsPlayer1:NO andIsSouthPaw:NO];
-    }
-    else if ([key isEqualToString:@"7"])
-    {
-        [self doneSetupWithIsMAW:NO andIsMedia:NO andIsPlayer1:YES andIsSouthPaw:NO];
-    }
+    [self doneSetupWithIsMAW:NO andIsMedia:NO andIsPlayer2:NO andIsSouthPaw:NO];
 }
 
 - (void) observer_NOTIFICATION_PLAYER_2_M_PRESS:(NSNotification*)aNotification
+{
+    [self doneSetupWithIsMAW:NO andIsMedia:NO andIsPlayer2:YES andIsSouthPaw:NO];
+}
+
+//iOS. If we get an W Press Event, we know it's in Southpaw orientation mode
+- (void) observer_NOTIFICATION_PLAYER_1_W_PRESS:(NSNotification*)aNotification
+{
+    [self doneSetupWithIsMAW:NO andIsMedia:NO andIsPlayer2:YES andIsSouthPaw:YES];
+}
+
+- (void) observer_NOTIFICATION_PLAYER_2_W_PRESS:(NSNotification*)aNotification
+{
+    [self doneSetupWithIsMAW:NO andIsMedia:NO andIsPlayer2:YES andIsSouthPaw:YES];
+}
+
+
+//If we get a media event, we know it's in media mode.
+- (void) observer_NOTIFICATION_NEXTTRACK:(NSNotification*)aNotification
 {
     //Get the Key
     NSString* key = [aNotification.userInfo objectForKey:@"input"];
     DebugLog(@"[%@]", key);
     
-    if ([key isEqualToString:@"o"])
-    {
-        [self doneSetupWithIsMAW:NO andIsMedia:NO andIsPlayer1:NO andIsSouthPaw:NO];
-    }
-    else if ([key isEqualToString:@"7"])
-    {
-        [self doneSetupWithIsMAW:NO andIsMedia:NO andIsPlayer1:YES andIsSouthPaw:NO];
-    }
-}
-
-- (void) observer_NOTIFICATION_PLAYER_1_W_PRESS:(NSNotification*)aNotification
-{
-    DebugLog(@"[%@]", aNotification.userInfo);
-}
-
-- (void) observer_NOTIFICATION_PLAYER_2_W_PRESS:(NSNotification*)aNotification
-{
-    DebugLog(@"[%@]", aNotification.userInfo);
-}
-
-- (void) observer_NOTIFICATION_COULD_NOT_MAP_KEY:(NSNotification*)aNotification
-{
-    DebugLog(@"[%@]", aNotification.userInfo);
-}
-
-- (void) observer_NOTIFICATION_NEXTTRACK:(NSNotification*)aNotification
-{
-    DebugLog(@"[%@]", aNotification.userInfo);
+    [self doneSetupWithIsMAW:NO andIsMedia:YES andIsPlayer2:NO andIsSouthPaw:NO];
 }
 
 - (void) observer_NOTIFICATION_SEEKFORWARD_BEGIN:(NSNotification*)aNotification
 {
-    DebugLog(@"[%@]", aNotification.userInfo);    
+    //Get the Key
+    NSString* key = [aNotification.userInfo objectForKey:@"input"];
+    DebugLog(@"[%@]", key);
+    
+    [self doneSetupWithIsMAW:NO andIsMedia:YES andIsPlayer2:NO andIsSouthPaw:NO];
 }
+
+#pragma mark - Maw Mode
+//If the controller is in MAW Mode, then the 
+- (void) observer_NOTIFICATION_PLAYER_2_D_PAD_RIGHT_RELEASE:(NSNotification*)aNotification
+{
+    [self doneSetupWithIsMAW:YES andIsMedia:NO andIsPlayer2:NO andIsSouthPaw:NO];
+}
+
+- (void) observer_NOTIFICATION_PLAYER_1_D_PAD_UP_PRESS:(NSNotification*)aNotification
+{
+    [self doneSetupWithIsMAW:YES andIsMedia:NO andIsPlayer2:NO andIsSouthPaw:YES];
+}
+
+- (void) observer_NOTIFICATION_PLAYER_1_V_RELEASE:(NSNotification*)aNotification
+{
+    [self doneSetupWithIsMAW:YES andIsMedia:NO andIsPlayer2:YES andIsSouthPaw:NO];
+}
+
+- (void) observer_NOTIFICATION_PLAYER_1_M_RELEASE:(NSNotification*)aNotification
+{
+    [self doneSetupWithIsMAW:YES andIsMedia:NO andIsPlayer2:YES andIsSouthPaw:YES];    
+}
+
+
+
+
+
+
+
+
+
 
 
 

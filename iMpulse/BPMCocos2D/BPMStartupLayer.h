@@ -11,5 +11,6 @@
 @interface BPMStartupLayer :CCLayer
 
 + (id) layer;
+- (void) doneSetupWithIsMAW:(BOOL)isMaw andIsMedia:(BOOL)isMedia andIsPlayer2:(BOOL)isPlayer2 andIsSouthPaw:(BOOL)isSouthPaw;
 
 @end
