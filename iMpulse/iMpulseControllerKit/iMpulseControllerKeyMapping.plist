@@ -324,19 +324,33 @@
 		<key>keyPress</key>
 		<string>^</string>
 	</dict>
-	<key>Mode Change - Player 1</key>
+	<key>Mode Change - Player 1 iOS</key>
 	<dict>
 		<key>notificationString</key>
 		<string>NOTIFICATION_MODE_PLAYER1</string>
 		<key>keyPress</key>
 		<string>&amp;</string>
 	</dict>
-	<key>Mode Change - Player 2</key>
+	<key>Mode Change - Player 1 MAW</key>
+	<dict>
+		<key>notificationString</key>
+		<string>NOTIFICATION_MODE_PLAYER1</string>
+		<key>keyPress</key>
+		<string>*</string>
+	</dict>
+	<key>Mode Change - Player 2 iOS</key>
 	<dict>
 		<key>notificationString</key>
 		<string>NOTIFICATION_MODE_PLAYER2</string>
 		<key>keyPress</key>
-		<string>*</string>
+		<string>(</string>
+	</dict>
+	<key>Mode Change - Player 2 MAW</key>
+	<dict>
+		<key>notificationString</key>
+		<string>NOTIFICATION_MODE_PLAYER2</string>
+		<key>keyPress</key>
+		<string>)</string>
 	</dict>
 </dict>
 </plist>

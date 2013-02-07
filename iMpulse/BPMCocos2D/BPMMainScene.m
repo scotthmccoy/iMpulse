@@ -218,6 +218,16 @@
     [lyrMain addChild:mediaModeButtonBlockerOverlay];
     
     
+    //////////////////////////////////////////////////////////////////////////////////////////
+    //Create hidden overlay to block OS buttons while in Media mode
+    //////////////////////////////////////////////////////////////////////////////////////////
+    mediaModeOSButtonBlockerOverlay = [CCSprite spriteWithFile:@"btn_os_media_overlay.png"];
+    mediaModeOSButtonBlockerOverlay.ignoreAnchorPointForPosition = YES;
+    mediaModeOSButtonBlockerOverlay.position = ccp(3,216);
+    mediaModeOSButtonBlockerOverlay.opacity = 0;
+    [lyrMain addChild:mediaModeOSButtonBlockerOverlay];
+    
+    
     //////////////////////////////
     //Create the controller sprite
     //////////////////////////////
@@ -471,6 +481,7 @@
 
         //Hide the overlay
         mediaModeButtonBlockerOverlay.opacity = 0;
+        mediaModeOSButtonBlockerOverlay.opacity = 0;
         
         //Enable the menus
         mnu_player_toggle.isTouchEnabled = YES;
@@ -488,7 +499,8 @@
         
         //Hide the overlay
         mediaModeButtonBlockerOverlay.opacity = 255;
-                
+        mediaModeOSButtonBlockerOverlay.opacity = 255;
+        
         //Disable the menus
         mnu_player_toggle.isTouchEnabled = NO;
         mnu_orientation_toggle.isTouchEnabled = NO;

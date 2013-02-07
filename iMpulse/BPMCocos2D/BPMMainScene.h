@@ -59,8 +59,11 @@
     CCMenuItemImage* btn_orientation_right;
     CCMenuItemImage* btn_orientation_left;
     
-    //Covers up the player and orientation buttons
+    //Covers up buttons
     CCSprite* mediaModeButtonBlockerOverlay;
+    CCSprite* mediaModeOSButtonBlockerOverlay;
+    
+    
     
     ////////////////
     //Dev Tool Layer
