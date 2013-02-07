@@ -1,7 +1,4 @@
-TODO: relinquish the audio channel upon app exit so that the app doesn't show up in the Media slot in task manager
-TODO: sounds
-TODO: detect BlueTooth devices
-TODO: exit(0) on quit
+Should the StartupScene even have observers? Yes, because we have to know if they are in MAW mode.
 
 (Low Priority)
 TODO:key mapping file should really have the key be named Notificatin Base instead of notification string

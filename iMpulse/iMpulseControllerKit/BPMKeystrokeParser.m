@@ -104,6 +104,10 @@ static BPMKeystrokeParser* _singleton = nil;
         //Bail
         DebugLog(@"Could not map key [%@]. Bailing.", input);
 
+        //Post a notification
+        NSDictionary* userInfo = [NSDictionary dictionaryWithObject:input forKey:@"input"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTIFICATION_COULD_NOT_MAP_KEY" object:nil userInfo:userInfo];
+        
         //Log the message to the logger
         if (self.loggingDelegate)
         {
@@ -132,7 +136,7 @@ static BPMKeystrokeParser* _singleton = nil;
         
         //Consume that data
         NSString* firstMessage = [NSString stringWithFormat:@"[%@] %@", input, notificationName];
-        [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:notificationName andLog:firstMessage];
+        [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:notificationName withKeyName:input andLog:firstMessage];
         
         //Are we in MAW mode?
         if ([[BPMControllerState singleton] selectedOS] == BPMControllerOSMAW)
@@ -147,7 +151,7 @@ static BPMKeystrokeParser* _singleton = nil;
                  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0),
                  ^{
                      NSString* autoReleaseMessage = [NSString stringWithFormat:@"[AUTO] %@", autoReleaseNotificationName];
-                     [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:autoReleaseNotificationName andLog:autoReleaseMessage];
+                     [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:autoReleaseNotificationName withKeyName:input andLog:autoReleaseMessage];
                  }
             );
         }
@@ -160,7 +164,8 @@ static BPMKeystrokeParser* _singleton = nil;
         NSString* notificationName = [keyMap objectForKey:KEY_NOTIFICATION_STRING];
 
         //Post a notification
-        [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+        NSDictionary* userInfo = [NSDictionary dictionaryWithObject:input forKey:@"input"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil userInfo:userInfo];
         
         //Log the message to the logger
         if (self.loggingDelegate)
@@ -171,13 +176,14 @@ static BPMKeystrokeParser* _singleton = nil;
 }
 
 
-- (void) updateControllerStateForButtonID:(BPMControllerButton)buttonID setState:(BOOL)isPressed forPlayer:(int)playerNumber andPostNotification:(NSString*)notificationName andLog:(NSString*)logMessage
+- (void) updateControllerStateForButtonID:(BPMControllerButton)buttonID setState:(BOOL)isPressed forPlayer:(int)playerNumber andPostNotification:(NSString*)notificationName withKeyName:(NSString*)input andLog:(NSString*)logMessage
 {
     //Update controller state
     [[BPMControllerState singleton] setState:isPressed forPlayer:playerNumber andButtonID:buttonID];
     
     //Post a notification
-    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+    NSDictionary* userInfo = [NSDictionary dictionaryWithObject:input forKey:@"input"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil userInfo:userInfo];
     
     //Log the message to the logger
     if (self.loggingDelegate)
@@ -282,7 +288,7 @@ static BPMKeystrokeParser* _singleton = nil;
         }
     }
     
-    DebugLog(@"_keyMappings = [%@]", _keyMappings);
+    //DebugLog(@"_keyMappings = [%@]", _keyMappings);
 }
 
 //Concatenates together the notification string. Result is something like "NOTIFICATION_PLAYER_1_D_PAD_LEFT_RELEASE"
