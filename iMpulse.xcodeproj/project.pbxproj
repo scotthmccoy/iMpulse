@@ -245,14 +245,10 @@
 		6C48D43016A772BB00FD409B /* iMpulseControllerKeyMapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C48D42C16A772BB00FD409B /* iMpulseControllerKeyMapping.plist */; };
 		6C48D43416A7730600FD409B /* BPMMediaKeysListenerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D43316A7730600FD409B /* BPMMediaKeysListenerWindow.m */; };
 		6C48D43A16A7738200FD409B /* BPMCocosNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D43716A7738200FD409B /* BPMCocosNavigationController.m */; };
-		6C48D43B16A7738200FD409B /* BPMScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D43916A7738200FD409B /* BPMScene.m */; };
+		6C48D43B16A7738200FD409B /* BPMMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C48D43916A7738200FD409B /* BPMMainScene.m */; };
 		6C48D45F16A8C8FC00FD409B /* snd_blank.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6C48D45716A8C8FC00FD409B /* snd_blank.aiff */; };
 		6C968FA6168FEAE30042ACED /* BPMUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C968FA5168FEAE30042ACED /* BPMUtilities.m */; };
-		6C969027169624310042ACED /* devpanel.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C969021169624310042ACED /* devpanel.png */; };
 		6C96902E169624560042ACED /* devnotes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6C96902D169624560042ACED /* devnotes.txt */; };
-		6C969032169624BD0042ACED /* whatsmyimpulsedoing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C96902F169624BC0042ACED /* whatsmyimpulsedoing.jpg */; };
-		6C969033169624BD0042ACED /* mediamode.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C969030169624BC0042ACED /* mediamode.jpg */; };
-		6C969034169624BD0042ACED /* userguide.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C969031169624BD0042ACED /* userguide.png */; };
 		6C969036169643520042ACED /* keymapping.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C969035169643520042ACED /* keymapping.jpg */; };
 		6CAFED7E16A55A5400077B71 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1BEBF1697CC1B00400329 /* AVFoundation.framework */; };
 		6CC1BEBE1697C19700400329 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC1BEBD1697C19700400329 /* MediaPlayer.framework */; };
@@ -292,6 +288,9 @@
 		6CFF781A16C30D2600043DCE /* SimpleAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFF781616C30D2600043DCE /* SimpleAudioEngine.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6CFF781C16C30E0600043DCE /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFF781B16C30E0600043DCE /* OpenAL.framework */; };
 		6CFF781E16C30E1000043DCE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFF781D16C30E0F00043DCE /* AudioToolbox.framework */; };
+		6CFF782116C317FC00043DCE /* BPMStartupLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFF782016C317FC00043DCE /* BPMStartupLayer.m */; };
+		6CFF782316C33E0A00043DCE /* bgStartup.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF782216C33E0A00043DCE /* bgStartup.png */; };
+		6CFF782516C33E1100043DCE /* bgStartup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF782416C33E1100043DCE /* bgStartup@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -673,16 +672,12 @@
 		6C48D43316A7730600FD409B /* BPMMediaKeysListenerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMMediaKeysListenerWindow.m; sourceTree = "<group>"; };
 		6C48D43616A7738200FD409B /* BPMCocosNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMCocosNavigationController.h; sourceTree = "<group>"; };
 		6C48D43716A7738200FD409B /* BPMCocosNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMCocosNavigationController.m; sourceTree = "<group>"; };
-		6C48D43816A7738200FD409B /* BPMScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMScene.h; sourceTree = "<group>"; };
-		6C48D43916A7738200FD409B /* BPMScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMScene.m; sourceTree = "<group>"; };
+		6C48D43816A7738200FD409B /* BPMMainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMMainScene.h; sourceTree = "<group>"; };
+		6C48D43916A7738200FD409B /* BPMMainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMMainScene.m; sourceTree = "<group>"; };
 		6C48D45716A8C8FC00FD409B /* snd_blank.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = snd_blank.aiff; sourceTree = "<group>"; };
 		6C968FA4168FEAE30042ACED /* BPMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMUtilities.h; sourceTree = "<group>"; };
 		6C968FA5168FEAE30042ACED /* BPMUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMUtilities.m; sourceTree = "<group>"; };
-		6C969021169624310042ACED /* devpanel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = devpanel.png; sourceTree = "<group>"; };
 		6C96902D169624560042ACED /* devnotes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = devnotes.txt; sourceTree = "<group>"; };
-		6C96902F169624BC0042ACED /* whatsmyimpulsedoing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = whatsmyimpulsedoing.jpg; sourceTree = "<group>"; };
-		6C969030169624BC0042ACED /* mediamode.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mediamode.jpg; sourceTree = "<group>"; };
-		6C969031169624BD0042ACED /* userguide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userguide.png; sourceTree = "<group>"; };
 		6C969035169643520042ACED /* keymapping.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = keymapping.jpg; sourceTree = "<group>"; };
 		6CC1BEBD1697C19700400329 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		6CC1BEBF1697CC1B00400329 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -732,6 +727,10 @@
 		6CFF781616C30D2600043DCE /* SimpleAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAudioEngine.m; sourceTree = "<group>"; };
 		6CFF781B16C30E0600043DCE /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		6CFF781D16C30E0F00043DCE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6CFF781F16C317FC00043DCE /* BPMStartupLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMStartupLayer.h; sourceTree = "<group>"; };
+		6CFF782016C317FC00043DCE /* BPMStartupLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMStartupLayer.m; sourceTree = "<group>"; };
+		6CFF782216C33E0A00043DCE /* bgStartup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgStartup.png; sourceTree = "<group>"; };
+		6CFF782416C33E1100043DCE /* bgStartup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgStartup@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -859,12 +858,14 @@
 		6C44AFEF16AA7C00000AD721 /* backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				6CFF782416C33E1100043DCE /* bgStartup@2x.png */,
+				6CFF782216C33E0A00043DCE /* bgStartup.png */,
+				6C44AFF416AA7C00000AD721 /* bgScene.png */,
+				6C44AFF516AA7C00000AD721 /* bgScene@2x.png */,
 				6C44B01516AA7EA4000AD721 /* bgInstructions.png */,
 				6C44B01616AA7EA4000AD721 /* bgInstructions@2x.png */,
 				6C44AFF016AA7C00000AD721 /* bgDevTool.png */,
 				6C44AFF116AA7C00000AD721 /* bgDevTool@2x.png */,
-				6C44AFF416AA7C00000AD721 /* bgScene.png */,
-				6C44AFF516AA7C00000AD721 /* bgScene@2x.png */,
 			);
 			path = backgrounds;
 			sourceTree = "<group>";
@@ -1279,8 +1280,10 @@
 				6C48D43716A7738200FD409B /* BPMCocosNavigationController.m */,
 				6C44AF9616AA08B6000AD721 /* BPMControllerSprite.h */,
 				6C44AF9716AA08B6000AD721 /* BPMControllerSprite.m */,
-				6C48D43816A7738200FD409B /* BPMScene.h */,
-				6C48D43916A7738200FD409B /* BPMScene.m */,
+				6CFF781F16C317FC00043DCE /* BPMStartupLayer.h */,
+				6CFF782016C317FC00043DCE /* BPMStartupLayer.m */,
+				6C48D43816A7738200FD409B /* BPMMainScene.h */,
+				6C48D43916A7738200FD409B /* BPMMainScene.m */,
 			);
 			path = BPMCocos2D;
 			sourceTree = "<group>";
@@ -1316,10 +1319,6 @@
 			children = (
 				6C96902D169624560042ACED /* devnotes.txt */,
 				6C969035169643520042ACED /* keymapping.jpg */,
-				6C96902F169624BC0042ACED /* whatsmyimpulsedoing.jpg */,
-				6C969030169624BC0042ACED /* mediamode.jpg */,
-				6C969031169624BD0042ACED /* userguide.png */,
-				6C969021169624310042ACED /* devpanel.png */,
 			);
 			path = NotInBundle;
 			sourceTree = "<group>";
@@ -1540,11 +1539,7 @@
 				6CE70832168E353400248E54 /* Default.png in Resources */,
 				6CE70834168E353400248E54 /* Default@2x.png in Resources */,
 				6CE70836168E353400248E54 /* Default-568h@2x.png in Resources */,
-				6C969027169624310042ACED /* devpanel.png in Resources */,
 				6C96902E169624560042ACED /* devnotes.txt in Resources */,
-				6C969032169624BD0042ACED /* whatsmyimpulsedoing.jpg in Resources */,
-				6C969033169624BD0042ACED /* mediamode.jpg in Resources */,
-				6C969034169624BD0042ACED /* userguide.png in Resources */,
 				6C969036169643520042ACED /* keymapping.jpg in Resources */,
 				6C48D30916A55CA700FD409B /* ChangeLog in Resources */,
 				6C48D31716A55CA700FD409B /* kazmath_neon.patch in Resources */,
@@ -1677,6 +1672,8 @@
 				6CFF780A16C30B0B00043DCE /* btn_d_pad_press.wav in Resources */,
 				6CFF780B16C30B0B00043DCE /* btn_shoulder_press.wav in Resources */,
 				6CFF780C16C30B0B00043DCE /* btn_shoulder_release.wav in Resources */,
+				6CFF782316C33E0A00043DCE /* bgStartup.png in Resources */,
+				6CFF782516C33E1100043DCE /* bgStartup@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1833,12 +1830,13 @@
 				6C48D42F16A772BB00FD409B /* BPMKeystrokeParser.m in Sources */,
 				6C48D43416A7730600FD409B /* BPMMediaKeysListenerWindow.m in Sources */,
 				6C48D43A16A7738200FD409B /* BPMCocosNavigationController.m in Sources */,
-				6C48D43B16A7738200FD409B /* BPMScene.m in Sources */,
+				6C48D43B16A7738200FD409B /* BPMMainScene.m in Sources */,
 				6C44AF9816AA08B6000AD721 /* BPMControllerSprite.m in Sources */,
 				6CFF781716C30D2600043DCE /* CDAudioManager.m in Sources */,
 				6CFF781816C30D2600043DCE /* CDOpenALSupport.m in Sources */,
 				6CFF781916C30D2600043DCE /* CocosDenshion.m in Sources */,
 				6CFF781A16C30D2600043DCE /* SimpleAudioEngine.m in Sources */,
+				6CFF782116C317FC00043DCE /* BPMStartupLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

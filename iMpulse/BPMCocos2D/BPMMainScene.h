@@ -21,11 +21,13 @@
 @class CCMenuItemImage;
 @class CCSprite;
 @class CCMenuItemToggle;
+@class BPMStartupLayer;
 
-@interface BPMScene : CCScene <BPMLoggingDelegate>
+@interface BPMMainScene : CCScene <BPMLoggingDelegate>
 {
     //Tabs on the top right
     CCMenu* tabMenu;
+    BPMStartupLayer* startupLayer;
     
     ////////////
     //Main Layer

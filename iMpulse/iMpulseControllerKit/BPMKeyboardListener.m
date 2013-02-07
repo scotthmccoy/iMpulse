@@ -211,7 +211,8 @@ static BPMKeyboardListener* _singleton = nil;
     if (firstNotificationName)
     {
         //Post the first notification
-        [[NSNotificationCenter defaultCenter] postNotificationName:firstNotificationName object:nil];
+        NSDictionary* userInfo = [NSDictionary dictionaryWithObject:keyName forKey:@"input"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:firstNotificationName object:nil userInfo:userInfo];
 
         //Log the message to the logger
         if (self.loggingDelegate)
@@ -226,7 +227,9 @@ static BPMKeyboardListener* _singleton = nil;
             dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC),
             dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0),
             ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:secondNotificationName object:nil];
+                NSDictionary* userInfo = [NSDictionary dictionaryWithObject:keyName forKey:@"input"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:secondNotificationName object:nil userInfo:userInfo];
+                
                 
                 //Log the message to the logger
                 if (self.loggingDelegate)
