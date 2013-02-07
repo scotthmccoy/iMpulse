@@ -7,13 +7,13 @@
 //
 
 //Header
-#import "BPMScene.h"
+#import "BPMMainScene.h"
 
 //Cocos
 #import "cocos2d.h"
 #import "SimpleAudioEngine.h"
 #import "BPMControllerSprite.h"
-
+#import "BPMStartupLayer.h"
 
 //For logging delegate
 #import "BPMKeystrokeParser.h"
@@ -24,7 +24,7 @@
 #import "BPMUtilities.h"
 #import "BPMControllerState.h"
 
-@implementation BPMScene
+@implementation BPMMainScene
 
 
 - (id)init {
@@ -341,26 +341,11 @@
     modePlayer2.position = overlayPosition;
     modePlayer2.opacity = 0;
     
-    
-    //Add observers for Mode Change notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_MEDIA:) name:@"NOTIFICATION_MODE_MEDIA" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_GAME:) name:@"NOTIFICATION_MODE_GAME" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_MAW:) name:@"NOTIFICATION_MODE_MAW" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_IOS:) name:@"NOTIFICATION_MODE_IOS" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_LEFT:) name:@"NOTIFICATION_MODE_LEFT" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_RIGHT:) name:@"NOTIFICATION_MODE_RIGHT" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_PLAYER1:) name:@"NOTIFICATION_MODE_PLAYER1" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_PLAYER2:) name:@"NOTIFICATION_MODE_PLAYER2" object:nil];  
-    
-    //Add observers for Media Key notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYPAUSE:) name:@"NOTIFICATION_PLAYPAUSE" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PREVIOUSTRACK:) name:@"NOTIFICATION_PREVIOUSTRACK" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_NEXTTRACK:) name:@"NOTIFICATION_NEXTTRACK" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_SEEKFORWARD_BEGIN:) name:@"NOTIFICATION_SEEKFORWARD_BEGIN" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_SEEKFORWARD_END:) name:@"NOTIFICATION_SEEKFORWARD_END" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_SEEKBACK_BEGIN:) name:@"NOTIFICATION_SEEKBACK_BEGIN" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_SEEKBACK_END:) name:@"NOTIFICATION_SEEKBACK_END" object:nil];
-    
+    //////////////////////
+    //Create Startup Layer
+    //////////////////////
+    startupLayer = [BPMStartupLayer layer];
+        
     
     ///////////////////////
     //Add children to self
@@ -392,8 +377,35 @@
     [self addChild:modeRight];
     [self addChild:modePlayer1];
     [self addChild:modePlayer2];
+    
+    [self addChild:startupLayer];
 
     
+    
+    
+    /////////////
+    //Other setup
+    /////////////
+    
+    //Add observers for Mode Change notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_MEDIA:) name:@"NOTIFICATION_MODE_MEDIA" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_GAME:) name:@"NOTIFICATION_MODE_GAME" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_MAW:) name:@"NOTIFICATION_MODE_MAW" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_IOS:) name:@"NOTIFICATION_MODE_IOS" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_LEFT:) name:@"NOTIFICATION_MODE_LEFT" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_RIGHT:) name:@"NOTIFICATION_MODE_RIGHT" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_PLAYER1:) name:@"NOTIFICATION_MODE_PLAYER1" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_MODE_PLAYER2:) name:@"NOTIFICATION_MODE_PLAYER2" object:nil];
+    
+    //Add observers for Media Key notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PLAYPAUSE:) name:@"NOTIFICATION_PLAYPAUSE" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_PREVIOUSTRACK:) name:@"NOTIFICATION_PREVIOUSTRACK" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_NEXTTRACK:) name:@"NOTIFICATION_NEXTTRACK" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_SEEKFORWARD_BEGIN:) name:@"NOTIFICATION_SEEKFORWARD_BEGIN" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_SEEKFORWARD_END:) name:@"NOTIFICATION_SEEKFORWARD_END" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_SEEKBACK_BEGIN:) name:@"NOTIFICATION_SEEKBACK_BEGIN" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observer_NOTIFICATION_SEEKBACK_END:) name:@"NOTIFICATION_SEEKBACK_END" object:nil];
+
     
     //Select the Main tab
     [mnuMain activate];

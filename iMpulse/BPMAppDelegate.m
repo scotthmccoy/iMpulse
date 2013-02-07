@@ -17,7 +17,8 @@
 
 //Cocos 2d Stuff
 #import "cocos2d-iphone-2.0/cocos2d/cocos2d.h"
-#import "BPMScene.h"
+#import "BPMMainScene.h"
+#import "BPMStartupLayer.h"
 #import "BPMCocosNavigationController.h"
 
 @implementation BPMAppDelegate
@@ -93,15 +94,9 @@
     ///////////////////////////////////////////////////////////////////////////////
     //Set up and run the cocos2D Scene
     ///////////////////////////////////////////////////////////////////////////////
+    BPMMainScene* mainScene = [[BPMMainScene alloc] init];
+    [[CCDirector sharedDirector] runWithScene:mainScene];
 
-    BPMScene* myScene = [[BPMScene alloc] init];
-    [[CCDirector sharedDirector] runWithScene:myScene];
-    
-
-    
-    
-
-    
     return YES;
 }
 
