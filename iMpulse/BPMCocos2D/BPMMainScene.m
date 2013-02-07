@@ -26,6 +26,7 @@
 
 @implementation BPMMainScene
 
+@synthesize allowModeChangeOverlays = _allowModeChangeOverlays;
 
 - (id)init {
     
@@ -345,7 +346,10 @@
     //Create Startup Layer
     //////////////////////
     startupLayer = [BPMStartupLayer layer];
-        
+    startupLayer.scene = self;
+
+    //Don't allow mode change overlays yet
+    self.allowModeChangeOverlays = NO;
     
     ///////////////////////
     //Add children to self
@@ -719,6 +723,9 @@
 #pragma mark - Mode Change Fadeout
 - (void) modeChangeFadeout:(CCSprite*) sprite
 {
+    if (!self.allowModeChangeOverlays)
+        return;
+    
     //Fade in the mode change overlay
     [sprite runAction:[CCSequence actions:
                        [CCFadeIn actionWithDuration:0.25],

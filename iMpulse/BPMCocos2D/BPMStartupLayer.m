@@ -16,6 +16,7 @@
 
 @implementation BPMStartupLayer
 
+@synthesize scene=_scene;
 
 + (id) layer
 {
@@ -86,6 +87,29 @@
     //Kill all observers
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
+    if (isMaw)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTIFICATION_MODE_MAW" object:nil];
+    }
+    
+    if (isMedia)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTIFICATION_MODE_MEDIA" object:nil];
+    }
+
+    if (isPlayer2)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTIFICATION_MODE_PLAYER2" object:nil];
+    }
+    
+    if (isSouthPaw)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTIFICATION_MODE_LEFT" object:nil];
+    }
+    
+    //Turn on mode overlays
+    self.scene.allowModeChangeOverlays = YES;
+    self.scene = nil;
     
     //TODO: Fade the bg sprite and at the end of that sequence, remove the layer.
     [self removeFromParentAndCleanup:NO];

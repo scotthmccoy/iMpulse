@@ -68,18 +68,5 @@
          landmarkName = "-observer_NOTIFICATION_PLAYER_1_M_PRESS:"
          landmarkType = "5">
       </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "iMpulse/BPMCocos2D/BPMStartupLayer.m"
-         timestampString = "381965089.689443"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "87"
-         endingLineNumber = "87"
-         landmarkName = "-doneSetupWithIsMAW:andIsMedia:andIsPlayer2:andIsSouthPaw:"
-         landmarkType = "5">
-      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

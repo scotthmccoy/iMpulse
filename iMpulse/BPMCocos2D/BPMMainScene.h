@@ -99,7 +99,7 @@
     CCSprite* modePlayer2;
 }
 
-
+@property (readwrite) BOOL allowModeChangeOverlays;
 
 
 @end
