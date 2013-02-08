@@ -134,11 +134,11 @@ static BPMKeystrokeParser* _singleton = nil;
         int isPressed = [numIsPressed boolValue];
         int playerNumber = [numPlayerNumber intValue];
         
-        //Consume that data
-        NSString* firstMessage = [NSString stringWithFormat:@"[%@] %@", input, notificationName];
-        [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:notificationName withKeyName:input andLog:firstMessage];
+
         
-        //Are we in MAW mode?
+        //If we're in MAW mode, we have to send an automatic release shortly after.
+        //Note that we have to set this up before consuming the original data, or else
+        //it might trigger a change to MAW mode.
         if ([[BPMControllerState singleton] selectedOS] == BPMControllerOSMAW)
         {
             //Get the auto-release notification
@@ -155,6 +155,11 @@ static BPMKeystrokeParser* _singleton = nil;
                  }
             );
         }
+        
+        //Consume the data
+        NSString* firstMessage = [NSString stringWithFormat:@"[%@] %@", input, notificationName];
+        [self updateControllerStateForButtonID:buttonID setState:isPressed forPlayer:playerNumber andPostNotification:notificationName withKeyName:input andLog:firstMessage];
+        
     }
     else
     {
