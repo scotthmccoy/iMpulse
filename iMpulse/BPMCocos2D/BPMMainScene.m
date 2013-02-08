@@ -259,9 +259,10 @@
 
     
     //Create label
-    lblDevTool = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(428, 248) hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap  fontName:@"Courier New" fontSize:10.0];
+//    lblDevTool = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(428, 248) hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap  fontName:@"Courier New" fontSize:9.75];
+    lblDevTool = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(428, 248) hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap  fontName:@"Courier New" fontSize:10];
     lblDevTool.position = ccp(30,13);
-    lblDevTool.ignoreAnchorPointForPosition = YES;    
+    lblDevTool.ignoreAnchorPointForPosition = YES;
 
     //Become the logging delegate for all the controller kit classes.
     [BPMKeystrokeParser singleton].loggingDelegate = self;
@@ -577,6 +578,25 @@
     //Create the log message
     NSString* strDate = [dateFormat stringFromDate:[NSDate date]];
     NSString* logMessage = [NSString stringWithFormat:@"[%@] %@", strDate, message];
+    
+    //Replace Newlines
+    logMessage = [logMessage stringByReplacingOccurrencesOfString:@"\n" withString:@"NEWLINE"];
+    
+    //Truncate to 70 chars
+    if ([logMessage length] > 70)
+    {
+        // define the range you're interested in
+        NSRange stringRange = {0, MIN([logMessage length], 67)};
+        
+        // adjust the range to include dependent chars
+        stringRange = [logMessage rangeOfComposedCharacterSequencesForRange:stringRange];
+        
+        // Now you can create the short string
+        logMessage = [logMessage substringWithRange:stringRange];
+        
+        // Add ellipses
+        logMessage = [NSString stringWithFormat:@"%@...", logMessage];
+    }
     
     //Add it to the rolling log
     [arrayLog addObject:logMessage];
