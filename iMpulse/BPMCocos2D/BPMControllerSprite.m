@@ -36,13 +36,13 @@
         //Create Some Sprites
         //////////////////////////////
         controllerFront = [CCSprite spriteWithFile:@"controller_front.png"];
-        controllerFront.position = ccp(-4,1);
+        controllerFront.position = ccp(-5,2);
         
         controllerBack = [CCSprite spriteWithFile:@"controller_back.png"];
-        controllerBack.position = ccp(38,-120);
+        controllerBack.position = ccp(30,-110);
         
         controllerBackArrow = [CCSprite spriteWithFile:@"controller_backside_arrow.png"];
-        controllerBackArrow.position = ccp(-107,-99);
+        controllerBackArrow.position = ccp(-112,-95);
         
         //////////////////////////////
         //Add main sprites to self
