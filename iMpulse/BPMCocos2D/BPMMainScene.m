@@ -46,25 +46,25 @@
     [super onEnter];
     
     //Create bg
-    CCSprite* bg = [CCSprite spriteWithFile:@"bgScene.png"];
+    CCSprite* bg = [CCSprite spriteWithFile:SD_OR_HD(@"bgScene.png")];
     bg.ignoreAnchorPointForPosition = YES;
     
     ///////////////
     //Create tabs
     ///////////////
-    CCMenuItemImage* mnuDevTool = [CCMenuItemImage itemWithNormalImage:@"btn_devtool_inactive.png"
-                                                         selectedImage: @"btn_devtool_active.png"
+    CCMenuItemImage* mnuDevTool = [CCMenuItemImage itemWithNormalImage:SD_OR_HD(@"btn_devtool_inactive.png")
+                                                         selectedImage:SD_OR_HD(@"btn_devtool_active.png")
                                                                 target:self
                                                               selector:@selector(callback_mnuDevTool:)];
     
-    CCMenuItemImage* mnuInstructions = [CCMenuItemImage itemWithNormalImage:@"btn_instructions_inactive.png"
-                                                              selectedImage: @"btn_instructions_active.png"
+    CCMenuItemImage* mnuInstructions = [CCMenuItemImage itemWithNormalImage:SD_OR_HD(@"btn_instructions_inactive.png")
+                                                              selectedImage:SD_OR_HD(@"btn_instructions_active.png")
                                                                      target:self
                                                                    selector:@selector(callback_mnuInstructions:)];
         
     
-    CCMenuItemImage* mnuMain = [CCMenuItemImage itemWithNormalImage:@"btn_main_inactive.png"
-                                                         selectedImage: @"btn_main_active.png"
+    CCMenuItemImage* mnuMain = [CCMenuItemImage itemWithNormalImage:SD_OR_HD(@"btn_main_inactive.png")
+                                                        selectedImage:SD_OR_HD(@"btn_main_active.png")
                                                                 target:self
                                                               selector:@selector(callback_mnuMain:)];
     
@@ -90,13 +90,13 @@
     ////////////////////////////////////
     
     //Add Buttons
-    btn_os_ios = [CCMenuItemImage itemWithNormalImage:@"btn_os_ios.png"
-                                                         selectedImage:@"btn_os_maw.png"
+    btn_os_ios = [CCMenuItemImage itemWithNormalImage:SD_OR_HD(@"btn_os_ios.png")
+                                                         selectedImage:SD_OR_HD(@"btn_os_maw.png")
                                                                 target:self
                                                               selector:nil];
     
-    btn_os_maw = [CCMenuItemImage itemWithNormalImage:@"btn_os_maw.png"
-                                                         selectedImage:@"btn_os_ios.png"
+    btn_os_maw = [CCMenuItemImage itemWithNormalImage:SD_OR_HD(@"btn_os_maw.png")
+                                                         selectedImage:SD_OR_HD(@"btn_os_ios.png")
                                                                 target:self
                                                               selector:nil];
     
@@ -123,13 +123,13 @@
     ////////////////////////////////////    
 
     //Add Buttons
-    btn_game = [CCMenuItemImage itemWithNormalImage:@"btn_game.png"
-                                                       selectedImage:@"btn_media.png"
+    btn_game = [CCMenuItemImage itemWithNormalImage:SD_OR_HD(@"btn_game.png")
+                                                       selectedImage:SD_OR_HD(@"btn_media.png")
                                                               target:self
                                                             selector:nil];
 
-    btn_media = [CCMenuItemImage itemWithNormalImage:@"btn_media.png"
-                                                      selectedImage:@"btn_game.png"
+    btn_media = [CCMenuItemImage itemWithNormalImage:SD_OR_HD(@"btn_media.png")
+                                                      selectedImage:SD_OR_HD(@"btn_game.png")
                                                              target:self
                                                            selector:nil];
     
@@ -153,13 +153,13 @@
     ////////////////////////////////////
     
     //Add Buttons
-    btn_player_1 = [CCMenuItemImage itemWithNormalImage:@"btn_player_1.png"
-                                                       selectedImage:@"btn_player_2.png"
+    btn_player_1 = [CCMenuItemImage itemWithNormalImage:SD_OR_HD(@"btn_player_1.png")
+                                                       selectedImage:SD_OR_HD(@"btn_player_2.png")
                                                               target:self
                                                             selector:nil];
     
-    btn_player_2 = [CCMenuItemImage itemWithNormalImage:@"btn_player_2.png"
-                                                        selectedImage:@"btn_player_1.png"
+    btn_player_2 = [CCMenuItemImage itemWithNormalImage:SD_OR_HD(@"btn_player_2.png")
+                                                        selectedImage:SD_OR_HD(@"btn_player_1.png")
                                                                target:self
                                                              selector:nil];
     
@@ -183,13 +183,13 @@
     ////////////////////////////////////
     
     //Add Buttons
-    btn_orientation_right = [CCMenuItemImage itemWithNormalImage:@"btn_orientation_right.png"
-                                                           selectedImage:@"btn_orientation_left.png"
+    btn_orientation_right = [CCMenuItemImage itemWithNormalImage:SD_OR_HD(@"btn_orientation_right.png")
+                                                           selectedImage:SD_OR_HD(@"btn_orientation_left.png")
                                                                   target:self
                                                                 selector:nil];
     
-    btn_orientation_left = [CCMenuItemImage itemWithNormalImage:@"btn_orientation_left.png"
-                                                           selectedImage:@"btn_orientation_right.png"
+    btn_orientation_left = [CCMenuItemImage itemWithNormalImage:SD_OR_HD(@"btn_orientation_left.png")
+                                                           selectedImage:SD_OR_HD(@"btn_orientation_right.png")
                                                                   target:self
                                                                 selector:nil];
     
@@ -211,7 +211,7 @@
     //////////////////////////////////////////////////////////////////////////////////////////
     //Create hidden overlay to block Orientation and Player Select buttons while in Media mode
     //////////////////////////////////////////////////////////////////////////////////////////
-    mediaModeButtonBlockerOverlay = [CCSprite spriteWithFile:@"media_player_and_orientation_overlay.png"];
+    mediaModeButtonBlockerOverlay = [CCSprite spriteWithFile:SD_OR_HD(@"media_player_and_orientation_overlay.png")];
     mediaModeButtonBlockerOverlay.ignoreAnchorPointForPosition = YES;
     mediaModeButtonBlockerOverlay.position = ccp(2,3);
     mediaModeButtonBlockerOverlay.opacity = 0;
@@ -221,7 +221,7 @@
     //////////////////////////////////////////////////////////////////////////////////////////
     //Create hidden overlay to block OS buttons while in Media mode
     //////////////////////////////////////////////////////////////////////////////////////////
-    mediaModeOSButtonBlockerOverlay = [CCSprite spriteWithFile:@"btn_os_media_overlay.png"];
+    mediaModeOSButtonBlockerOverlay = [CCSprite spriteWithFile:SD_OR_HD(@"btn_os_media_overlay.png")];
     mediaModeOSButtonBlockerOverlay.ignoreAnchorPointForPosition = YES;
     mediaModeOSButtonBlockerOverlay.position = ccp(3,216);
     mediaModeOSButtonBlockerOverlay.opacity = 0;
@@ -252,7 +252,7 @@
     lyrDevTool.visible = NO;
     
     //Create its background
-    CCSprite* bgDevTool = [CCSprite spriteWithFile:@"bgDevTool.png"];
+    CCSprite* bgDevTool = [CCSprite spriteWithFile:SD_OR_HD(@"bgDevTool.png")];
     bgDevTool.ignoreAnchorPointForPosition = YES;
     bgDevTool.position = ccp(26,15);
     
@@ -290,7 +290,7 @@
     lyrInstructions = [[CCLayer alloc] init];
     lyrInstructions.visible = NO;
     
-    CCSprite* bgInstructions = [CCSprite spriteWithFile:@"bgInstructions.png"];
+    CCSprite* bgInstructions = [CCSprite spriteWithFile:SD_OR_HD(@"bgInstructions.png")];
     bgInstructions.ignoreAnchorPointForPosition = YES;
     [lyrInstructions addChild:bgInstructions];
     
@@ -299,57 +299,57 @@
     //////////////////////////
     CGPoint overlayPosition = ccp(480/2, 320/2);
     
-    mediaPlayPause = [CCSprite spriteWithFile:@"media_playpause_overlay.png"];
+    mediaPlayPause = [CCSprite spriteWithFile:SD_OR_HD(@"media_playpause_overlay.png")];
     mediaPlayPause.position = overlayPosition;
     mediaPlayPause.opacity = 0;
     
-    mediaNextTrack = [CCSprite spriteWithFile:@"media_nexttrack_overlay.png"];
+    mediaNextTrack = [CCSprite spriteWithFile:SD_OR_HD(@"media_nexttrack_overlay.png")];
     mediaNextTrack.position = overlayPosition;
     mediaNextTrack.opacity = 0;
     
-    mediaPreviousTrack = [CCSprite spriteWithFile:@"media_previoustrack_overlay.png"];
+    mediaPreviousTrack = [CCSprite spriteWithFile:SD_OR_HD(@"media_previoustrack_overlay.png")];
     mediaPreviousTrack.position = overlayPosition;
     mediaPreviousTrack.opacity = 0;
     
-    mediaSeekBackward = [CCSprite spriteWithFile:@"media_seekback_overlay.png"];
+    mediaSeekBackward = [CCSprite spriteWithFile:SD_OR_HD(@"media_seekback_overlay.png")];
     mediaSeekBackward.position = overlayPosition;
     mediaSeekBackward.opacity = 0;
     
-    mediaSeekForward = [CCSprite spriteWithFile:@"media_seekforward_overlay.png"];
+    mediaSeekForward = [CCSprite spriteWithFile:SD_OR_HD(@"media_seekforward_overlay.png")];
     mediaSeekForward.position = overlayPosition;
     mediaSeekForward.opacity = 0;
     
     
     //Create mode overlay sprite
-    modeGame = [CCSprite spriteWithFile:@"mode_game_overlay.png"];
+    modeGame = [CCSprite spriteWithFile:SD_OR_HD(@"mode_game_overlay.png")];
     modeGame.position = overlayPosition;
     modeGame.opacity = 0;
     
-    modeMedia = [CCSprite spriteWithFile:@"mode_media_overlay.png"];
+    modeMedia = [CCSprite spriteWithFile:SD_OR_HD(@"mode_media_overlay.png")];
     modeMedia.position = overlayPosition;
     modeMedia.opacity = 0;
 
-    modeIOS = [CCSprite spriteWithFile:@"mode_ios_overlay.png"];
+    modeIOS = [CCSprite spriteWithFile:SD_OR_HD(@"mode_ios_overlay.png")];
     modeIOS.position = overlayPosition;
     modeIOS.opacity = 0;
     
-    modeMAW = [CCSprite spriteWithFile:@"mode_maw_overlay.png"];
+    modeMAW = [CCSprite spriteWithFile:SD_OR_HD(@"mode_maw_overlay.png")];
     modeMAW.position = overlayPosition;
     modeMAW.opacity = 0;
     
-    modeLeft = [CCSprite spriteWithFile:@"mode_left_overlay.png"];
+    modeLeft = [CCSprite spriteWithFile:SD_OR_HD(@"mode_left_overlay.png")];
     modeLeft.position = overlayPosition;
     modeLeft.opacity = 0;
     
-    modeRight = [CCSprite spriteWithFile:@"mode_right_overlay.png"];
+    modeRight = [CCSprite spriteWithFile:SD_OR_HD(@"mode_right_overlay.png")];
     modeRight.position = overlayPosition;
     modeRight.opacity = 0;
     
-    modePlayer1 = [CCSprite spriteWithFile:@"mode_player1_overlay.png"];
+    modePlayer1 = [CCSprite spriteWithFile:SD_OR_HD(@"mode_player1_overlay.png")];
     modePlayer1.position = overlayPosition;
     modePlayer1.opacity = 0;
     
-    modePlayer2 = [CCSprite spriteWithFile:@"mode_player2_overlay.png"];
+    modePlayer2 = [CCSprite spriteWithFile:SD_OR_HD(@"mode_player2_overlay.png")];
     modePlayer2.position = overlayPosition;
     modePlayer2.opacity = 0;
     

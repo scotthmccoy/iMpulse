@@ -8,6 +8,7 @@
 
 //Header
 #import "BPMStartupLayer.h"
+#import "BPMUtilities.h"
 
 //Cocos
 #import "cocos2d.h"
@@ -35,7 +36,7 @@
         ///////////////////
         
         //Create bg
-        CCSprite* bg = [CCSprite spriteWithFile:@"bgStartup.png"];
+        CCSprite* bg = [CCSprite spriteWithFile:SD_OR_HD(@"bgStartup.png")];
         bg.ignoreAnchorPointForPosition = YES;
         
         //Add the bg
