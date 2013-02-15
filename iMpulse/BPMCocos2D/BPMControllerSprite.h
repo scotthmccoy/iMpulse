@@ -11,8 +11,8 @@
 //Define some constants for the different sprite positions for different modes
 //TODO: This is really not a good place to define these
 #define basePosition ccp(320,180)
-#define southpawOffset ccp(0,-80)
-#define mediaModeOffset ccp(40,-42)
+#define southpawOffset ccp(-13,-78)
+#define mediaModeOffset ccp(40,-47)
 
 
 @interface BPMControllerSprite : CCSprite
