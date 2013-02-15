@@ -47,6 +47,7 @@
     
     //Create bg
     CCSprite* bg = [CCSprite spriteWithFile:SD_OR_HD(@"bgScene.png")];
+    bg.position = ADJUST_CCP(ccp(0,0));
     bg.ignoreAnchorPointForPosition = YES;
     
     ///////////////
@@ -73,10 +74,10 @@
     tabMenu = [CCMenu menuWithItems:mnuDevTool, mnuInstructions, mnuMain, nil];
     
     //Position the menu
-    tabMenu.position = ccp(415,297);
-    mnuDevTool.position = ccp(-43,0);
-    mnuInstructions.position = ccp(0,0);
-    mnuMain.position = ccp(43,0);
+    tabMenu.position = ADJUST_CCP(ccp(415,297));
+    mnuDevTool.position = ADJUST_REL(ccp(-43,0));
+    mnuInstructions.position = ADJUST_REL(ccp(0,0));
+    mnuMain.position = ADJUST_REL(ccp(43,0));
     
     
     ///////////////////
@@ -108,7 +109,7 @@
     mnu_os_toggle = [CCMenu menuWithItems:btn_os_toggle, nil];
     
     //Position the menu
-    mnu_os_toggle.position = ccp(3, 216);
+    mnu_os_toggle.position = ADJUST_CCP(ccp(3, 216));
     
     
     //Add the menu
@@ -141,7 +142,7 @@
     mnu_game_media_toggle = [CCMenu menuWithItems:btn_game_media_toggle, nil];
     
     //Position the menu
-    mnu_game_media_toggle.position = ccp(3, 178);
+    mnu_game_media_toggle.position = ADJUST_CCP(ccp(3, 178));
 
     
     //Add the menu
@@ -171,7 +172,7 @@
     mnu_player_toggle = [CCMenu menuWithItems:btn_player_toggle, nil];
     
     //Position the menu
-    mnu_player_toggle.position = ccp(3, 66);
+    mnu_player_toggle.position = ADJUST_CCP(ccp(3, 66));
     
     
     //Add the menu
@@ -201,7 +202,7 @@
     mnu_orientation_toggle = [CCMenu menuWithItems:btn_orientation_toggle, nil];
     
     //Position the menu
-    mnu_orientation_toggle.position = ccp(3, 2);
+    mnu_orientation_toggle.position = ADJUST_CCP(ccp(3, 2));
     
     //Add the menu
     [lyrMain addChild:mnu_orientation_toggle];
@@ -213,7 +214,7 @@
     //////////////////////////////////////////////////////////////////////////////////////////
     mediaModeButtonBlockerOverlay = [CCSprite spriteWithFile:SD_OR_HD(@"media_player_and_orientation_overlay.png")];
     mediaModeButtonBlockerOverlay.ignoreAnchorPointForPosition = YES;
-    mediaModeButtonBlockerOverlay.position = ccp(2,3);
+    mediaModeButtonBlockerOverlay.position = ADJUST_CCP(ccp(2,3));
     mediaModeButtonBlockerOverlay.opacity = 0;
     [lyrMain addChild:mediaModeButtonBlockerOverlay];
     
@@ -223,7 +224,7 @@
     //////////////////////////////////////////////////////////////////////////////////////////
     mediaModeOSButtonBlockerOverlay = [CCSprite spriteWithFile:SD_OR_HD(@"btn_os_media_overlay.png")];
     mediaModeOSButtonBlockerOverlay.ignoreAnchorPointForPosition = YES;
-    mediaModeOSButtonBlockerOverlay.position = ccp(3,216);
+    mediaModeOSButtonBlockerOverlay.position = ADJUST_CCP(ccp(3,216));
     mediaModeOSButtonBlockerOverlay.opacity = 0;
     [lyrMain addChild:mediaModeOSButtonBlockerOverlay];
     
@@ -254,14 +255,14 @@
     //Create its background
     CCSprite* bgDevTool = [CCSprite spriteWithFile:SD_OR_HD(@"bgDevTool.png")];
     bgDevTool.ignoreAnchorPointForPosition = YES;
-    bgDevTool.position = ccp(26,15);
+    bgDevTool.position = ADJUST_CCP(ccp(26,15));
     
 
     
     //Create label
 //    lblDevTool = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(428, 248) hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap  fontName:@"Courier New" fontSize:9.75];
-    lblDevTool = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(428, 248) hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap  fontName:@"Courier New" fontSize:10];
-    lblDevTool.position = ccp(30,13);
+    lblDevTool = [CCLabelTTF labelWithString:@"" dimensions:CGSizeMake(HD_PIXELS(428), HD_PIXELS(248)) hAlignment:kCCTextAlignmentLeft lineBreakMode:kCCLineBreakModeWordWrap  fontName:@"Courier New" fontSize:HD_PIXELS(10)];
+    lblDevTool.position = ADJUST_CCP(ccp(30,13));
     lblDevTool.ignoreAnchorPointForPosition = YES;
 
     //Become the logging delegate for all the controller kit classes.
@@ -291,31 +292,32 @@
     lyrInstructions.visible = NO;
     
     CCSprite* bgInstructions = [CCSprite spriteWithFile:SD_OR_HD(@"bgInstructions.png")];
+    bgInstructions.position=ADJUST_CCP(ccp(0,0));
     bgInstructions.ignoreAnchorPointForPosition = YES;
     [lyrInstructions addChild:bgInstructions];
     
     //////////////////////////
     //Create Media Key Sprites
     //////////////////////////
-    CGPoint overlayPosition = ccp(480/2, 320/2);
+    CGPoint overlayPosition = ADJUST_CCP(ccp(480/2, 320/2));
     
-    mediaPlayPause = [CCSprite spriteWithFile:SD_OR_HD(@"media_playpause_overlay.png")];
+    mediaPlayPause = [CCSprite spriteWithFile:@"media_playpause_overlay.png"];
     mediaPlayPause.position = overlayPosition;
     mediaPlayPause.opacity = 0;
     
-    mediaNextTrack = [CCSprite spriteWithFile:SD_OR_HD(@"media_nexttrack_overlay.png")];
+    mediaNextTrack = [CCSprite spriteWithFile:@"media_nexttrack_overlay.png"];
     mediaNextTrack.position = overlayPosition;
     mediaNextTrack.opacity = 0;
     
-    mediaPreviousTrack = [CCSprite spriteWithFile:SD_OR_HD(@"media_previoustrack_overlay.png")];
+    mediaPreviousTrack = [CCSprite spriteWithFile:@"media_previoustrack_overlay.png"];
     mediaPreviousTrack.position = overlayPosition;
     mediaPreviousTrack.opacity = 0;
     
-    mediaSeekBackward = [CCSprite spriteWithFile:SD_OR_HD(@"media_seekback_overlay.png")];
+    mediaSeekBackward = [CCSprite spriteWithFile:@"media_seekback_overlay.png"];
     mediaSeekBackward.position = overlayPosition;
     mediaSeekBackward.opacity = 0;
     
-    mediaSeekForward = [CCSprite spriteWithFile:SD_OR_HD(@"media_seekforward_overlay.png")];
+    mediaSeekForward = [CCSprite spriteWithFile:@"media_seekforward_overlay.png"];
     mediaSeekForward.position = overlayPosition;
     mediaSeekForward.opacity = 0;
     

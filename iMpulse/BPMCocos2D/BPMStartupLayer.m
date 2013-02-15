@@ -37,6 +37,7 @@
         
         //Create bg
         CCSprite* bg = [CCSprite spriteWithFile:SD_OR_HD(@"bgStartup.png")];
+        bg.position=ADJUST_CCP(ccp(0,0));
         bg.ignoreAnchorPointForPosition = YES;
         
         //Add the bg
