@@ -36,7 +36,7 @@
         //Create Some Sprites
         //////////////////////////////
         controllerFront = [CCSprite spriteWithFile:@"controller_front.png"];
-        controllerFront.position = ccp(0,0);
+        controllerFront.position = ccp(-4,1);
         
         controllerBack = [CCSprite spriteWithFile:@"controller_back.png"];
         controllerBack.position = ccp(38,-120);
