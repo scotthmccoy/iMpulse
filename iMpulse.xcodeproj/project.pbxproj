@@ -294,6 +294,7 @@
 		A40574A916CE3C8C00DCF9F1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A40574A616CE3C8C00DCF9F1 /* Default@2x.png */; };
 		A4AF00F616CE4D6C00625DC0 /* underbaseBG-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AF00F416CE4D6C00625DC0 /* underbaseBG-iPad.png */; };
 		A4AF00F716CE4D6C00625DC0 /* underbaseBG-iPhone5.png in Resources */ = {isa = PBXBuildFile; fileRef = A4AF00F516CE4D6C00625DC0 /* underbaseBG-iPhone5.png */; };
+		AA6A386716CE74AC008F1521 /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6A386616CE74AC008F1521 /* Default-Landscape.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -738,6 +739,7 @@
 		A40574A616CE3C8C00DCF9F1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A4AF00F416CE4D6C00625DC0 /* underbaseBG-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "underbaseBG-iPad.png"; sourceTree = "<group>"; };
 		A4AF00F516CE4D6C00625DC0 /* underbaseBG-iPhone5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "underbaseBG-iPhone5.png"; sourceTree = "<group>"; };
+		AA6A386616CE74AC008F1521 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1416,6 +1418,7 @@
 				6CE7082D168E353400248E54 /* iMpulse-Prefix.pch */,
 				A40574A516CE3C8C00DCF9F1 /* Default.png */,
 				A40574A616CE3C8C00DCF9F1 /* Default@2x.png */,
+				AA6A386616CE74AC008F1521 /* Default-Landscape.png */,
 				6CE70835168E353400248E54 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
@@ -1688,6 +1691,7 @@
 				A40574A916CE3C8C00DCF9F1 /* Default@2x.png in Resources */,
 				A4AF00F616CE4D6C00625DC0 /* underbaseBG-iPad.png in Resources */,
 				A4AF00F716CE4D6C00625DC0 /* underbaseBG-iPhone5.png in Resources */,
+				AA6A386716CE74AC008F1521 /* Default-Landscape.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
