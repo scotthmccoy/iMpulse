@@ -260,9 +260,6 @@
 		6CE7082A168E353400248E54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CE70828168E353400248E54 /* InfoPlist.strings */; };
 		6CE7082C168E353400248E54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7082B168E353400248E54 /* main.m */; };
 		6CE70830168E353400248E54 /* BPMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE7082F168E353400248E54 /* BPMAppDelegate.m */; };
-		6CE70832168E353400248E54 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CE70831168E353400248E54 /* Default.png */; };
-		6CE70834168E353400248E54 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CE70833168E353400248E54 /* Default@2x.png */; };
-		6CE70836168E353400248E54 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CE70835168E353400248E54 /* Default-568h@2x.png */; };
 		6CE7083E168E353400248E54 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE7083D168E353400248E54 /* SenTestingKit.framework */; };
 		6CE7083F168E353400248E54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE7081F168E353400248E54 /* UIKit.framework */; };
 		6CE70840168E353400248E54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE70821168E353400248E54 /* Foundation.framework */; };
@@ -273,8 +270,6 @@
 		6CFF77F916C3094600043DCE /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF77EF16C3094600043DCE /* Icon-Small.png */; };
 		6CFF77FA16C3094600043DCE /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF77F016C3094600043DCE /* Icon-Small@2x.png */; };
 		6CFF77FB16C3094600043DCE /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF77F116C3094600043DCE /* Icon.png */; };
-		6CFF77FC16C3094600043DCE /* Icon100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF77F216C3094600043DCE /* Icon100x100.png */; };
-		6CFF77FD16C3094600043DCE /* Icon144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF77F316C3094600043DCE /* Icon144x144.png */; };
 		6CFF77FE16C3094600043DCE /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF77F416C3094600043DCE /* Icon@2x.png */; };
 		6CFF77FF16C3094600043DCE /* Itunes1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF77F516C3094600043DCE /* Itunes1024x1024.png */; };
 		6CFF780016C3094600043DCE /* Itunes512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF77F616C3094600043DCE /* Itunes512x512.png */; };
@@ -293,6 +288,8 @@
 		6CFF782116C317FC00043DCE /* BPMStartupLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CFF782016C317FC00043DCE /* BPMStartupLayer.m */; };
 		6CFF782316C33E0A00043DCE /* bgStartup.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF782216C33E0A00043DCE /* bgStartup.png */; };
 		6CFF782516C33E1100043DCE /* bgStartup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CFF782416C33E1100043DCE /* bgStartup@2x.png */; };
+		A405746816CE2A4E00DCF9F1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A405746616CE2A4E00DCF9F1 /* Default.png */; };
+		A405746916CE2A4E00DCF9F1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A405746716CE2A4E00DCF9F1 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -695,8 +692,6 @@
 		6CE7082D168E353400248E54 /* iMpulse-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMpulse-Prefix.pch"; sourceTree = "<group>"; };
 		6CE7082E168E353400248E54 /* BPMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPMAppDelegate.h; sourceTree = "<group>"; };
 		6CE7082F168E353400248E54 /* BPMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPMAppDelegate.m; sourceTree = "<group>"; };
-		6CE70831168E353400248E54 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		6CE70833168E353400248E54 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6CE70835168E353400248E54 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6CE7083C168E353400248E54 /* iMpulseTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMpulseTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE7083D168E353400248E54 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -709,8 +704,6 @@
 		6CFF77EF16C3094600043DCE /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		6CFF77F016C3094600043DCE /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		6CFF77F116C3094600043DCE /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		6CFF77F216C3094600043DCE /* Icon100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon100x100.png; sourceTree = "<group>"; };
-		6CFF77F316C3094600043DCE /* Icon144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon144x144.png; sourceTree = "<group>"; };
 		6CFF77F416C3094600043DCE /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		6CFF77F516C3094600043DCE /* Itunes1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Itunes1024x1024.png; sourceTree = "<group>"; };
 		6CFF77F616C3094600043DCE /* Itunes512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Itunes512x512.png; sourceTree = "<group>"; };
@@ -735,6 +728,8 @@
 		6CFF782016C317FC00043DCE /* BPMStartupLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMStartupLayer.m; sourceTree = "<group>"; };
 		6CFF782216C33E0A00043DCE /* bgStartup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgStartup.png; sourceTree = "<group>"; };
 		6CFF782416C33E1100043DCE /* bgStartup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgStartup@2x.png"; sourceTree = "<group>"; };
+		A405746616CE2A4E00DCF9F1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A405746716CE2A4E00DCF9F1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1409,8 +1404,8 @@
 				6CE70828168E353400248E54 /* InfoPlist.strings */,
 				6CE7082B168E353400248E54 /* main.m */,
 				6CE7082D168E353400248E54 /* iMpulse-Prefix.pch */,
-				6CE70831168E353400248E54 /* Default.png */,
-				6CE70833168E353400248E54 /* Default@2x.png */,
+				A405746616CE2A4E00DCF9F1 /* Default.png */,
+				A405746716CE2A4E00DCF9F1 /* Default@2x.png */,
 				6CE70835168E353400248E54 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
@@ -1443,8 +1438,6 @@
 				6CFF77EF16C3094600043DCE /* Icon-Small.png */,
 				6CFF77F016C3094600043DCE /* Icon-Small@2x.png */,
 				6CFF77F116C3094600043DCE /* Icon.png */,
-				6CFF77F216C3094600043DCE /* Icon100x100.png */,
-				6CFF77F316C3094600043DCE /* Icon144x144.png */,
 				6CFF77F416C3094600043DCE /* Icon@2x.png */,
 				6CFF77F516C3094600043DCE /* Itunes1024x1024.png */,
 				6CFF77F616C3094600043DCE /* Itunes512x512.png */,
@@ -1542,9 +1535,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CE7082A168E353400248E54 /* InfoPlist.strings in Resources */,
-				6CE70832168E353400248E54 /* Default.png in Resources */,
-				6CE70834168E353400248E54 /* Default@2x.png in Resources */,
-				6CE70836168E353400248E54 /* Default-568h@2x.png in Resources */,
 				6C96902E169624560042ACED /* devnotes.txt in Resources */,
 				6C969036169643520042ACED /* keymapping.jpg in Resources */,
 				6C48D30916A55CA700FD409B /* ChangeLog in Resources */,
@@ -1667,8 +1657,6 @@
 				6CFF77F916C3094600043DCE /* Icon-Small.png in Resources */,
 				6CFF77FA16C3094600043DCE /* Icon-Small@2x.png in Resources */,
 				6CFF77FB16C3094600043DCE /* Icon.png in Resources */,
-				6CFF77FC16C3094600043DCE /* Icon100x100.png in Resources */,
-				6CFF77FD16C3094600043DCE /* Icon144x144.png in Resources */,
 				6CFF77FE16C3094600043DCE /* Icon@2x.png in Resources */,
 				6CFF77FF16C3094600043DCE /* Itunes1024x1024.png in Resources */,
 				6CFF780016C3094600043DCE /* Itunes512x512.png in Resources */,
@@ -1682,6 +1670,8 @@
 				6CFF782516C33E1100043DCE /* bgStartup@2x.png in Resources */,
 				6CC51FE316C468440066D9C7 /* btn_os_media_overlay.png in Resources */,
 				6CC51FE416C468440066D9C7 /* btn_os_media_overlay@2x.png in Resources */,
+				A405746816CE2A4E00DCF9F1 /* Default.png in Resources */,
+				A405746916CE2A4E00DCF9F1 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1943,13 +1933,13 @@
 				GCC_PREFIX_HEADER = "iMpulse/iMpulse-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/external/kazmath/include/\"/**";
 				INFOPLIST_FILE = "iMpulse/iMpulse-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/\"/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/cocos2d-iphone-2.0/\"/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1962,13 +1952,13 @@
 				GCC_PREFIX_HEADER = "iMpulse/iMpulse-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/external/kazmath/include/\"/**";
 				INFOPLIST_FILE = "iMpulse/iMpulse-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/\"/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/cocos2d-iphone-2.0/\"/**";
 				WRAPPER_EXTENSION = app;
 			};
