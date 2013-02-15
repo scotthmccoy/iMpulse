@@ -144,25 +144,20 @@
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
 
-
-#pragma mark - Rotation
+//#pragma mark - Rotation
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
 {
-    DebugLogWhereAmI();
+    // DebugLogWhereAmI();
     
-    return YES;
-    
-    if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft)
-        return YES;
-    
-    return NO;
+    // Return YES for supported orientations
+    return (interfaceOrientation != UIInterfaceOrientationPortrait && interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 
 // Need to add this to the app delegate allow all portrait for things like Game Center or other portrait only modal view controllers that will be pushed into the app to avoid a crash.
 -(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
-    return UIInterfaceOrientationMaskLandscapeLeft;
+    return UIInterfaceOrientationMaskLandscape;
 }
 
 
