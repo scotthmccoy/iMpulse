@@ -24,6 +24,10 @@
 #import "BPMUtilities.h"
 #import "BPMControllerState.h"
 
+//disable debug test areas on left
+#define TOUCHTOGGLE NO  // YES=enable; NO==disable
+#define TOUCHOPAQUE 255 // 0==enable; 255==disable
+
 @implementation BPMMainScene
 
 @synthesize allowModeChangeOverlays = _allowModeChangeOverlays;
@@ -110,7 +114,8 @@
     
     //Position the menu
     mnu_os_toggle.position = ADJUST_CCP(ccp(3, 216));
-    
+    mnu_os_toggle.isTouchEnabled = TOUCHTOGGLE;
+
     
     //Add the menu
     [lyrMain addChild:mnu_os_toggle];
@@ -143,6 +148,7 @@
     
     //Position the menu
     mnu_game_media_toggle.position = ADJUST_CCP(ccp(3, 178));
+    mnu_game_media_toggle.isTouchEnabled = TOUCHTOGGLE;
 
     
     //Add the menu
@@ -173,6 +179,7 @@
     
     //Position the menu
     mnu_player_toggle.position = ADJUST_CCP(ccp(3, 66));
+    mnu_player_toggle.isTouchEnabled = TOUCHTOGGLE;
     
     
     //Add the menu
@@ -203,6 +210,7 @@
     
     //Position the menu
     mnu_orientation_toggle.position = ADJUST_CCP(ccp(3, 2));
+    mnu_orientation_toggle.isTouchEnabled = TOUCHTOGGLE;
     
     //Add the menu
     [lyrMain addChild:mnu_orientation_toggle];
@@ -487,8 +495,8 @@
         mediaModeOSButtonBlockerOverlay.opacity = 0;
         
         //Enable the menus
-        mnu_player_toggle.isTouchEnabled = YES;
-        mnu_orientation_toggle.isTouchEnabled = YES;
+        mnu_player_toggle.isTouchEnabled = TOUCHTOGGLE;
+        mnu_orientation_toggle.isTouchEnabled = TOUCHTOGGLE;
         
         //Unhide the Player Menu
         mnu_player_toggle.opacity = 255;
