@@ -31,7 +31,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.blackpowdermedia.impulse</string>
+	<string>com.blackpowdermedia.iMpulStatus</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -65,9 +65,9 @@
 			<key>TintColor</key>
 			<dict>
 				<key>Blue</key>
-				<real>0.13477976659631971</real>
+				<real>0.1347797665963197</real>
 				<key>Green</key>
-				<real>0.77164601064283955</real>
+				<real>0.7716460106428396</real>
 				<key>Red</key>
 				<real>1</real>
 			</dict>
