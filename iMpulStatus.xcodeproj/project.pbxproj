@@ -1523,7 +1523,7 @@
 			attributes = {
 				CLASSPREFIX = BPM;
 				LastUpgradeCheck = 0450;
-				ORGANIZATIONNAME = "Scott McCoy";
+				ORGANIZATIONNAME = "Black Powder Media";
 			};
 			buildConfigurationList = 6CE70815168E353400248E54 /* Build configuration list for PBXProject "iMpulStatus" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1953,7 +1953,7 @@
 				GCC_PREFIX_HEADER = "iMpulse/iMpulStatus-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/external/kazmath/include/\"/**";
 				INFOPLIST_FILE = "iMpulse/iMpulStatus-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/\"/**",
@@ -1972,7 +1972,7 @@
 				GCC_PREFIX_HEADER = "iMpulse/iMpulStatus-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/external/kazmath/include/\"/**";
 				INFOPLIST_FILE = "iMpulse/iMpulStatus-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/\"/**",
