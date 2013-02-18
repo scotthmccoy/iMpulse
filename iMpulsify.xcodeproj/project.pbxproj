@@ -687,20 +687,20 @@
 		6CC1BEBF1697CC1B00400329 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6CC51FE116C468440066D9C7 /* btn_os_media_overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_os_media_overlay.png; sourceTree = "<group>"; };
 		6CC51FE216C468440066D9C7 /* btn_os_media_overlay-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_os_media_overlay-hd.png"; sourceTree = "<group>"; };
-		6CE7081B168E353400248E54 /* iMpulStatus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMpulStatus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CE7081B168E353400248E54 /* iMpulsify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMpulsify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE7081F168E353400248E54 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6CE70821168E353400248E54 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6CE70823168E353400248E54 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		6CE70827168E353400248E54 /* iMpulStatus-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iMpulStatus-Info.plist"; sourceTree = "<group>"; };
+		6CE70827168E353400248E54 /* iMpulsify-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iMpulsify-Info.plist"; sourceTree = "<group>"; };
 		6CE70829168E353400248E54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6CE7082B168E353400248E54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6CE7082D168E353400248E54 /* iMpulStatus-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMpulStatus-Prefix.pch"; sourceTree = "<group>"; };
+		6CE7082D168E353400248E54 /* iMpulsify-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iMpulsify-Prefix.pch"; sourceTree = "<group>"; };
 		6CE7082E168E353400248E54 /* BPMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPMAppDelegate.h; sourceTree = "<group>"; };
 		6CE7082F168E353400248E54 /* BPMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPMAppDelegate.m; sourceTree = "<group>"; };
 		6CE70835168E353400248E54 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		6CE7083C168E353400248E54 /* iMpulStatusTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMpulStatusTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CE7083C168E353400248E54 /* iMpulsifyTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMpulsifyTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE7083D168E353400248E54 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		6CE70845168E353400248E54 /* iMpulStatusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iMpulStatusTests-Info.plist"; sourceTree = "<group>"; };
+		6CE70845168E353400248E54 /* iMpulsifyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iMpulsifyTests-Info.plist"; sourceTree = "<group>"; };
 		6CE70847168E353400248E54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6CE70849168E353400248E54 /* iMpulseTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iMpulseTests.h; sourceTree = "<group>"; };
 		6CE7084A168E353400248E54 /* iMpulseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iMpulseTests.m; sourceTree = "<group>"; };
@@ -1368,8 +1368,8 @@
 		6CE7081C168E353400248E54 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6CE7081B168E353400248E54 /* iMpulStatus.app */,
-				6CE7083C168E353400248E54 /* iMpulStatusTests.octest */,
+				6CE7081B168E353400248E54 /* iMpulsify.app */,
+				6CE7083C168E353400248E54 /* iMpulsifyTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1412,10 +1412,10 @@
 		6CE70826168E353400248E54 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6CE70827168E353400248E54 /* iMpulStatus-Info.plist */,
+				6CE70827168E353400248E54 /* iMpulsify-Info.plist */,
 				6CE70828168E353400248E54 /* InfoPlist.strings */,
 				6CE7082B168E353400248E54 /* main.m */,
-				6CE7082D168E353400248E54 /* iMpulStatus-Prefix.pch */,
+				6CE7082D168E353400248E54 /* iMpulsify-Prefix.pch */,
 				A40574A516CE3C8C00DCF9F1 /* Default.png */,
 				A40574A616CE3C8C00DCF9F1 /* Default@2x.png */,
 				AA6A386616CE74AC008F1521 /* Default-Landscape.png */,
@@ -1437,7 +1437,7 @@
 		6CE70844168E353400248E54 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6CE70845168E353400248E54 /* iMpulStatusTests-Info.plist */,
+				6CE70845168E353400248E54 /* iMpulsifyTests-Info.plist */,
 				6CE70846168E353400248E54 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -1479,9 +1479,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6CE7081A168E353400248E54 /* iMpulStatus */ = {
+		6CE7081A168E353400248E54 /* iMpulsify */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6CE7084E168E353400248E54 /* Build configuration list for PBXNativeTarget "iMpulStatus" */;
+			buildConfigurationList = 6CE7084E168E353400248E54 /* Build configuration list for PBXNativeTarget "iMpulsify" */;
 			buildPhases = (
 				6CE70817168E353400248E54 /* Sources */,
 				6CE70818168E353400248E54 /* Frameworks */,
@@ -1491,14 +1491,14 @@
 			);
 			dependencies = (
 			);
-			name = iMpulStatus;
+			name = iMpulsify;
 			productName = iMpulse;
-			productReference = 6CE7081B168E353400248E54 /* iMpulStatus.app */;
+			productReference = 6CE7081B168E353400248E54 /* iMpulsify.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6CE7083B168E353400248E54 /* iMpulStatusTests */ = {
+		6CE7083B168E353400248E54 /* iMpulsifyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6CE70851168E353400248E54 /* Build configuration list for PBXNativeTarget "iMpulStatusTests" */;
+			buildConfigurationList = 6CE70851168E353400248E54 /* Build configuration list for PBXNativeTarget "iMpulsifyTests" */;
 			buildPhases = (
 				6CE70837168E353400248E54 /* Sources */,
 				6CE70838168E353400248E54 /* Frameworks */,
@@ -1510,9 +1510,9 @@
 			dependencies = (
 				6CE70842168E353400248E54 /* PBXTargetDependency */,
 			);
-			name = iMpulStatusTests;
+			name = iMpulsifyTests;
 			productName = iMpulseTests;
-			productReference = 6CE7083C168E353400248E54 /* iMpulStatusTests.octest */;
+			productReference = 6CE7083C168E353400248E54 /* iMpulsifyTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -1525,7 +1525,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Black Powder Media";
 			};
-			buildConfigurationList = 6CE70815168E353400248E54 /* Build configuration list for PBXProject "iMpulStatus" */;
+			buildConfigurationList = 6CE70815168E353400248E54 /* Build configuration list for PBXProject "iMpulsify" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1538,8 +1538,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6CE7081A168E353400248E54 /* iMpulStatus */,
-				6CE7083B168E353400248E54 /* iMpulStatusTests */,
+				6CE7081A168E353400248E54 /* iMpulsify */,
+				6CE7083B168E353400248E54 /* iMpulsifyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1871,7 +1871,7 @@
 /* Begin PBXTargetDependency section */
 		6CE70842168E353400248E54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6CE7081A168E353400248E54 /* iMpulStatus */;
+			target = 6CE7081A168E353400248E54 /* iMpulsify */;
 			targetProxy = 6CE70841168E353400248E54 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1950,15 +1950,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iMpulse/iMpulStatus-Prefix.pch";
+				GCC_PREFIX_HEADER = "iMpulse/iMpulsify-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/external/kazmath/include/\"/**";
-				INFOPLIST_FILE = "iMpulse/iMpulStatus-Info.plist";
+				INFOPLIST_FILE = "iMpulse/iMpulsify-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/\"/**",
 				);
-				PRODUCT_NAME = iMpulStatus;
+				PRODUCT_NAME = iMpulsify;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/cocos2d-iphone-2.0/\"/**";
 				WRAPPER_EXTENSION = app;
@@ -1969,15 +1969,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iMpulse/iMpulStatus-Prefix.pch";
+				GCC_PREFIX_HEADER = "iMpulse/iMpulsify-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/external/kazmath/include/\"/**";
-				INFOPLIST_FILE = "iMpulse/iMpulStatus-Info.plist";
+				INFOPLIST_FILE = "iMpulse/iMpulsify-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iMpulse/cocos2d-iphone-2.0/\"/**",
 				);
-				PRODUCT_NAME = iMpulStatus;
+				PRODUCT_NAME = iMpulsify;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/cocos2d-iphone-2.0/\"/**";
 				WRAPPER_EXTENSION = app;
@@ -1994,8 +1994,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iMpulse/iMpulse-Prefix.pch";
-				INFOPLIST_FILE = "iMpulseTests/iMpulStatusTests-Info.plist";
-				PRODUCT_NAME = iMpulStatusTests;
+				INFOPLIST_FILE = "iMpulseTests/iMpulsifyTests-Info.plist";
+				PRODUCT_NAME = iMpulsifyTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -2011,8 +2011,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iMpulse/iMpulse-Prefix.pch";
-				INFOPLIST_FILE = "iMpulseTests/iMpulStatusTests-Info.plist";
-				PRODUCT_NAME = iMpulStatusTests;
+				INFOPLIST_FILE = "iMpulseTests/iMpulsifyTests-Info.plist";
+				PRODUCT_NAME = iMpulsifyTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -2021,7 +2021,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6CE70815168E353400248E54 /* Build configuration list for PBXProject "iMpulStatus" */ = {
+		6CE70815168E353400248E54 /* Build configuration list for PBXProject "iMpulsify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6CE7084C168E353400248E54 /* Debug */,
@@ -2030,7 +2030,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6CE7084E168E353400248E54 /* Build configuration list for PBXNativeTarget "iMpulStatus" */ = {
+		6CE7084E168E353400248E54 /* Build configuration list for PBXNativeTarget "iMpulsify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6CE7084F168E353400248E54 /* Debug */,
@@ -2039,7 +2039,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6CE70851168E353400248E54 /* Build configuration list for PBXNativeTarget "iMpulStatusTests" */ = {
+		6CE70851168E353400248E54 /* Build configuration list for PBXNativeTarget "iMpulsifyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6CE70852168E353400248E54 /* Debug */,
