@@ -21,6 +21,8 @@
 #import "BPMStartupLayer.h"
 #import "BPMCocosNavigationController.h"
 
+#import "BPMUtilities.h"
+
 @implementation BPMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -60,7 +62,7 @@
 	[CCDirector sharedDirector].wantsFullScreenLayout = YES;
     
 	[[CCDirector sharedDirector] enableRetinaDisplay:YES];
-    
+    if (IS_IPAD()) [[CCDirector sharedDirector] setContentScaleFactor:1];
 
 
     /////////////////////////////////////////////////////////////////
