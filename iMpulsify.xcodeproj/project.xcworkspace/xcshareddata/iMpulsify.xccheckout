@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1601B935-74EC-4A05-830F-7D0590EC8291</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iMpulsify</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4D7B69B7-DE01-4F5D-BE40-107A408B3B61</key>
+		<string>https://github.com/scotthmccoy/iMpulse.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iMpulsify.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4D7B69B7-DE01-4F5D-BE40-107A408B3B61</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/scotthmccoy/iMpulse.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4D7B69B7-DE01-4F5D-BE40-107A408B3B61</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4D7B69B7-DE01-4F5D-BE40-107A408B3B61</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iMpulse</string>
+		</dict>
+	</array>
+</dict>
+</plist>
